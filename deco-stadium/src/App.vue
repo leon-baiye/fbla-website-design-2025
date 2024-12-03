@@ -18,6 +18,10 @@
   overflow: hidden;
   width: 100vw;
 }
+
+UniformHead {
+  transition: none;
+}
 </style>
 
 <script>

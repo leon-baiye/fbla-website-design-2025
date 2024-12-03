@@ -25,8 +25,12 @@ router.afterEach((to, from) => {
   const order = ["/", "/calendar", "/office", "/info", "/planning"]
   const toDepth = order.indexOf(to.path)
   const fromDepth = order.indexOf(from.path)
-  console.log(to, from)
-  to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+  if(toDepth == fromDepth) {
+    to.meta.transition = 'none'
+  }
+  else {
+    to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+  }
 })
 
 createApp(App)

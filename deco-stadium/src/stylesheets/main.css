@@ -24,7 +24,7 @@ template, html {
   max-width: 10vw;
   padding-left: 0vw;
   padding-right: 3vw;
-  transition: 0.4s ease-out;
+  transition: width 0.4s ease-out, height 0.4s ease-out;
 }
 
 header {
@@ -39,7 +39,7 @@ header {
   z-index: 100;
   box-shadow: 0px 1vw 20px black;
   background: white;
-  transition: 0.4s ease-out;
+  transition: width 0.4s ease-out, height 0.4s ease-out;
 }
 
 div.header {
@@ -75,7 +75,7 @@ button.headernav {
 }
 
 h1 {
-  font-family: 'Lexend Mega', sans-serif;
+  font-family: "Lexend Mega", sans-serif;
   font-weight: 800;
   font-size: 4.9vw;
   color: white;
@@ -83,7 +83,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: "Lexend Giga", sans-serif;
   text-align: center;
   font-weight: 700;
   font-size: 4vw;
@@ -133,7 +133,7 @@ div.title {
 
 .deco.welcome {
   width: 40vw;
-  transition: 0.4s;
+  transition: width 0.4s;
 }
 
 div.eventstrip {
@@ -227,4 +227,4 @@ p.eventcard {
 main {
   overflow: hidden;
   width: 100vw;
-}
+}/*# sourceMappingURL=main.css.map */
