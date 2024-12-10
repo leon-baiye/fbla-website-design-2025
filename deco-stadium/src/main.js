@@ -26,7 +26,7 @@ router.afterEach((to, from) => {
   const toDepth = order.indexOf(to.path)
   const fromDepth = order.indexOf(from.path)
   if(toDepth == fromDepth) {
-    to.meta.transition = 'none'
+    to.meta.transition = 'entrance'
   }
   else {
     to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'

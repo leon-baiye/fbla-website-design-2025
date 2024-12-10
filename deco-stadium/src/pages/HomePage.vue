@@ -1,9 +1,9 @@
 <template>
     <main>
     <div class="title">
-      <h1>Welcome To</h1>
-      <img class="deco welcome" src="../assets/Deco Logo_reg.svg" alt="Deco Logo"/>
-      <h1>Stadium</h1>
+      <h1 class="left">NEW CASTLE <br>
+        FIELDHOUSE
+      </h1>
     </div>
     <h2>Upcoming Events</h2>
     <div class="eventstrip">
@@ -15,10 +15,10 @@
     </div>
     <br>
     <br>
-    <Blurstrip bkg="../../src/assets/testimage1.png" _align="left" text1="Who We Are" text2="DISCOVER MORE ABOUT DECO" color="yellow" bcol="white"/>
-    <Blurstrip bkg="../../src/assets/testimage2.png" _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="black" bcol="black"/>
-    <Blurstrip bkg="../../src/assets/testimage1.png" _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT A DECO EVENT" color="yellow" bcol="white"/>
-    <Blurstrip bkg="../../src/assets/testimage2.png"  _align="flex-end" text1="About The Stadium" text2="LEARN ABOUT THE DECO DIFFERENCE" color="black" bcol="black"/>
+    <Blurstrip bkg="../../src/assets/testimage1.png" _align="left" text1="Who We Are" text2="DISCOVER MORE ABOUT DECO" color="green" bcol="white"/>
+    <Blurstrip bkg="../../src/assets/testimage2.png" _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="green" bcol="black"/>
+    <Blurstrip bkg="../../src/assets/testimage1.png" _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT A DECO EVENT" color="green" bcol="white"/>
+    <Blurstrip bkg="../../src/assets/testimage2.png"  _align="flex-end" text1="About The Stadium" text2="LEARN ABOUT THE DECO DIFFERENCE" color="green" bcol="black"/>
     <UniformFoot/>
     </main>
 </template>

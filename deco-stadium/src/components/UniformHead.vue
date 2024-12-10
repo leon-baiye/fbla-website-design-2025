@@ -1,7 +1,7 @@
 <template>
     <header id="head">
         <div class="header" id="head2">
-            <RouterLink :onclick="scrollToTop" to="/"><img id="logo" class="deco header" src="../assets/Deco Logo.svg" alt="Deco Logo"/></RouterLink>
+            <RouterLink :onclick="scrollToTop" to="/"><img id="logo" class="deco header" src="../assets/Fieldhouse Logo.svg" alt="Deco Logo"/></RouterLink>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/calendar">Event<br>Calendar</RouterLink></button>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/office">Box<br>Office</RouterLink></button>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/info">Stadium<br>Info</RouterLink></button>
@@ -16,12 +16,12 @@ import { RouterLink } from 'vue-router';
 
 function checkHeader() {
     if (window.scrollY > 300) {
-        document.getElementById("head").style.height = "5.5vw"
-        document.getElementById("head2").style.height = "5.5vw"
+        document.getElementById("head").style.height = "4vw"
+        document.getElementById("head2").style.height = "4vw"
         for(let x=0;x<5;x++) {
             document.getElementsByClassName("headernav").item(x).style.fontSize = "1.375vw"
         }
-        document.getElementById("logo").style.width = "6.875vw"
+        document.getElementById("logo").style.width = "8vw"
         document.getElementById("logo").style.marginLeft = "8vw"
     }
     else {
@@ -30,7 +30,7 @@ function checkHeader() {
         for(let x=0;x<5;x++) {
             document.getElementsByClassName("headernav").item(x).style.fontSize = "2vw"
         }
-        document.getElementById("logo").style.width = "10vw"
+        document.getElementById("logo").style.width = "14vw"
         document.getElementById("logo").style.marginLeft = "5vw"
     }
 }

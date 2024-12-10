@@ -54,10 +54,10 @@ export default {
         margin-right: 10vw;
         margin-top: 2vw;
     }
-    h2.yellow {
-        color: #FFECCE;
+    h2.green {
+        color: #00BE49;
         font-family: 'Lexend Giga', sans-serif;
-        font-weight: 300;
+        font-weight: 400;
         font-size: 5vw;
         text-align: left;
         margin-right: 10vw;

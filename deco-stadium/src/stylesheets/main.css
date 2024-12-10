@@ -21,10 +21,10 @@ template, html {
 }
 
 .deco.header {
-  max-width: 10vw;
+  max-width: 14vw;
   padding-left: 0vw;
-  padding-right: 3vw;
-  transition: width 0.4s ease-out, height 0.4s ease-out;
+  padding-right: 2vw;
+  transition: 0.4s ease-out;
 }
 
 header {
@@ -39,7 +39,7 @@ header {
   z-index: 100;
   box-shadow: 0px 1vw 20px black;
   background: white;
-  transition: width 0.4s ease-out, height 0.4s ease-out;
+  transition: 0.4s ease-out;
 }
 
 div.header {
@@ -75,23 +75,28 @@ button.headernav {
 }
 
 h1 {
-  font-family: "Lexend Mega", sans-serif;
+  font-family: 'Lexend Mega', sans-serif;
   font-weight: 800;
   font-size: 4.9vw;
   color: white;
   margin-top: 0.5vw;
 }
 
+h1.left {
+  text-align: left !important;
+  padding-left: 7vw;
+}
+
 h2 {
-  font-family: "Lexend Giga", sans-serif;
+  font-family: 'Lexend Giga', sans-serif;
   text-align: center;
   font-weight: 700;
   font-size: 4vw;
-  color: #6973E2;
+  color: #12873F;
 }
 
 footer.foot {
-  background-image: url("../assets/Welcome Background.png");
+  background-color: #004C1D;
   width: 100vw;
   text-align: center;
   padding-top: 2vw;
@@ -115,7 +120,7 @@ p.foot {
 div.title {
   display: flex;
   align-self: center;
-  align-items: center !important;
+  align-items: left !important;
   justify-content: center;
   justify-items: center;
   justify-self: center;
@@ -147,10 +152,13 @@ div.eventstrip {
   width: 80vw;
   padding: 2vw;
   margin-bottom: 2vw;
-  border-radius: 27px;
-  background: #DEDEDE;
+  border-radius: 12px;
+  background: #004C1D;
   position: static;
   z-index: -2;
+  border-color: black;
+  border-width: 7px;
+  border-style: solid;
 }
 
 div.eventcard {
@@ -164,10 +172,10 @@ div.eventcard {
   margin-top: 0;
   height: 10.5vw;
   min-width: 25vw;
-  background: #F6BD60;
+  background: #FFF;
   padding: 1vw;
   box-shadow: 0px 0.2vw 3px 0px black;
-  border-radius: 27px;
+  border-radius: 14px;
   margin-right: 2vw;
 }
 
@@ -177,7 +185,7 @@ h3.eventcard {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 300;
   font-size: 3vw;
-  color: white;
+  color: #12873F;
   margin-bottom: 0;
 }
 
@@ -196,7 +204,7 @@ p.eventcard {
   text-align: center;
   font-family: "Lexend Exa", sans-serif;
   font-size: 1.5vw;
-  color: white;
+  color: #999999;
 }
 
 .slide-left-enter-active, .slide-right-enter-active, .slide-left-leave-active, .slide-right-leave-active {
@@ -227,4 +235,4 @@ p.eventcard {
 main {
   overflow: hidden;
   width: 100vw;
-}/*# sourceMappingURL=main.css.map */
+}
