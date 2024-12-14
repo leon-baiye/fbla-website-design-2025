@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="title">
+        <div class="title2">
             <h1>Event Planning</h1>
         </div>
         <UniformFoot/>

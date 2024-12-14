@@ -13,6 +13,9 @@
 
 <script>
 import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
 function checkHeader() {
     if (window.scrollY > 300) {
@@ -40,8 +43,11 @@ export default {
             window.scrollTo(0,0);
         }
     },
-    mounted() {
+    async mounted() {
         setInterval(checkHeader, 50)
+        await delay(100)
+        document.getElementById("head").classList.add("float") 
+        return
     }
 }
 </script>

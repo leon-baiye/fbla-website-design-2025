@@ -1,9 +1,14 @@
 <template>
     <main>
     <div class="title">
-      <h1 class="left">NEW CASTLE <br>
-        FIELDHOUSE
-      </h1>
+      <video class="title" autoplay muted>
+        <source src="../assets/NewCastleFieldhouseIntro.mp4" type="video/mp4" />
+      </video>
+      <div class="caption">
+          <h1 id="field" class="left">NEW CASTLE <br>
+            FIELDHOUSE
+          </h1>
+      </div>
     </div>
     <h2>Upcoming Events</h2>
     <div class="eventstrip">
@@ -27,6 +32,9 @@
 import Blurstrip from '../components/Blurstrip.vue'
 import UniformFoot from '../components/UniformFoot.vue';
 import { ref } from 'vue'
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 export default {
     name: "HomePage",
     components: {
@@ -59,6 +67,7 @@ export default {
       return { events }
     },
     async mounted() {
+      // document.getElementById("field").style.opacity = 1
       return
     }
   }

@@ -25,6 +25,7 @@ router.afterEach((to, from) => {
   const order = ["/", "/calendar", "/office", "/info", "/planning"]
   const toDepth = order.indexOf(to.path)
   const fromDepth = order.indexOf(from.path)
+  console.log(toDepth, fromDepth)
   if(toDepth == fromDepth) {
     to.meta.transition = 'entrance'
   }

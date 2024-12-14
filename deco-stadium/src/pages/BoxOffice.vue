@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="title">
+        <div class="title2">
             <h1>Box Office</h1>
         </div>
         <UniformFoot/>

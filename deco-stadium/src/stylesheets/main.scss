@@ -6,6 +6,7 @@ $header-font: 'Lexend Mega', sans-serif;
 $subhead-font: 'Lexend Giga', sans-serif;
 $body-font: 'Lexend Exa', sans-serif;
 $primary-color: white;
+$secondary-color: #003313;
 
 @mixin basediv($align) {
   display: flex;
@@ -16,6 +17,29 @@ $primary-color: white;
   justify-self: center;
 }
 
+@mixin titlediv() {
+  display: flex;
+  align-self: center;
+  align-items: left !important;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  margin-left: -2vw;
+  width: 102vw;
+  flex-direction: column;
+  position: relative;
+}
+
+html {
+  animation-name: flow;
+  animation-duration: 6s;
+}
+
+@keyframes flow {
+  0% {overflow-y: hidden}
+  99% {overflow-y: hidden}
+  100% {overflow-y: scroll}
+}
 
 body {
   font-family: $body-font;
@@ -55,10 +79,13 @@ header {
     align-items: center;
     padding-top: 1vw;
     padding-bottom: 1vw;
+    margin-top: -20vw;
     z-index: 100;
     box-shadow: 0px 1vw 20px black;
     background: white;
-    transition: 0.4s ease-out;
+    transition: 
+      margin-top 2s linear 6s,
+      height 0.5s ease-out 0s;
 }
 div.header {
     @include basediv(left);
@@ -67,7 +94,7 @@ div.header {
     position: fixed;
     z-index: 100;
     margin-left: 0;
-    transition:  0.4s ease-out;
+    transition: 0.4s ease-out;
 }
 
 .rl {
@@ -97,6 +124,9 @@ h1 {
 h1.left {
   text-align: left !important;
   padding-left: 7vw;
+  opacity: 0;
+  transition: opacity 2s linear;
+  transition-delay: 6s;
 }
 
 h2 {
@@ -110,7 +140,7 @@ h2 {
 // footer
 
 footer.foot {
-  background-color: #004C1D;
+  background-color: $secondary-color;
   width: 100vw;
   text-align: center;
   padding-top: 2vw;
@@ -133,24 +163,36 @@ p.foot {
 // title strip
 
 div.title {
-    display: flex;
-    align-self: center;
-    align-items: left !important;
-    justify-content: center;
-    justify-items: center;
-    justify-self: center;
-    margin-left: -2vw;
-    width: 102vw;
-    height: 46vw;
-    flex-direction: column;
-    position: relative;
-    z-index: 2;
-    padding-top: 2vw;
-    margin-top: 10vw;
-    background-image: url('../assets/Welcome Background.png');
-    background-size: 100% 100%;
+  @include titlediv();
+  height: 58vw;
 }
 
+div.title2 {
+  @include titlediv();
+  height: 30vw;
+  text-align: center;
+  background-image: url('../assets/trojan.png');
+}
+
+div.caption {
+  margin-top: 10vw;
+  z-index: 1;
+  position: relative;
+  --off: 0.25vw;
+  text-shadow:
+    var(--off) var(--off) 0 $secondary-color,
+    calc(-1*var(--off)) var(--off) 0 $secondary-color,
+    calc(-1*var(--off)) calc(-1*var(--off)) 0 $secondary-color,
+    var(--off) calc(-1*var(--off)) 0 $secondary-color;
+}
+
+video.title {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
+}
 .deco.welcome {
   width: 40vw;
   transition: width 0.4s;
@@ -214,7 +256,14 @@ p.eventcard {
   color: #999999;
 }
 
-// page transition
+// entrance transition
+header.float {
+  margin-top: 0vw !important;
+}
+h1.fade {
+  opacity: 1 !important;
+}
+// page transitions
 
 .slide-left-enter-active, .slide-right-enter-active, .slide-left-leave-active, .slide-right-leave-active {
   transition: 
