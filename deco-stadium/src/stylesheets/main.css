@@ -57,7 +57,17 @@ header {
   z-index: 100;
   box-shadow: 0px 1vw 20px black;
   background: white;
-  transition: margin-top 2s linear 6s, height 0.5s ease-out 0s;
+  transition: margin-top 2s ease-out 6s, height 0.5s ease-out 0s;
+}
+
+div.highlight {
+  position: absolute;
+  left: 4vw;
+  z-index: -1;
+  width: 16vw;
+  height: 140%;
+  background-color: rgba(0, 0, 0, 0.07);
+  transition: left 0.6s ease-in-out;
 }
 
 div.header {
@@ -123,6 +133,7 @@ footer.foot {
   padding-top: 2vw;
   padding-bottom: 2vw;
   margin-bottom: 0;
+  margin-top: 0;
   transition: bottom 0.4s ease-out;
 }
 
@@ -163,6 +174,7 @@ div.title2 {
   width: 102vw;
   flex-direction: column;
   position: relative;
+  padding-top: 8vw;
   height: 30vw;
   text-align: center;
   background-image: url("../assets/trojan.png");
@@ -253,6 +265,12 @@ p.eventcard {
   font-family: "Lexend Exa", sans-serif;
   font-size: 1.5vw;
   color: #999999;
+}
+
+img.interpic {
+  width: 100vw;
+  position: relative;
+  z-index: -1;
 }
 
 header.float {

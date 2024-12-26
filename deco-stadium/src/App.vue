@@ -6,7 +6,7 @@
         <UniformHead/>
       <router-view v-slot="{ Component, route }">
         <transition :name="route.meta.transition" >
-              <component class="c" :is="Component"  />
+              <component class="c" :is="Component" :key="route.path" />
         </transition>
       </router-view>
     </div>
@@ -37,10 +37,8 @@ export default {
   },
   async mounted() {
     await delay(100)
+    scroll(0,0)
     document.getElementById("field").classList.add("fade") 
-    await delay(6000)
-    console.log(document.querySelector("template"))
-    document.querySelector("template").style.overflowY = "scroll"
     return
   }
 

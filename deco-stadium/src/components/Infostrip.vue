@@ -7,7 +7,6 @@ export default {
     computed: {
         cssVars() {
             return {
-                '--bkg': `url(${this.bkg})`,
                 '--align': this._align,
                 '--bcol': this.bcol,
             }
@@ -17,7 +16,7 @@ export default {
 /* {{ text1 }}*/
 </script>
 <template>
-<div :style="cssVars" class="blurstrip">
+<div :style="cssVars" class="infostrip">
     <h2 :style="cssVars" :class=color>{{ text1 }}</h2>
     <button :style="cssVars" class="blur">{{ text2 }} &rarr;</button>
 </div>
@@ -27,9 +26,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=Lexend+Giga:wght@100..900&display=swap');
 
-    div.blurstrip {
-        background-image: var(--bkg);
-        background-size: 100% 100%;
+    div.infostrip {
+        background-color: #FFF;
         align-items: var(--align);
         width: 98vw;
         display: flex;

@@ -20,16 +20,21 @@
     </div>
     <br>
     <br>
-    <Blurstrip bkg="../../src/assets/testimage1.png" _align="left" text1="Who We Are" text2="DISCOVER MORE ABOUT DECO" color="green" bcol="white"/>
-    <Blurstrip bkg="../../src/assets/testimage2.png" _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="green" bcol="black"/>
-    <Blurstrip bkg="../../src/assets/testimage1.png" _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT A DECO EVENT" color="green" bcol="white"/>
-    <Blurstrip bkg="../../src/assets/testimage2.png"  _align="flex-end" text1="About The Stadium" text2="LEARN ABOUT THE DECO DIFFERENCE" color="green" bcol="black"/>
+    <img src="../assets/fieldhouse1.webp" class="interpic">
+    <Infostrip _align="left" text1="Who We Are" text2="DISCOVER THE FIELDHOUSE" color="green" bcol="black"/>
+    <img src="../assets/fieldhouse2.webp" class="interpic">
+    <Infostrip _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="green" bcol="black"/>
+    <img src="../assets/fieldhouse3.webp" class="interpic">
+    <Infostrip _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT AMAZING" color="green" bcol="black"/>
+    <img src="../assets/fieldhouse4.webp" class="interpic">
+    <Infostrip _align="flex-end" text1="About The Stadium" text2="LEARN ABOUT THE FIELDHOUSE FLAIR" color="green" bcol="black"/>
+    <img src="../assets/fieldhouse5.webp" class="interpic">
     <UniformFoot/>
     </main>
 </template>
 
 <script>
-import Blurstrip from '../components/Blurstrip.vue'
+import Infostrip from '../components/Infostrip.vue';
 import UniformFoot from '../components/UniformFoot.vue';
 import { ref } from 'vue'
 
@@ -38,7 +43,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 export default {
     name: "HomePage",
     components: {
-      Blurstrip,
+      Infostrip,
       UniformFoot
     },
     setup() {
