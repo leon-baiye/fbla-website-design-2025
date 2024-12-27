@@ -2,7 +2,7 @@
     <header id="head">
         <div class="header" id="head2">
             <RouterLink :onclick="scrollToTop" to="/"><img id="logo" class="deco header" src="../assets/Fieldhouse Logo.svg" alt="Deco Logo"/></RouterLink>
-            <div class="highlight"></div>
+            <div id="highlight"></div>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/calendar">Event<br>Calendar</RouterLink></button>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/office">Box<br>Office</RouterLink></button>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/info">Stadium<br>Info</RouterLink></button>

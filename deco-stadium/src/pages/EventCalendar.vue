@@ -172,7 +172,7 @@ h1.evtitle {
     margin-top: 2vw;
     margin-bottom: 0;
     color: white;
-    max-width: 10vw;
+    max-width: 12vw;
     word-wrap: break-word;
     font-family: 'Lexend Giga', sans-serif;
     font-size: 1.5vw;

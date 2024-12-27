@@ -23,6 +23,7 @@ const router = createRouter({
 
 router.afterEach((to, from) => {
   const order = ["/", "/calendar", "/office", "/info", "/planning"]
+  const highlightOrder = ["4vw", "8vw", "12vw", "16vw", "32vw"]
   const toDepth = order.indexOf(to.path)
   const fromDepth = order.indexOf(from.path)
   console.log(toDepth, fromDepth)
@@ -30,7 +31,8 @@ router.afterEach((to, from) => {
     to.meta.transition = 'entrance'
   }
   else {
-    to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+    to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+    document.getElementById("highlight").style.left = highlightOrder[fromDepth];
   }
 })
 
