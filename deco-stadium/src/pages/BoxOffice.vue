@@ -1,5 +1,7 @@
 <style>
+
 /* header styling */
+
 h2.office {
     font-size: 4vw;
 }
@@ -10,6 +12,7 @@ h3.office {
 }
 
 /* parent container */
+
 div.boxoffice {
     margin-top: 5vw;
     margin-bottom: 10vw;
@@ -25,6 +28,7 @@ div.boxoffice {
 }
 
 /* legend */ 
+
 div.legend {
     border-top-left-radius: 13px;
     border-top-right-radius: 13px;

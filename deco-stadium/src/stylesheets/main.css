@@ -1,12 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=Lexend+Giga:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=Lexend+Giga:wght@100..900&family=Lexend+Mega:wght@100..900&display=swap");
+template, html {
+  margin-left: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  overscroll-behavior-block: none;
+}
+
 html {
-  animation-name: flow;
+  animation-name: scrollcontrol;
   animation-duration: 6s;
 }
 
-@keyframes flow {
+@keyframes scrollcontrol {
   0% {
     overflow-y: hidden;
   }
@@ -28,13 +33,6 @@ body {
 
 div.app {
   height: 100vh;
-}
-
-template, html {
-  margin-left: 0;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  overscroll-behavior-block: none;
 }
 
 .deco.header {
@@ -174,10 +172,14 @@ div.title2 {
   width: 102vw;
   flex-direction: column;
   position: relative;
-  padding-top: 8vw;
+  font-family: 'Lexend Mega', sans-serif;
+  padding-top: 11vw;
   height: 30vw;
   text-align: center;
   background-image: url("../assets/trojan.png");
+  background-size: cover;
+  --off: 0.25vw;
+  text-shadow: var(--off) var(--off) 0 #003313, calc(-1*var(--off)) var(--off) 0 #003313, calc(-1*var(--off)) calc(-1*var(--off)) 0 #003313, var(--off) calc(-1*var(--off)) 0 #003313;
 }
 
 div.caption {
@@ -309,4 +311,29 @@ h1.fade {
 main {
   overflow: hidden;
   width: 100vw;
+}
+
+h4 {
+  text-align: center;
+  font-size: 1.4vw;
+  font-weight: 300;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+div.eventstrip::-webkit-scrollbar {
+  height: 0.5vw;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ededed;
+  border-radius: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 15px #2dff7d;
+  border-radius: 13px;
 }

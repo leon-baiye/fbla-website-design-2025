@@ -1,12 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=Lexend+Giga:wght@100..900&display=swap');
+// imports
+
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=Lexend+Giga:wght@100..900&family=Lexend+Mega:wght@100..900&display=swap');
+
+// variable definitions
 
 $header-font: 'Lexend Mega', sans-serif;
 $subhead-font: 'Lexend Giga', sans-serif;
 $body-font: 'Lexend Exa', sans-serif;
 $primary-color: white;
 $secondary-color: #003313;
+
+// scss "mixins"/reusable elements
 
 @mixin basediv($align) {
   display: flex;
@@ -30,12 +34,22 @@ $secondary-color: #003313;
   position: relative;
 }
 
+// universal styles
+
+template, html {
+  margin-left: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  overscroll-behavior-block: none;
+}
+
+
 html {
-  animation-name: flow;
+  animation-name: scrollcontrol;
   animation-duration: 6s;
 }
 
-@keyframes flow {
+@keyframes scrollcontrol {
   0% {overflow-y: hidden}
   99% {overflow-y: hidden}
   100% {overflow-y: scroll}
@@ -53,15 +67,7 @@ div.app {
   height: 100vh;
 }
 
-// front page 
-// header
-
-template, html {
-  margin-left: 0;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  overscroll-behavior-block: none;
-}
+// front page header
 
 .deco.header {
     max-width: 14vw;
@@ -125,6 +131,8 @@ button.headernav {
     transition: font-size 0.4s;
     }
 
+// additional header styling
+
 h1 {
   font-family: 'Lexend Mega', sans-serif;
   font-weight: 800;
@@ -173,7 +181,8 @@ p.foot {
   text-align: center;
   font-size: 1vw;
 }
-// title strip
+
+// title strips
 
 div.title {
   @include titlediv();
@@ -182,10 +191,18 @@ div.title {
 
 div.title2 {
   @include titlediv();
-  padding-top: 8vw;
+  font-family: 'Lexend Mega', sans-serif;
+  padding-top: 11vw;
   height: 30vw;
   text-align: center;
   background-image: url('../assets/trojan.png');
+  background-size: cover;
+  --off: 0.25vw;
+  text-shadow:
+    var(--off) var(--off) 0 $secondary-color,
+    calc(-1*var(--off)) var(--off) 0 $secondary-color,
+    calc(-1*var(--off)) calc(-1*var(--off)) 0 $secondary-color,
+    var(--off) calc(-1*var(--off)) 0 $secondary-color;
 }
 
 div.caption {
@@ -271,6 +288,7 @@ p.eventcard {
 }
 
 // "interpics" (images of stadium)
+
 img.interpic {
   width: 100vw;
   position: relative;
@@ -278,12 +296,14 @@ img.interpic {
 }
 
 // entrance transition
+
 header.float {
   margin-top: 0vw !important;
 }
 h1.fade {
   opacity: 1 !important;
 }
+
 // page transitions
 
 .slide-left-enter-active, .slide-right-enter-active, .slide-left-leave-active, .slide-right-leave-active {
@@ -316,4 +336,31 @@ h1.fade {
 main {
   overflow: hidden;
   width: 100vw;
+}
+
+// miscellaneous styles
+
+h4 {
+  text-align: center;
+  font-size: 1.4vw;
+  font-weight: 300;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+div.eventstrip::-webkit-scrollbar {
+  height: 0.5vw;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(237, 237, 237);
+  border-radius: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 15px rgb(45, 255, 125);
+  border-radius: 13px;
 }
