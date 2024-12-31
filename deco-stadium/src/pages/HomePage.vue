@@ -1,7 +1,7 @@
 <template>
     <main>
     <div class="title">
-      <video class="title" autoplay muted>
+      <video id="introvid" class="title" autoplay muted>
         <source src="../assets/NewCastleFieldhouseIntro.mp4" type="video/mp4" />
       </video>
       <div class="caption">
@@ -21,14 +21,14 @@
     <br>
     <br>
     <img src="../assets/fieldhouse1.webp" class="interpic">
-    <Infostrip _align="left" text1="Who We Are" text2="DISCOVER THE FIELDHOUSE" color="green" bcol="black"/>
+    <Infostrip _align="left" text1="Who We Are" text2="DISCOVER THE FIELDHOUSE" color="green" bcol="black" loc=""/>
     <img src="../assets/fieldhouse2.webp" class="interpic">
-    <Infostrip _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="green" bcol="black"/>
+    <Infostrip _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="green" bcol="black" loc=""/>
     <img src="../assets/fieldhouse3.webp" class="interpic">
-    <Infostrip _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT AMAZING" color="green" bcol="black"/>
+    <Infostrip _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT AMAZING" color="green" bcol="black" loc=""/>
     <img src="../assets/fieldhouse4.webp" class="interpic">
-    <Infostrip _align="flex-end" text1="About The Stadium" text2="LEARN ABOUT THE FIELDHOUSE FLAIR" color="green" bcol="black"/>
-    <img src="../assets/fieldhouse5.webp" class="interpic">
+    <Infostrip _align="flex-end" text1="About The Fieldhouse" text2="LEARN ABOUT DIRECTIONS, SEATING AND MORE" color="green" bcol="black" loc="/info"/>
+    <img src="../assets/fieldhouse5.webp" class="interpic" style="margin-bottom: -1vw">
     <UniformFoot/>
     </main>
 </template>
@@ -37,6 +37,7 @@
 import Infostrip from '../components/Infostrip.vue';
 import UniformFoot from '../components/UniformFoot.vue';
 import { ref } from 'vue'
+import { currentTrans } from '../main';
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -72,7 +73,11 @@ export default {
       return { events }
     },
     async mounted() {
-      // document.getElementById("field").style.opacity = 1
+      if(currentTrans != "entrance") {
+        document.getElementById("field").style.transition = "none"
+        document.getElementById("field").style.opacity = 1
+        document.getElementById("introvid").currentTime = 9;
+      }
       return
     }
   }

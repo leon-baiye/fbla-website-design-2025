@@ -5,7 +5,7 @@
             <div id="highlight"></div>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/calendar">Event<br>Calendar</RouterLink></button>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/office">Box<br>Office</RouterLink></button>
-            <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/info">Stadium<br>Info</RouterLink></button>
+            <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/info">Info</RouterLink></button>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/planning">Event<br>Planning</RouterLink></button>
             <button class="headernav">More</button>
         </div>
@@ -22,20 +22,24 @@ function checkHeader() {
     if (window.scrollY > 300) {
         document.getElementById("head").style.height = "4vw"
         document.getElementById("head2").style.height = "4vw"
+        document.getElementById("highlight").style.height = "6vw"
         for(let x=0;x<5;x++) {
             document.getElementsByClassName("headernav").item(x).style.fontSize = "1.375vw"
         }
         document.getElementById("logo").style.width = "8vw"
         document.getElementById("logo").style.marginLeft = "8vw"
+        document.getElementById("logo").style.marginRight = "3vw"
     }
     else {
         document.getElementById("head").style.height = "8vw"
         document.getElementById("head2").style.height = "8vw"
+        document.getElementById("highlight").style.height = "10vw"
         for(let x=0;x<5;x++) {
             document.getElementsByClassName("headernav").item(x).style.fontSize = "2vw"
         }
         document.getElementById("logo").style.width = "14vw"
         document.getElementById("logo").style.marginLeft = "5vw"
+        document.getElementById("logo").style.marginRight = "0vw"
     }
 }
 export default {

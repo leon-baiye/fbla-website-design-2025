@@ -60,14 +60,14 @@ header {
   transition: margin-top 2s ease-out 6s, height 0.5s ease-out 0s;
 }
 
-div.highlight {
+div#highlight {
   position: absolute;
   left: 4vw;
   z-index: -1;
   width: 16vw;
   height: 140%;
   background-color: rgba(0, 0, 0, 0.07);
-  transition: left 0.6s ease-in-out;
+  transition: left 1s ease-in-out, height 0.4s ease-out;
 }
 
 div.header {

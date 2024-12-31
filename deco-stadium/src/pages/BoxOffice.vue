@@ -125,21 +125,26 @@ button.purchase {
     padding: 0.2vw;
     font-weight: 500;
     text-align: center;
-    margin-left: 1%;
-    height: 4.5vw;
-    width: 12%;
+    width: 100%;
+    height: 100%;
     font-size: 1.5vw;
     background-color: #0aa242;
     color: white;
     border-radius: 8px;
     border-style: none;
+    transition: 
+        border-radius 0.3s ease-out,
+        background-color 0.3s ease-out;
+}
+.purchase:hover {
+    border-radius: 14px;
+    background-color: #27c661;
 }
 a.office {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    margin-left: 1%;
+    height: 4.5vw;
+    width: 12%;
     background: transparent;
-    z-index: 1;
 }
 </style>
 
@@ -164,7 +169,7 @@ a.office {
                     <p class="etitle">{{ event.title }}</p>
                     <p class="edesc">{{ event.desc }}</p>
                     <p class="eprice">{{ event.price }}</p>
-                    <button class="purchase"><a class="office" :href="event.link"></a>Get Tickets</button>
+                    <a class="office" :href="event.link"><button class="purchase">Get Tickets</button></a>
                 </div>
             </div>
         </div>

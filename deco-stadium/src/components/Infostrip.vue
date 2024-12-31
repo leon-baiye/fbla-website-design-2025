@@ -1,8 +1,13 @@
 <script>
 export default {
-    props: ['_align', 'bkg', 'text1', 'text2', 'color', 'bcol'],
+    props: ['_align', 'bkg', 'text1', 'text2', 'color', 'bcol', 'loc'],
     setup(props) {
         
+    },
+    methods: { 
+        scrollToTop() {
+            window.scrollTo(0,0);
+        }
     },
     computed: {
         cssVars() {
@@ -18,7 +23,7 @@ export default {
 <template>
 <div :style="cssVars" class="infostrip">
     <h2 :style="cssVars" :class=color>{{ text1 }}</h2>
-    <button :style="cssVars" class="blur">{{ text2 }} &rarr;</button>
+    <RouterLink :onclick="scrollToTop" :to="loc"><button :style="cssVars" class="blur">{{ text2 }} &rarr;</button></RouterLink>
 </div>
 </template>
 
