@@ -39,6 +39,9 @@ router.afterEach((to, from) => {
     currentTrans = to.meta.transition;
     document.getElementById("highlight").style.left = highlightOrder[toDepth];
   }
+  if(fromDepth == 3) {
+    document,getElementById("over").style.top = "200vw"
+  }
 })
 
 createApp(App)

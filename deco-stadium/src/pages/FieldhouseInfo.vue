@@ -26,6 +26,7 @@ div.card {
     padding-top: 0;
     padding-bottom: 2vw;
     margin: 2vw;
+    padding-left: 0;
 }
 h3.cardtitle {
     position: sticky;
@@ -148,15 +149,15 @@ li.policies {
 /* seating overlay */
 
 div#over {
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
     position: fixed;
-    margin-top: 100vh;
+    top: 100vh;
     z-index: 4;
     width: 100%;
     height: 130%;
     background: rgba(0, 0, 0, 0.808);
-    transition: 1s margin-top cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: 1s top cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 img.seatingoverlay {
     margin-top: 15vw;
@@ -222,18 +223,18 @@ img.xout {
                 <h4 class="excited">We're excited to see you at the Fieldhouse sometime soon!</h4>
             </div>
             <div class="rightcontainer">
-                <div class="card" style="height: 26vw;margin-bottom: 0vw;overflow:hidden">
-                    <h3 class="cardtitle">Seating</h3>
-                    <h4>Overhead View<br>[click to expand]</h4>
+                <div class="card" style="height: 27vw;margin-bottom: 0vw;overflow:hidden">
+                    <h3 style="margin-bottom: 0.8vw;" class="cardtitle">Seating</h3>
+                    <h4 style="margin-top: 0;">Overhead View<br>[click to expand]</h4>
                     <img v-on:click="overlay('open')" src="../assets/Seating Chart.svg" class="seats">
                 </div>
-                <div class="card" style="height: 50vw;overflow:hidden;">
+                <div class="card" style="height: 50vw;overflow:hidden; margin-top:0.6vw;">
                     <h3 class="cardtitle">Amenities</h3>
                     <div class="amenit">
                         <h4 class="amenit">Bathrooms</h4>
                             <li class="amenit">Located on the XYZ concourse</li>
                         <h4 class="amenit">Concessions</h4>
-                            <li class="amenit">Located on the XYZ concourse</li>
+                            <li class="amenit">4 concessions stands, located at each corner of the main concourse</li>
                         <h4 class="amenit">Performer/Player Access</h4>
                             <li class="amenit">Located on the XYZ concourse</li>
                         <h4 class="amenit">Walkways</h4>
@@ -269,10 +270,10 @@ export default {
     setup() {
         const overlay = function(mode) {
             if(mode=="open") {
-                document.getElementById("over").style.marginTop = "0"
+                document.getElementById("over").style.top = "0"
             }
             else {
-                document.getElementById("over").style.marginTop = "100vh"
+                document.getElementById("over").style.top = "100vh"
             }
         }
         return { overlay }
