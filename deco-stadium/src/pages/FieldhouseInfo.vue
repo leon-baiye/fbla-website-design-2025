@@ -12,11 +12,16 @@ div.cardcontainer {
     margin-top: 3vw;
     margin-left: 3vw;
     width: 94%;
+    height: auto;
 }
 div.rightcontainer {
     display: flex;
     flex-direction: column;
+    height: auto;
 }
+
+/* transition below is for scrolling pop-up */
+
 div.card {
     justify-content: center;
     border-radius: 8px;
@@ -24,9 +29,12 @@ div.card {
     background: #CDFFED;
     min-width: 40vw;
     padding-top: 0;
-    padding-bottom: 2vw;
-    margin: 2vw;
+    padding-bottom:2vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-top: 100vh;
     padding-left: 0;
+    transition: 1.2s margin-top ease-out;
 }
 h3.cardtitle {
     position: sticky;
@@ -157,7 +165,10 @@ div#over {
     width: 100%;
     height: 130%;
     background: rgba(0, 0, 0, 0.808);
-    transition: 1s top cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 0;
+    transition: 
+        1s top cubic-bezier(0.34, 1.56, 0.64, 1),
+        1s opacity cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 img.seatingoverlay {
     margin-top: 15vw;
@@ -171,6 +182,23 @@ img.xout {
     margin-left: 15vw;
     margin-top: 15vw;
 }
+
+/* scrolling pop-up disabled on smaller devices to reduce disorientation */
+
+@media (max-width: 1366px) {
+  div.card#dir {
+    margin-top: 2;
+  }
+  div.card#seat {
+    margin-top: 2;
+  }
+  div.card#policy {
+    margin-top: 2;
+  }
+  div.card#amen {
+    margin-top: 0.6;
+  }
+}
 </style>
 
 <template>
@@ -183,7 +211,7 @@ img.xout {
             <h1>Fieldhouse<br>Info</h1>
         </div>
         <div class="cardcontainer">
-            <div class="card" style="height: 80vw">
+            <div class="card" style="height: 80vw" id="dir">
                 <h3 class="cardtitle">Directions</h3>
                 <h4 style="font-weight: 500;"><a class="maps" href="https://www.google.com/maps/place/New+Castle+High+School/@39.9128291,-85.3813085,16z/data=!3m1!4b1!4m6!3m5!1s0x88153314bbd8e93d:0x21a566c0eca05050!8m2!3d39.9128292!4d-85.3764376!16s%2Fm%2F03d0v25?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D">801 Parkview Dr, New Castle, IN 47362</a></h4>
                 <div class="mapcontainer">
@@ -223,12 +251,12 @@ img.xout {
                 <h4 class="excited">We're excited to see you at the Fieldhouse sometime soon!</h4>
             </div>
             <div class="rightcontainer">
-                <div class="card" style="height: 27vw;margin-bottom: 0vw;overflow:hidden">
+                <div class="card" style="height: 27vw;margin-bottom: 0vw;overflow:hidden" id="seat">
                     <h3 style="margin-bottom: 0.8vw;" class="cardtitle">Seating</h3>
                     <h4 style="margin-top: 0;">Overhead View<br>[click to expand]</h4>
                     <img v-on:click="overlay('open')" src="../assets/Seating Chart.svg" class="seats">
                 </div>
-                <div class="card" style="height: 50vw;overflow:hidden; margin-top:0.6vw;">
+                <div class="card" style="height: 50vw;overflow:hidden;" id="amen">
                     <h3 class="cardtitle">Amenities</h3>
                     <div class="amenit">
                         <h4 class="amenit">Bathrooms</h4>
@@ -247,7 +275,7 @@ img.xout {
                 </div>
             </div>
         </div>
-        <div class="card" style="width:90%;height: 40vw; margin-left:5vw; margin-right:5vw;">
+        <div class="card" style="width:90%;height: 40vw; margin-left:5vw; margin-right:5vw; margin-bottom: 2vw;" id="policy">
             <h3 class="cardtitle">Policies</h3>
             <h4 class="handbook"><a class="handbook" href="https://ecode360.com/11774565">View Full Policy Handbook</a></h4>
             <div style="width: 90%; margin-left:5%; margin-right: 5%;">
@@ -263,6 +291,27 @@ img.xout {
 
 <script>
 import UniformFoot from '../components/UniformFoot.vue';
+import { useRouter } from 'vue-router';
+
+var popped = []
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
+
+function popCard() {
+    if(window.scrollY>=window.innerHeight*0.1 && !popped.includes("seat")) {
+        popped.push("seat")
+        document.getElementById("seat").style.marginTop = "2vw"
+    }
+    if(window.scrollY>=window.innerHeight*0.5 && !popped.includes("amen")) {
+        popped.push("amen")
+        document.getElementById("amen").style.marginTop = "0.6vw"
+    }
+    if(window.scrollY>=(window.innerHeight) && !popped.includes("policy")) {
+        popped.push("policy")
+        document.getElementById("policy").style.marginTop = "2vw"
+    }
+}
 export default {
     components: {
         UniformFoot
@@ -271,12 +320,24 @@ export default {
         const overlay = function(mode) {
             if(mode=="open") {
                 document.getElementById("over").style.top = "0"
+                document.getElementById("over").style.opacity = 1
             }
             else {
                 document.getElementById("over").style.top = "100vh"
+                document.getElementById("over").style.opacity = 0
             }
         }
         return { overlay }
+    },
+    async mounted() {
+        popped = []
+        document.addEventListener("scroll", (event) => {
+            if(popped.length!=3) {
+            popCard();
+            }
+        })
+        await delay(300)
+        document.getElementById("dir").style.marginTop = "2vw"
     }
 }
 </script>

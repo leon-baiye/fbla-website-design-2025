@@ -113,7 +113,7 @@ a.testimonial:visited {
 
 ul.hosting {
     width: 70vw;
-    margin-left: 15vw;
+    margin-left: 12%;
 }
 li.hosting {
     font-size: 1.5vw;

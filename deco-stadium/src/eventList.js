@@ -32,7 +32,7 @@ export const eventList = {
                 "title": "Senior Citizens Bingo Night",
                 "date": "February 20, 2024",
                 "host": "Seniors of New Castle",
-                "desc": "Join us for chill, easygoing & fun bingo with fellow seniors. Invite your friends - the more the merrier! *NOTE: FOR SENIORS ONLY.*",
+                "desc": "Join us for chill, easygoing & fun bingo with seniors. Invite your friends! *NOTE: FOR SENIORS ONLY.*",
                 "price": "$0"
             },
         ],
@@ -77,7 +77,7 @@ export const eventList = {
                 "date": "February 20, 2025",
                 "time":"5 PM - 6:30 PM",
                 "host": "Seniors of New Castle",
-                "desc": "Join us for chill, easygoing & fun bingo with fellow seniors. Invite your friends - the more the merrier! *NOTE: FOR SENIORS ONLY.*",
+                "desc": "Join us for chill, easygoing & fun bingo with seniors. Invite your friends! *NOTE: FOR SENIORS ONLY.*",
                 "price": "$0",
                 "link":"https://buytickets.at/newcastlefieldhouse/1515288",
             },

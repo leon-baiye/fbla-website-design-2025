@@ -3,10 +3,10 @@
     <link rel="stylesheet" href="stylesheets/main.css">
   </head>
     <div class="app">
-        <UniformHead/>
+      <UniformHead/>
       <router-view v-slot="{ Component, route }">
         <transition :name="route.meta.transition" >
-              <component class="c" :is="Component" :key="route.path" />
+              <component :id="route.path" class="c" :is="Component" :key="route.path" />
         </transition>
       </router-view>
     </div>
@@ -37,7 +37,7 @@ export default {
   },
   async mounted() {
     await delay(100)
-    scroll(0,0)
+    window.scrollTo(0,0)
     document.getElementById("field").classList.add("fade") 
     return
   }

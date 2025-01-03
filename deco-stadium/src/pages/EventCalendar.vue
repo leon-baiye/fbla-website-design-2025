@@ -6,7 +6,7 @@
 
 /* calendar layout */ 
 
-div.calendar {
+div#cal {
   max-width: 50vw;
   height: 44vw;
   border-radius: 15px;
@@ -19,8 +19,10 @@ div.calendar {
   display: flex;
   justify-self: center;
   flex-direction: column;
+  margin-top: 0;
   margin-top: 3vw;
   margin-bottom: 3vw;
+  transition: 0.3s ease-out;
 }
 
 div.top {
@@ -145,14 +147,14 @@ img.arrow {
 
 div.evdisplay {
     margin-top: 10vw;
-    margin-left: 80vw;
+    margin-left: 70vw;
     border-radius: 10px;
     border-style: solid;
     border-width: 0.5vw;
     border-color: #BEBEBE;
     position: absolute;
     height: 30vw;
-    width: 15vw;
+    width: 20vw;
     opacity: 0;
     transition: 0.3s ease-out;
     display: flex;
@@ -188,7 +190,7 @@ h2.evdate {
 h3.evhost {
     color: black;
     font-weight: 500;
-    font-size: 1vw;
+    font-size: 1.3vw;
     width: 85%;
     margin-left: 7.5%;
     margin-right: 7.5%;
@@ -197,7 +199,7 @@ h3.evhost {
 p.evdesc {
     color: black;
     margin-top: 0;
-    font-size: 1vw; 
+    font-size: 1.3vw; 
     width: 85%;
     margin-left: 10%;
     margin-right: 10%;
@@ -255,7 +257,7 @@ img#down {
             <p class="evdesc">{{  evdata.desc }}</p>
             <button class="close" v-on:click="eventHide()">Close</button>
         </div>
-        <div class="calendar">
+        <div id="cal">
             <img v-on:click="calendarUpdate('month', 'left')" class="arrow left" src="../assets/LeftTri.svg"/>
             <img v-on:click="calendarUpdate('month', 'right')" class="arrow right" src="../assets/RightTri.svg"/>
             <div class="top">
@@ -274,11 +276,15 @@ img#down {
                 <!-- [day.highlighted] -->
             </div>
         </div>
+        <h2>How To Use</h2>
+        <TutorialStrip _align="left" marg=0% vidmarg="45%" text1="Navigation" text2="Change months by clicking the left or right arrows. Change years by clicking on the current year, then adjusting the year using the up and down arrows. Click the current year again to finalize your changes." vid="/src/assets/screen_shot_1.mp4" post="/src/assets/cover.png"/>
+        <TutorialStrip _align="right" marg=48% vidmarg="0%" text1="Events" text2="Click on a highlighted day to view that day's event, with information like the event's date and hosts. Click the 'Close' button to close the event display area." vid="/src/assets/screen_shot2_noside.mp4" post="/src/assets/cover.png"/>
         <UniformFoot/>
     </main>
 </template>
 <script>
 import UniformFoot from '../components/UniformFoot.vue';
+import TutorialStrip from '../components/TutorialStrip.vue';
 import { ref } from 'vue';
 import { eventList } from '../eventList'
 
@@ -368,11 +374,13 @@ function dayUpdate(y, m) {
 }
 export default {
     components: {
-        UniformFoot
+        UniformFoot,
+        TutorialStrip,
     },
     setup() {
         const calendarUpdate = function(type, detail="") {
             if(type=="month") {
+                eventHide()
                 document.getElementById("up").style.opacity = 0
                 document.getElementById("down").style.opacity = 0
                 if(detail=="left") {
@@ -389,6 +397,7 @@ export default {
                 }
             }
             else if(type=="year") {
+                eventHide()
                 document.getElementById("up").style.opacity = 1 - document.getElementById("up").style.opacity
                 document.getElementById("down").style.opacity = 1 - document.getElementById("down").style.opacity
             }
@@ -405,18 +414,22 @@ export default {
         }
         const eventPop = function($ev, $id) {
             if($ev.date!="null") {
-            document.getElementById("evdisplay").style.opacity = 1;
-            evdata.value = $ev
-            if(document.getElementById(currentButton)!= undefined) {
-                document.getElementById(currentButton).classList.remove("selected")
-            }
-            currentButton = $id
-            document.getElementById($id).classList.add("selected")
+                document.getElementById("cal").style.marginLeft = "-15vw";
+                document.getElementById("evdisplay").style.opacity = 1;
+                evdata.value = $ev
+                if(document.getElementById(currentButton)!= undefined) {
+                    document.getElementById(currentButton).classList.remove("selected")
+                }
+                currentButton = $id
+                document.getElementById($id).classList.add("selected")
             }
         }
         const eventHide = function() {
-            document.getElementById("evdisplay").style.opacity = 0;
-            document.getElementById(currentButton).classList.remove("selected")
+            if(document.getElementById("evdisplay").style.opacity == 1) {
+                document.getElementById("cal").style.marginLeft = "0vw";
+                document.getElementById("evdisplay").style.opacity = 0;
+                document.getElementById(currentButton).classList.remove("selected")
+            }
         }
         days.value = Array.from({ length: 32 }, (_, x) => {return {"number":x, "event":{"title": "null", "date": "null", "host": "null", "desc": "null"}, "highlighted": "false", "separate": "no", "composite":"day false no"}}).splice(1)
         dayUpdate(year.value, monthIndex.value)

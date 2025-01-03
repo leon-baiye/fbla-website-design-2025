@@ -100,7 +100,7 @@ p.etitle {
     text-align: center;
     color: black;
     font-weight: 300;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
 }
 p.edesc {
     display: table-cell;
