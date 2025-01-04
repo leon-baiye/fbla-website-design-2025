@@ -1,7 +1,7 @@
 <template>
     <header id="head">
         <div class="header" id="head2">
-            <RouterLink :onclick="scrollToTop" to="/"><img id="logo" class="deco header" src="../assets/Fieldhouse Logo.svg" alt="Deco Logo"/></RouterLink>
+            <RouterLink :onclick="scrollToTop" to="/"><img id="logo" class="deco header" src="../assets/Fieldhouse Logo.svg" alt="Fieldhouse Logo"/></RouterLink>
             <div id="highlight"></div>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/calendar">Event<br>Calendar</RouterLink></button>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/office">Box<br>Office</RouterLink></button>
@@ -27,27 +27,12 @@
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { currentTrans } from '../main';
+import { currentTrans, createStateChangeDetector } from '../main';
 
 const router = ref()
 const delay = ms => new Promise(res => setTimeout(res, ms));
 var dropped = 0
-var fullsize = true
-
-function createStateChangeDetector(checkCondition, onBecomeTrue, onBecomeFalse) {
-    let wasTrue = false
-    return function() {
-        var isTrue = checkCondition()
-
-        if(isTrue && !wasTrue) {
-            onBecomeTrue(true)
-        }
-        else if (!isTrue && wasTrue) {
-            onBecomeFalse(false)
-        }
-        wasTrue = isTrue
-    }
-}
+var dropheight = 8
 
 function updateHeader(fullsize) {
     if(fullsize) {
@@ -64,6 +49,7 @@ function updateHeader(fullsize) {
         document.getElementById("dropdown").style.fontSize = "1vw"
         if(dropped) {
             document.getElementById("dropdown").style.maxHeight = "5vw"
+            dropheight = 5
         }
     }
     else {
@@ -80,6 +66,7 @@ function updateHeader(fullsize) {
         document.getElementById("dropdown").style.fontSize = "1.6vw"
         if(dropped) {
             document.getElementById("dropdown").style.maxHeight = "8vw"
+            dropheight = 8
         }
     }
 }
@@ -101,7 +88,7 @@ export default {
     setup() {
         async function drop() {
             dropped = (1-dropped)
-            document.getElementById("dropdown").style.height = (8-Number(document.getElementById("dropdown").style.maxHeight.replace("vw", ""))).toString() + "vw"
+            document.getElementById("dropdown").style.height = (dropheight-Number(document.getElementById("dropdown").style.maxHeight.replace("vw", ""))).toString() + "vw"
         }
         return { drop }
     },

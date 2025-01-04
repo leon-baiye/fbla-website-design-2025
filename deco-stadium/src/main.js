@@ -28,6 +28,21 @@ const router = createRouter({
   routes,
 })
 
+function createStateChangeDetector(checkCondition, onBecomeTrue, onBecomeFalse, extraInfo = '') {
+  let wasTrue = false
+  return function() {
+      var isTrue = checkCondition()
+
+      if(isTrue && !wasTrue) {
+          onBecomeTrue(true)
+      }
+      else if (!isTrue && wasTrue) {
+          onBecomeFalse(false)
+      }
+      wasTrue = isTrue
+  }
+}
+
 router.afterEach(async function(to, from) {
   const order = ["/", "/calendar", "/office", "/info", "/planning", "/model"]
   const highlightOrder = ["4vw", "23vw", "38.7vw", "54.5vw", "70.6vw"]
@@ -61,4 +76,4 @@ createApp(App)
     .use(TroisJSVuePlugin)
     .mount('#app')
 
-export { currentTrans }
+export { currentTrans, createStateChangeDetector }

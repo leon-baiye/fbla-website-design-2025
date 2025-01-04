@@ -3,7 +3,7 @@
 /* parallax image effect */
 
 .parallax {
-  min-height: 70vw;
+  min-height: 51vw;
   width: 100vw;
   background-attachment: fixed;
   background-position: center;
@@ -54,7 +54,7 @@
     <div class="parallax" style="background-image: url('/src/assets/fieldhouse2.webp');"></div>
     <Infostrip _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="green" bcol="black" loc=""/>
     <div class="parallax" style="background-image: url('/src/assets/fieldhouse3.webp');"></div>
-    <Infostrip _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT AMAZING" color="green" bcol="black" loc=""/>
+    <Infostrip _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT AMAZING" color="green" bcol="black" loc="/planning"/>
     <div class="parallax" style="background-image: url('/src/assets/fieldhouse4.webp');"></div>
     <Infostrip _align="flex-end" text1="About The Fieldhouse" text2="LEARN ABOUT DIRECTIONS, SEATING AND MORE" color="green" bcol="black" loc="/info"/>
     <div class="parallax" style="background-image: url('/src/assets/fieldhouse5.webp');"></div>

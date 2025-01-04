@@ -36,8 +36,9 @@ div.app {
 }
 
 .deco.header {
-  max-width: 14vw;
+  width: 14vw;
   margin-left: 5vw;
+  margin-right: 0vw;
   padding-left: 0vw;
   padding-right: 2vw;
   transition: 0.4s ease-out;

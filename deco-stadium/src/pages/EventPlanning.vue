@@ -219,14 +219,14 @@ h3.excited {
             <li class="hosting">The features of a major stadium for the price of a high school graduation</li>
         </ul>
         <h2>DETAILS</h2>
-        <div class="details" style="background:#009238">
+        <div id="anim0" class="details" style="background:#009238">
             <p class="details" style="color: white">
                 Fill out our Event Hosting Form<br> 
                 to get started:<br>
                 <a class="details" href="https://google.com">Access Form</a>
             </p>
         </div>
-        <div class="details" style="background:#D9D9D9">
+        <div id="anim1" class="details" style="background:#D9D9D9">
             <h3 class="details"> You'll need:</h3>
             <p class="details" style="color: black">
                 your organization's legal name<br>
@@ -235,23 +235,23 @@ h3.excited {
             </p>
         </div>
         <h2>CONTACTS</h2>
-        <div class="contacts">
+        <div id="anim2" class="contacts">
             <h3 class="contacts">Pricing Questions:</h3>
             <a class="contacts" href="mailto:support@google.com">pricing@trojanhosting.com</a>
         </div>
-        <div class="contacts">
+        <div id="anim3" class="contacts">
             <h3 class="contacts">Amenditites Questions:</h3>
             <a class="contacts" href="mailto:support@google.com">amendities@trojanhosting.com</a>
         </div>
-        <div class="contacts">
+        <div id="anim4" class="contacts">
             <h3 class="contacts">Availability Questions:</h3>
             <a class="contacts" href="mailto:support@google.com">availability@trojanhosting.com</a>
         </div>
-        <div class="contacts">
+        <div id="anim5" class="contacts">
             <h3 class="contacts" style="text-decoration: underline;t">All Other Inquires:</h3>
             <a class="contacts" href="mailto:support@google.com">general@trojanhosting.com</a>
         </div>
-        <h3 class="excited">WE'RE EXCITED TO WORK WITH YOU SOON!</h3>
+        <h3 id="anim6" class="excited">WE'RE EXCITED TO WORK WITH YOU SOON!</h3>
         <UniformFoot/>
     </main>
 </template>
@@ -259,6 +259,16 @@ h3.excited {
 <script>
 import UniformFoot from '../components/UniformFoot.vue';
 import { testimonials } from '../testimonials';
+import { createStateChangeDetector } from '../main';
+
+function animatePage(n) {
+    if(n==0) {
+        document.getElementById("anim0").marginRight = 0;
+    }
+    else if(n==1) {
+        document.getElementById("anim1").marginLeft = 0;
+    }
+}
 export default {
     components: {
         UniformFoot
@@ -271,6 +281,14 @@ export default {
             else {return ""}
         }
         return { checkLink, testimonials }
+    },
+    mounted() {
+        const anim0 = createStateChangeDetector(
+            () => (window.scrollY > 1000),
+            animatePage,
+            null,
+            0
+        )
     }
 }
 </script>

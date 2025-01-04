@@ -23,7 +23,7 @@ export default {
 <template>
 <div :style="cssVars" class="infostrip">
     <h2 :style="cssVars" :class=color>{{ text1 }}</h2>
-    <RouterLink :onclick="scrollToTop" :to="loc"><button :style="cssVars" class="blur">{{ text2 }} &rarr;</button></RouterLink>
+    <RouterLink style="text-decoration: none;":onclick="scrollToTop" :to="loc"><button :style="cssVars" class="blur">{{ text2 }}<img class="rarr" src="../assets/rarr.png"></button></RouterLink>
 </div>
 </template>
 
@@ -68,13 +68,13 @@ export default {
     }
     button.blur {
         text-align: left;
-        width: fit-content;
+        width: max-content;
+        padding-right:1vw;
         color: var(--bcol);
         border-color: var(--bcol);
         border-width: 1px;
         border-style: solid;
         border-radius: 16px;
-        padding: 1vw;
         font-size: 2vw;
         background: transparent;
         font-family: 'Lexend Exa', sans-serif;
@@ -82,8 +82,21 @@ export default {
         margin-right: 10vw;
         margin-top: -1vw;
         margin-bottom: 2vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none !important;
+        gap: 0vw;
+        transition: 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-
+    button.blur:hover {
+        gap: 1vw;
+        padding-right: 0vw;
+    }
+    img.rarr {
+        width: 5vw;
+        border-radius: 16px;
+    }
     strong {
         color: #FFECCE;
     }
