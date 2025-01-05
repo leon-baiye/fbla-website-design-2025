@@ -2,6 +2,7 @@
 Renderer {
     width: 100vw;
     height: 100vh;
+    opacity: 1;
 }
 h2.model {
     position: absolute;
@@ -33,12 +34,12 @@ main.model {
     <main class="model">
         <h2 class="model">[zoom to enlarge]</h2>
         <h3 class="exit">[press x to exit]</h3>
-        <Renderer ref="renderer" :antialias="true" :orbit-ctrl="{ enableDamping: true }" :resize="true">
-            <Camera :position="{ x: 1, y: 0, z: 0 }"></Camera>
-            <Scene background="#000000" ref="scene">
-                <AmbientLight></AmbientLight>
-                <GltfModel src="../assets/sculpt.glb"/>
-            </Scene>
+        <Renderer ref="renderer" antialias="true" :orbit-ctrl="{ enableDamping: true }" resize="true">
+            <Camera :position="{ x: 1, y: 0, z: 0 }" :lookAt="this.$refs.mod"/>
+                <Scene background="#000000" ref="scene">
+                    <AmbientLight></AmbientLight>
+                    <GltfModel src="../assets/sculpt.glb" ref="mod" @load="onReady"/>
+                </Scene>
         </Renderer>
     </main>
 </template>
@@ -46,6 +47,7 @@ main.model {
 <script>
 import {
   AmbientLight,
+  HemisphereLight,
   Camera,
   GltfModel,
   Renderer,
@@ -56,10 +58,23 @@ import { useRouter } from 'vue-router';
 export default {
   components: {
     AmbientLight,
+    HemisphereLight,
     Camera,
     GltfModel,
     Renderer,
     Scene,
+  },
+  methods: {
+    onReady(model){
+        model.traverse(o => {
+            if (o.isMesh){
+                // handle both multiple and single materials
+                const asArray = Array.isArray(o.material) ? o.material : [o.material]
+                // 0 works for matte materials - change as needed
+                asArray.forEach(mat => mat.metalness = 0)
+            }
+        })
+    }
   },
   mounted() {
     const router = useRouter()

@@ -31,7 +31,7 @@ import { currentTrans, createStateChangeDetector } from '../main';
 
 const router = ref()
 const delay = ms => new Promise(res => setTimeout(res, ms));
-var dropped = 0
+var dropped = false
 var dropheight = 8
 
 function updateHeader(fullsize) {
@@ -48,9 +48,10 @@ function updateHeader(fullsize) {
         document.getElementById("dropdown").style.top = "5vw"
         document.getElementById("dropdown").style.fontSize = "1vw"
         if(dropped) {
+            document.getElementById("dropdown").style.minHeight = "5vw"
             document.getElementById("dropdown").style.maxHeight = "5vw"
-            dropheight = 5
         }
+        dropheight = 5
     }
     else {
         document.getElementById("head").style.height = "8vw"
@@ -65,9 +66,10 @@ function updateHeader(fullsize) {
         document.getElementById("dropdown").style.top = "9vw"
         document.getElementById("dropdown").style.fontSize = "1.6vw"
         if(dropped) {
+            document.getElementById("dropdown").style.minHeight = "8vw"
             document.getElementById("dropdown").style.maxHeight = "8vw"
-            dropheight = 8
         }
+        dropheight = 8
     }
 }
 
@@ -87,8 +89,10 @@ export default {
     },
     setup() {
         async function drop() {
-            dropped = (1-dropped)
-            document.getElementById("dropdown").style.height = (dropheight-Number(document.getElementById("dropdown").style.maxHeight.replace("vw", ""))).toString() + "vw"
+            dropped = !dropped
+            let newHeight = dropheight-Number(document.getElementById("dropdown").style.maxHeight.replace("vw", ""))
+            document.getElementById("dropdown").style.minHeight = (newHeight).toString() + "vw"
+            document.getElementById("dropdown").style.maxHeight = (newHeight).toString() + "vw"
         }
         return { drop }
     },

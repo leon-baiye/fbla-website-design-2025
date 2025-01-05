@@ -8,7 +8,6 @@ import FieldhouseInfo from './pages/FieldhouseInfo.vue'
 import BoxOffice from './pages/BoxOffice.vue'
 import EventPlanning from './pages/EventPlanning.vue'
 import ModelView from './pages/ModelView.vue'
-import { TroisJSVuePlugin } from 'troisjs';
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -34,10 +33,17 @@ function createStateChangeDetector(checkCondition, onBecomeTrue, onBecomeFalse, 
       var isTrue = checkCondition()
 
       if(isTrue && !wasTrue) {
+         if(extraInfo == '') {
           onBecomeTrue(true)
+         }
+         else {
+          onBecomeTrue(extraInfo)
+         }
       }
       else if (!isTrue && wasTrue) {
+          if(typeof onBecomeFalse == "function") {
           onBecomeFalse(false)
+          }
       }
       wasTrue = isTrue
   }
@@ -45,7 +51,7 @@ function createStateChangeDetector(checkCondition, onBecomeTrue, onBecomeFalse, 
 
 router.afterEach(async function(to, from) {
   const order = ["/", "/calendar", "/office", "/info", "/planning", "/model"]
-  const highlightOrder = ["4vw", "23vw", "38.7vw", "54.5vw", "70.6vw"]
+  const highlightOrder = ["4vw", "23vw", "38.7vw", "54.5vw", "69.8vw"]
   const toDepth = order.indexOf(to.path)
   const fromDepth = order.indexOf(from.path)
   if(toDepth == fromDepth) {
@@ -68,12 +74,33 @@ router.afterEach(async function(to, from) {
     to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left';
     currentTrans = to.meta.transition;
     document.getElementById("highlight").style.left = highlightOrder[toDepth];
+    if(toDepth < fromDepth) {
+      document.getElementById("leftslideanim").classList.add("rightslide-active")
+      document.getElementById("leftslide1").classList.add("generalslide-active")
+      document.getElementById("leftslide2").classList.add("generalslide-active")
+      document.getElementById("leftslide3").classList.add("generalslide-active")
+      await delay(1100)
+      document.getElementById("leftslideanim").classList.remove("rightslide-active")
+      document.getElementById("leftslide1").classList.remove("generalslide-active")
+      document.getElementById("leftslide2").classList.remove("generalslide-active")
+      document.getElementById("leftslide3").classList.remove("generalslide-active")
+    }
+    else if(fromDepth < toDepth) {
+      document.getElementById("rightslideanim").classList.add("leftslide-active")
+      document.getElementById("rightslide1").classList.add("generalslide-active")
+      document.getElementById("rightslide2").classList.add("generalslide-active")
+      document.getElementById("rightslide3").classList.add("generalslide-active")
+      await delay(1000)
+      document.getElementById("rightslideanim").classList.remove("leftslide-active")
+      document.getElementById("rightslide1").classList.remove("generalslide-active")
+      document.getElementById("rightslide2").classList.remove("generalslide-active")
+      document.getElementById("rightslide3").classList.remove("generalslide-active")
+    }
   }
 })
 
 createApp(App)
     .use(router)
-    .use(TroisJSVuePlugin)
     .mount('#app')
 
 export { currentTrans, createStateChangeDetector }

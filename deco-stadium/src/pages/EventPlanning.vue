@@ -129,6 +129,7 @@ div.details {
     padding-bottom: 1vw;
     margin-left: 15vw;
     margin-right: 15vw;
+    width: 70vw;
     margin-bottom: 3vw;
 }
 p.details {
@@ -174,11 +175,69 @@ a.contacts {
 }
 
 /* "excited" text */
+
 h3.excited {
     color: #009e3c;
     font-size: 3vw;
+    width: 100%;
+    height: 4vw;
+    display: inline-block;
+    vertical-align: middle;
     text-align: center;
-    margin: 4vw;
+    margin-top: 3vw;
+}
+
+/* scroll animation setup */
+
+div#anim0 {
+    opacity: 0;
+    margin-left: 100vw;
+    transition: 0.3s opacity ease-out,
+                0.3s margin-left ease-out;
+}
+div#anim1 {
+    opacity: 0;
+    margin-right: 100vw;
+    transition: 0.3s opacity ease-out,
+                0.3s margin-right ease-out;
+}
+div#anim2 {
+    opacity: 0;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    transition: 0.3s opacity ease-out,
+                0.3s margin-left ease-out,
+                0.3s margin-right ease-out;
+}
+div#anim3 {
+    opacity: 0;
+    margin-left: 35vw;
+    margin-right: 35vw;
+    transition: 0.3s opacity ease-out,
+                0.3s margin-left ease-out,
+                0.3s margin-right ease-out;
+}
+div#anim4 {
+    opacity: 0;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    transition: 0.3s opacity ease-out,
+                0.3s margin-left ease-out,
+                0.3s margin-right ease-out;
+}
+div#anim5 {
+    opacity: 0;
+    margin-left: 35vw;
+    margin-right: 35vw;
+    transition: 0.3s opacity ease-out,
+                0.3s margin-left ease-out,
+                0.3s margin-right ease-out;
+}
+#anim6 {
+    font-size: 2vw;
+    opacity: 0;
+    transition: 1s font-size cubic-bezier(1,1.7,.33,1.03),
+                1s opacity cubic-bezier(1,1.7,.33,1.03);
 }
 </style>
 
@@ -212,7 +271,7 @@ h3.excited {
         <h2>HOSTING BENEFITS</h2>
         <ul class="hosting">
             <li class="hosting">Thousands of square feet for your organization</li>
-            <li class="hosting">Free access to the NCFH ticketing netowkr & complete control over ticketing</li>
+            <li class="hosting">Free access to the NCFH ticketing network & complete control over ticketing</li>
             <li class="hosting">Personalized event landing page</li>
             <li class="hosting">Free promotion over the unparalleled TROJAN® media network</li>
             <li class="hosting">A venue like no other, complete with concessions, convenient parking, and <a>other amenities</a></li>
@@ -229,9 +288,11 @@ h3.excited {
         <div id="anim1" class="details" style="background:#D9D9D9">
             <h3 class="details"> You'll need:</h3>
             <p class="details" style="color: black">
-                your organization's legal name<br>
-                event details<br>
-                etc
+                you & your organization's legal name<br>
+                basic event details (i.e. name, date, time)<br>
+                event requirements (i.e. specific areas prepared) <br>
+                target audience and expected event turnout<br>
+                any other pertinent event information<br>
             </p>
         </div>
         <h2>CONTACTS</h2>
@@ -248,7 +309,7 @@ h3.excited {
             <a class="contacts" href="mailto:support@google.com">availability@trojanhosting.com</a>
         </div>
         <div id="anim5" class="contacts">
-            <h3 class="contacts" style="text-decoration: underline;t">All Other Inquires:</h3>
+            <h3 class="contacts" style="text-decoration: underline;">All Other Inquires:</h3>
             <a class="contacts" href="mailto:support@google.com">general@trojanhosting.com</a>
         </div>
         <h3 id="anim6" class="excited">WE'RE EXCITED TO WORK WITH YOU SOON!</h3>
@@ -259,14 +320,39 @@ h3.excited {
 <script>
 import UniformFoot from '../components/UniformFoot.vue';
 import { testimonials } from '../testimonials';
-import { createStateChangeDetector } from '../main';
 
-function animatePage(n) {
-    if(n==0) {
-        document.getElementById("anim0").marginRight = 0;
+var breakpoints = []
+var marked = []
+
+async function animatePage() {
+    if(window.scrollY > breakpoints[0] && !marked.includes(0)) {
+        marked.push(0)
+        document.getElementById("anim0").style = "background:#009238; opacity:1;margin-left:15vw;"
     }
-    else if(n==1) {
-        document.getElementById("anim1").marginLeft = 0;
+    else if(window.scrollY > breakpoints[1] && !marked.includes(1)) {
+        marked.push(1)
+        document.getElementById("anim1").style = "background:#D9D9D9; opacity:1;margin-right:15vw;"
+    }
+    else if(window.scrollY > breakpoints[2] && !marked.includes(2)) {
+        marked.push(2)
+        document.getElementById("anim2").style = "margin-left: 30vw; margin-right: 30vw; opacity:1;"
+    }
+    else if(window.scrollY > breakpoints[3] && !marked.includes(3)) {
+        marked.push(3)
+        document.getElementById("anim3").style = "margin-left: 30vw; margin-right: 30vw; opacity:1;"
+    }
+    else if(window.scrollY > breakpoints[4] && !marked.includes(4)) {
+        marked.push(4)
+        document.getElementById("anim4").style = "margin-left: 30vw; margin-right: 30vw; opacity:1;"
+    }
+    else if(window.scrollY > breakpoints[5] && !marked.includes(5)) {
+        marked.push(5)
+        document.getElementById("anim5").style = "margin-left: 30vw; margin-right: 30vw; opacity:1;"
+    }
+    else if(window.scrollY > breakpoints[6] && !marked.includes(6)) {
+        marked.push(6)
+        document.getElementById("anim6").style.fontSize = "3vw"
+        document.getElementById("anim6").style.opacity = 1
     }
 }
 export default {
@@ -283,12 +369,16 @@ export default {
         return { checkLink, testimonials }
     },
     mounted() {
-        const anim0 = createStateChangeDetector(
-            () => (window.scrollY > 1000),
-            animatePage,
-            null,
-            0
-        )
+        let initial = 1500
+        let spacing1 = 400
+        let spacing2 = 500
+        let spacing3 = 140
+        
+        breakpoints.push(initial, (initial+spacing1), (initial+spacing1+spacing2))
+        for(let x=1;x<5;x++) {
+            breakpoints.push((initial+spacing1+spacing2+(spacing3*x)))
+        }
+        document.addEventListener('scroll', animatePage)
     }
 }
 </script>

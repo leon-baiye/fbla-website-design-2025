@@ -302,12 +302,13 @@ h4.eventcard {
   text-align: center;
   font-family: $body-font;
   font-weight: 300;
-  font-size: 0.8vw;
+  font-size: 0.9vw;
   color: #757575;
   margin-bottom: 0;
 }
 
 p.eventcard {
+  width: 24vw;
   margin-top: 1vw;
   text-align: center;
   font-family: $body-font;
@@ -387,13 +388,16 @@ div.drop {
   flex-direction: column;
   background: white;
   width: 12vw;
+  min-height: 0vw;
   max-height: 0vw;
   overflow-y: hidden;
   font-size: 1.6vw;
   transition: 
     0.5s top ease-out,
     0.5s font-size ease-out,
-    0.3s max-height ease-out;
+    0.3s min-height ease-out,
+    0.3s max-height ease-out,
+    0.3s height ease-out;
 }
 
 div.dropitem {
@@ -406,6 +410,134 @@ div.dropitem {
   border-top-width: 2px;
   border-top-style: solid;
 
+}
+
+// sliding animation 
+
+@mixin rightslidediv($left) {
+  border-top: 0.5vw solid #149544;
+  border-radius: 0.5vw;
+  width: 0vw;
+  height: 10vw;
+  background: none;
+  margin-left: $left;
+}
+
+@mixin leftslidediv($right) {
+  border-top: 0.5vw solid #149544;
+  border-radius: 0.5vw;
+  width: 0vw;
+  height: 10vw;
+  background: none;
+  margin-right: $right;
+}
+
+div#leftslideanim {
+  position: fixed;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  right: 30vw;
+  top: 15vw;
+}
+
+div#rightslideanim {
+  position: fixed;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  left: 30vw;
+  top: 15vw;
+}
+
+div#rightslide1, div#rightslide3 {
+  @include rightslidediv(0)
+}
+div#rightslide2 {
+  @include rightslidediv(6vw)
+}
+
+div#leftslide1, div#leftslide3 {
+  @include leftslidediv(0)
+}
+div#leftslide2 {
+  @include leftslidediv(6vw)
+}
+
+@keyframes generalslide {
+  0% {
+    width: 0vw;
+  }
+  25% {
+    width: 10vw;
+  }
+  50% {
+    width: 20vw;
+  }
+  75% {
+    width: 10vw;
+  }
+  100% {
+    width: 0vw;
+  }
+}
+@keyframes rightslide {
+  0% {
+    right: 30vw;
+  }
+  25% {
+    right: 50vw;
+  }
+  50% {
+    right: 70vw;
+  }
+  75% {
+    right: 90vw;
+  }
+  100% {
+    right: 110vw;
+  }
+}
+@keyframes leftslide {
+  0% {
+    left: 30vw;
+  }
+  25% {
+    left: 50vw;
+  }
+  50% {
+    left: 70vw;
+  }
+  75% {
+    left: 90vw;
+  }
+  100% {
+    left: 110vw;
+  }
+}
+
+.generalslide-active {
+  animation-name: generalslide;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-play-state: running;
+}
+.rightslide-active {
+  animation-name: rightslide;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-play-state: running;
+}
+.leftslide-active {
+  animation-name: leftslide;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-play-state: running;
 }
 // miscellaneous styles
 
