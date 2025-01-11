@@ -9,7 +9,7 @@
 div#cal {
   max-width: 50vw;
   height: 44vw;
-  border-radius: 15px;
+  border-radius: 1.5vw;
   border-color: #D9D9D9;
   border-width: 1vw;
   border-style: solid;
@@ -105,13 +105,13 @@ p.day.no {
 
 p.true {
     background: #28d366;
-    border-radius: 6px;
+    border-radius: 0.7vw;
     transition: 0.3s ease-out;
 }
 
 p.true.selected {
     background: #4ff78d;
-    border-radius: 20px;
+    border-radius: 2vw;
 }
 
 p.false {
@@ -148,7 +148,7 @@ img.arrow {
 div.evdisplay {
     margin-top: 10vw;
     margin-left: 70vw;
-    border-radius: 10px;
+    border-radius: 1.2vw;
     border-style: solid;
     border-width: 0.5vw;
     border-color: #BEBEBE;
@@ -169,6 +169,8 @@ div.evtitle {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-top-left-radius: 0.6vw;
+    border-top-right-radius: 0.6vw;
 }
 h1.evtitle {
     margin-top: 2vw;
@@ -212,7 +214,7 @@ button.close {
     font-family: 'Lexend Giga', sans-serif;
     background: #1ca715;
     position: absolute;
-    border-radius: 3px;
+    border-radius: 0.3vw;
     border-width: 0;
     color: white;
     padding: 0.3vw;

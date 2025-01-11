@@ -72,9 +72,9 @@ export default {
         padding-right:1vw;
         color: var(--bcol);
         border-color: var(--bcol);
-        border-width: 1px;
+        border-width: 0.1vw;
         border-style: solid;
-        border-radius: 16px;
+        border-radius: 1.4vw;
         font-size: 2vw;
         background: transparent;
         font-family: 'Lexend Exa', sans-serif;
@@ -95,7 +95,7 @@ export default {
     }
     img.rarr {
         width: 5vw;
-        border-radius: 16px;
+        border-radius: 1.6vw;
     }
     strong {
         color: #FFECCE;

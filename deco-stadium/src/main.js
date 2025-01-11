@@ -7,7 +7,7 @@ import EventCalendar from './pages/EventCalendar.vue'
 import FieldhouseInfo from './pages/FieldhouseInfo.vue'
 import BoxOffice from './pages/BoxOffice.vue'
 import EventPlanning from './pages/EventPlanning.vue'
-import ModelView from './pages/ModelView.vue'
+import VirtualTour from './pages/VirtualTour.vue'
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -19,7 +19,7 @@ const routes = [
   { path: '/info', component: FieldhouseInfo },
   { path: '/office', component: BoxOffice },
   { path: '/planning', component: EventPlanning},
-  { path: '/model', component: ModelView},
+  { path: '/virtualtour', component: VirtualTour},
 ]
 
 const router = createRouter({
@@ -58,16 +58,23 @@ router.afterEach(async function(to, from) {
     to.meta.transition = 'entrance'
     currentTrans = 'entrance'
   }
-  else if(to.path == "/model") {
-    to.meta.transition = "model"
-    currentTrans = 'model'
+  else if(to.path == "/virtualtour") {
+    to.meta.transition = "virtualtour"
+    currentTrans = 'virtualtour'
     document.getElementById("head").style.height = "0vw"
     document.getElementById("head2").style.height = "0vw"
     document.getElementById("highlight").style.height = "0vw"
     document.getElementById("head").style.opacity = 0
+    await delay(1000)
+    document.getElementById("exit").style.opacity = 0.5
   }
-  else if(from.path == "/model") {
-    to.meta.transition = "model"
+  else if(from.path == "/virtualtour") {
+    document.getElementById("tourinsert").style.filter = "brightness(0)"
+    document.getElementById("exit").style.opacity = 0
+    to.meta.transition = "virtualtour"
+    await delay(1000)
+    document.getElementById("head").style.height = "8vw"
+    document.getElementById("head2").style.height = "8vw"
     currentTrans = 'none'
   }
   else {

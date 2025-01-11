@@ -11,7 +11,21 @@
                 More
                 <div id="dropdown" class="drop">
                     <div class="dropitem">
-                        <RouterLink class="rl" to="/model">
+                        <RouterLink class="rl" to="/history">
+                            <p>
+                                Fieldhouse <br>History
+                            </p>
+                        </RouterLink>
+                    </div>
+                    <div class="dropitem">
+                        <RouterLink class="rl" to="/tour">
+                            <p>
+                                Book a <br>Tour
+                            </p>
+                        </RouterLink>
+                    </div>
+                    <div v-if="window.innerWidth>800" class="dropitem">
+                        <RouterLink class="rl" to="/virtualtour">
                             <p>
                                 Virtual <br>Tour
                             </p>
@@ -32,7 +46,8 @@ import { currentTrans, createStateChangeDetector } from '../main';
 const router = ref()
 const delay = ms => new Promise(res => setTimeout(res, ms));
 var dropped = false
-var dropheight = 8
+var dropamount = 3
+var dropheight = 8*dropamount
 
 function updateHeader(fullsize) {
     if(fullsize) {
@@ -47,11 +62,15 @@ function updateHeader(fullsize) {
         document.getElementById("logo").style.marginRight = "3vw"
         document.getElementById("dropdown").style.top = "5vw"
         document.getElementById("dropdown").style.fontSize = "1vw"
+        dropheight = 5*dropamount
         if(dropped) {
-            document.getElementById("dropdown").style.minHeight = "5vw"
-            document.getElementById("dropdown").style.maxHeight = "5vw"
+            document.getElementById("dropdown").style.minHeight = dropheight.toString() + "vw"
+            document.getElementById("dropdown").style.maxHeight = dropheight.toString() + "vw"
+            for(let x=0;x<3;x++) {
+                document.getElementsByClassName("dropitem").item(x).style.minHeight = "5vw"
+                document.getElementsByClassName("dropitem").item(x).style.maxHeight = "5vw"
+            }
         }
-        dropheight = 5
     }
     else {
         document.getElementById("head").style.height = "8vw"
@@ -65,16 +84,20 @@ function updateHeader(fullsize) {
         document.getElementById("logo").style.marginRight = "0vw"
         document.getElementById("dropdown").style.top = "9vw"
         document.getElementById("dropdown").style.fontSize = "1.6vw"
+        dropheight = 8*dropamount
         if(dropped) {
-            document.getElementById("dropdown").style.minHeight = "8vw"
-            document.getElementById("dropdown").style.maxHeight = "8vw"
+            document.getElementById("dropdown").style.minHeight = dropheight.toString() + "vw"
+            document.getElementById("dropdown").style.maxHeight = dropheight.toString() + "vw"
+            for(let x=0;x<3;x++) {
+                document.getElementsByClassName("dropitem").item(x).style.minHeight = "8vw"
+                document.getElementsByClassName("dropitem").item(x).style.maxHeight = "8vw"
+            }
         }
-        dropheight = 8
     }
 }
 
 function checkOpacity() {
-    if(currentTrans!="model") {
+    if(currentTrans!="virtualtour") {
         document.getElementById('head').style.opacity = 1
     }
     else {
@@ -94,7 +117,7 @@ export default {
             document.getElementById("dropdown").style.minHeight = (newHeight).toString() + "vw"
             document.getElementById("dropdown").style.maxHeight = (newHeight).toString() + "vw"
         }
-        return { drop }
+        return { drop, window }
     },
     async mounted() {
         await delay(100)

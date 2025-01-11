@@ -16,7 +16,7 @@ h3.office {
 div.boxoffice {
     margin-top: 5vw;
     margin-bottom: 10vw;
-    border-radius: 13px;
+    border-radius: 1.4vw;
     border-style: solid;
     border-width: 0.01vw;
     border-color: rgb(63, 214, 91);
@@ -30,8 +30,8 @@ div.boxoffice {
 /* legend */ 
 
 div.legend {
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
+    border-top-left-radius: 0.8vw;
+    border-top-right-radius: 0.8vw;
     position: absolute;
     z-index: 2;
     display: flex;
@@ -134,14 +134,14 @@ button.purchase {
     font-size: 1.5vw;
     background-color: #0aa242;
     color: white;
-    border-radius: 8px;
+    border-radius: 0.6vw;
     border-style: none;
     transition: 
         border-radius 0.3s ease-out,
         background-color 0.3s ease-out;
 }
 .purchase:hover {
-    border-radius: 14px;
+    border-radius: 0.9vw;
     background-color: #27c661;
 }
 a.office {

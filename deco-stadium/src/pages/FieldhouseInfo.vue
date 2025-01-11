@@ -24,7 +24,7 @@ div.rightcontainer {
 
 div.card {
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 1.1vw;
     overflow-y: scroll;
     background: #CDFFED;
     min-width: 40vw;
@@ -57,7 +57,7 @@ div.mapcontainer {
     margin-right: 10%;
     margin-bottom: 3vw;
     height: 30vw;
-    border-radius: 10px;
+    border-radius: 1.2vw;
     overflow: hidden;
     display: flex;
     align-content: center;
@@ -109,7 +109,7 @@ strong {
 img.seats {
     width: 50%;
     margin-left: 25%;
-    border-radius: 10px;
+    border-radius: 1.2vw;
     border-width: 0.2vw;
     border-style: solid;
     border-color: #00461b;
@@ -134,7 +134,7 @@ li.amenit {
 h4.handbook {
     font-size: 3vw;
     background: rgb(0, 153, 51);
-    border-radius: 8px;
+    border-radius: 1.1vw;
     text-align: center;
     margin-left: 20%;
     width: 60%;
@@ -157,8 +157,8 @@ li.policies {
 /* seating overlay */
 
 div#over {
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-top-left-radius: 3vw;
+    border-top-right-radius: 3vw;
     position: fixed;
     top: 100vh;
     z-index: 4;

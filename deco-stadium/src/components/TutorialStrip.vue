@@ -56,9 +56,9 @@ export default {
         width: 35%;
         margin-top: -18vw;
         margin-left: var(--vidmarg);
-        border-radius: 7px;
+        border-radius: 0.7vw;
         border-color: gray;
-        border-width: 1px;
+        border-width: 0.2vw;
         border-style: solid;
     }
     </style>

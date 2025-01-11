@@ -62,7 +62,7 @@ div.testcard {
     padding-left: 2vw;
     padding-right: 2vw;
     background: white;
-    border-radius: 8px;
+    border-radius: 1.1vw;
     min-width: 14vw;
     min-height: 28vw;
     text-align: center;
@@ -86,7 +86,7 @@ h4.org {
 img.testimonial {
     width: 11vw;
     height: 11vw;
-    border-radius: 6px;
+    border-radius: 0.8vw;
     margin-bottom: 0.7vw;
 }
 p.testimonial {
@@ -103,7 +103,7 @@ a.testimonial {
     color: black;
     background: rgb(233, 255, 226);
     padding: 0.4vw;
-    border-radius: 2px;
+    border-radius: 0.3vw;
 }
 a.testimonial:visited {
     color: black;
@@ -123,7 +123,7 @@ li.hosting {
 /* details */
 
 div.details {
-    border-radius: 12px;
+    border-radius: 1.5vw;
     height: auto;
     padding-top: 1vw;
     padding-bottom: 1vw;
@@ -156,7 +156,7 @@ div.contacts {
     background: #30724c;
     margin-left: 30vw;
     margin-right: 30vw;
-    border-radius: 8px;
+    border-radius: 1.1vw;
     padding: 1.4vw;
     margin-bottom: 1.5vw;
     text-align: center;

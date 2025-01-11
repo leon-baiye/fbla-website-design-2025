@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="parallax" style="background-image: url('/src/assets/fieldhouse1.webp');"></div>
-    <Infostrip _align="left" text1="Who We Are" text2="DISCOVER THE FIELDHOUSE" color="green" bcol="black" loc=""/>
+    <Infostrip _align="left" text1="Fieldhouse History" text2="DISCOVER THE FIELDHOUSE" color="green" bcol="black" loc=""/>
     <div class="parallax" style="background-image: url('/src/assets/fieldhouse2.webp');"></div>
     <Infostrip _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="green" bcol="black" loc=""/>
     <div class="parallax" style="background-image: url('/src/assets/fieldhouse3.webp');"></div>
