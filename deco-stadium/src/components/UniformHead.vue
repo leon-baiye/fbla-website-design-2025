@@ -116,6 +116,10 @@ export default {
             let newHeight = dropheight-Number(document.getElementById("dropdown").style.maxHeight.replace("vw", ""))
             document.getElementById("dropdown").style.minHeight = (newHeight).toString() + "vw"
             document.getElementById("dropdown").style.maxHeight = (newHeight).toString() + "vw"
+            for(let x=0;x<3;x++) {
+                document.getElementsByClassName("dropitem").item(x).style.minHeight = (dropheight/3).toString() + "vw"
+                document.getElementsByClassName("dropitem").item(x).style.maxHeight = (dropheight/3).toString() + "vw"
+            }
         }
         return { drop, window }
     },

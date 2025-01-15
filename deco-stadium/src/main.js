@@ -8,6 +8,8 @@ import FieldhouseInfo from './pages/FieldhouseInfo.vue'
 import BoxOffice from './pages/BoxOffice.vue'
 import EventPlanning from './pages/EventPlanning.vue'
 import VirtualTour from './pages/VirtualTour.vue'
+import FieldhouseHistory from './pages/FieldhouseHistory.vue'
+import TourBooking from './pages/TourBooking.vue'
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -18,8 +20,10 @@ const routes = [
   { path: '/calendar', component: EventCalendar },
   { path: '/info', component: FieldhouseInfo },
   { path: '/office', component: BoxOffice },
-  { path: '/planning', component: EventPlanning},
-  { path: '/virtualtour', component: VirtualTour},
+  { path: '/planning', component: EventPlanning },
+  { path: '/virtualtour', component: VirtualTour },
+  { path: '/history', component: FieldhouseHistory },
+  { path: '/tour', component: TourBooking } 
 ]
 
 const router = createRouter({
@@ -50,8 +54,8 @@ function createStateChangeDetector(checkCondition, onBecomeTrue, onBecomeFalse, 
 }
 
 router.afterEach(async function(to, from) {
-  const order = ["/", "/calendar", "/office", "/info", "/planning", "/model"]
-  const highlightOrder = ["4vw", "23vw", "38.7vw", "54.5vw", "69.8vw"]
+  const order = ["/", "/calendar", "/office", "/info", "/planning", "/history", "/tour"]
+  const highlightOrder = ["4vw", "23vw", "38.7vw", "54.5vw", "69.8vw", "85.5vw", "85.5vw"]
   const toDepth = order.indexOf(to.path)
   const fromDepth = order.indexOf(from.path)
   if(toDepth == fromDepth) {

@@ -1,6 +1,6 @@
 <script>
 export default {
-    props: ['_align', 'marg', 'vidmarg', 'text1', 'text2', 'vid', 'post'],
+    props: ['_align', 'marg', 'vidmarg', 'text1', 'text2', 'vid', 'post', 'topmarg', 'vidwidth', 'divmargin', 'positioning'],
     setup(props) {
         
     },
@@ -9,7 +9,11 @@ export default {
             return {
                 '--align': this._align,
                 '--marg': this.marg,
-                '--vidmarg': this.vidmarg
+                '--vidmarg': this.vidmarg,
+                '--topmarg': this.topmarg,
+                '--vidwidth': this.vidwidth,
+                '--divmargin': this.divmargin,
+                '--positioning': this.positioning
             }
     }
   }
@@ -22,7 +26,7 @@ export default {
         <h3 class="tutorialstrip">{{ text1 }}</h3>
         <p class="tutorialstrip">{{ text2 }}</p>
     </div>
-    <video :poster="post" class="tutorialstrip" loop autoplay muted><source :src="vid" type="video/mp4"/></video>
+    <video :style="cssVars" :poster="post" class="tutorialstrip" loop autoplay muted><source :src="vid" type="video/mp4"/></video>
 </div>
 </template>
 
@@ -32,7 +36,7 @@ export default {
     div.tutorialstrip {
         background-color: #FFF;
         width: 90vw;
-        margin-left: 10vw;
+        margin-left: var(--divmargin);
         margin-bottom: 5vw;
     }
     div.tutorialcontain {
@@ -52,9 +56,9 @@ export default {
         margin-bottom: 2vw;
     }
     video.tutorialstrip {
-        position: absolute;
-        width: 35%;
-        margin-top: -18vw;
+        position: var(--positioning);
+        width: var(--vidwidth);
+        margin-top: var(--topmarg);
         margin-left: var(--vidmarg);
         border-radius: 0.7vw;
         border-color: gray;

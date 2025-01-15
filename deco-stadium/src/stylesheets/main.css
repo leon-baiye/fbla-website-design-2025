@@ -136,6 +136,7 @@ footer.foot {
   margin-bottom: 0;
   margin-top: 0;
   transition: bottom 0.4s ease-out;
+  z-index: 2;
 }
 
 .deco.foot {
@@ -366,8 +367,8 @@ div.drop {
 
 div.dropitem {
   background: transparent;
-  min-height: 8vw;
-  max-height: 8vw;
+  min-height: 33.3%;
+  max-height: 33.3%;
   display: inline-block;
   vertical-align: middle;
   color: black;

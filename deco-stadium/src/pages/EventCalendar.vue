@@ -279,14 +279,14 @@ img#down {
             </div>
         </div>
         <h2>How To Use</h2>
-        <TutorialStrip _align="left" marg=0% vidmarg="45%" text1="Navigation" text2="Change months by clicking the left or right arrows. Change years by clicking on the current year, then adjusting the year using the up and down arrows. Click the current year again to finalize your changes." vid="/src/assets/screen_shot_1.mp4" post="/src/assets/cover.png"/>
-        <TutorialStrip _align="right" marg=48% vidmarg="0%" text1="Events" text2="Click on a highlighted day to view that day's event, with information like the event's date and hosts. Click the 'Close' button to close the event display area." vid="/src/assets/screen_shot2_noside.mp4" post="/src/assets/cover.png"/>
+        <SideStrip positioning="absolute" divmargin="10vw" vidwidth="35%" topmarg="-20vw" _align="left" marg=0% vidmarg="45%" text1="Navigation" text2="Change months by clicking the left or right arrows. Change years by clicking on the current year, then adjusting the year using the up and down arrows. Click the current year again to finalize your changes." vid="/src/assets/screen_shot_1.mp4" post="/src/assets/cover.png"/>
+        <SideStrip positioning="absolute" divmargin="10vw" vidwidth="35%" topmarg="-18vw" _align="right" marg=48% vidmarg="0%" text1="Events" text2="Click on a highlighted day to view that day's event, with information like the event's date and hosts. Click the 'Close' button to close the event display area." vid="/src/assets/screen_shot2_noside.mp4" post="/src/assets/cover.png"/>
         <UniformFoot/>
     </main>
 </template>
 <script>
 import UniformFoot from '../components/UniformFoot.vue';
-import TutorialStrip from '../components/TutorialStrip.vue';
+import SideStrip from '../components/SideStrip.vue';
 import { ref } from 'vue';
 import { eventList } from '../eventList'
 
@@ -377,7 +377,7 @@ function dayUpdate(y, m) {
 export default {
     components: {
         UniformFoot,
-        TutorialStrip,
+        SideStrip,
     },
     setup() {
         const calendarUpdate = function(type, detail="") {

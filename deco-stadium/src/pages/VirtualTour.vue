@@ -43,7 +43,7 @@ h3.flipnotif {
             <h3 class="flipnotif">Please rotate your device to landscape for the best experience.</h3>
         </div>
         <h3 id="exit">[press x to exit]</h3>
-        <iframe id="tourinsert" src="https://storage.net-fs.com/hosting/6752951/34/" width="100%" height="100%"></iframe>
+        <iframe id="tourinsert" src="https://storage.net-fs.com/hosting/6752951/34/" width="100%" height="100%" allowvr="yes" allow="xr-spatial-tracking" allowfullscreen="yes"></iframe>
     </main>
 </template>
 
