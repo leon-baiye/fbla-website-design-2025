@@ -242,46 +242,49 @@ img#down {
     opacity: 0;
     transition: 0.2s ease-out;
 }
-
 </style>
 
 <template>
-    <main>
-        <div class="title2">
-            <h1>Event Calendar</h1>
+    <main class="me">
+        <div class="outer">
+            <div class="inner">
+                <div class="title2">
+                    <h1>Event Calendar</h1>
+                </div>
+                <div class="evdisplay" id="evdisplay">
+                    <div class="evtitle">
+                        <h1 class="evtitle">{{ evdata.title }}</h1>
+                        <h2 class="evdate">{{ evdata.date }}</h2>
+                    </div>
+                    <h3 class="evhost">{{ evdata.host }}</h3>
+                    <p class="evdesc">{{  evdata.desc }}</p>
+                    <button class="close" v-on:click="eventHide()">Close</button>
+                </div>
+                <div id="cal">
+                    <img v-on:click="calendarUpdate('month', 'left')" class="arrow left" src="../assets/LeftTri.svg"/>
+                    <img v-on:click="calendarUpdate('month', 'right')" class="arrow right" src="../assets/RightTri.svg"/>
+                    <div class="top">
+                        <h1 class="cal">{{ months[monthIndex] }}</h1>
+                        <img v-on:click="yearUpdate('up')" id="up" src="../assets/LeftTri.svg"/>
+                        <img v-on:click="yearUpdate('down')" id="down" src="../assets/LeftTri.svg"/>
+                        <h2 v-on:click="calendarUpdate('year')" class="cal">{{ year }}</h2>
+                    </div>
+                    <div class="weekdays">
+                        <h3 class="cal" v-for="wkday in wkdays">
+                            {{ wkday }}
+                        </h3>
+                    </div>
+                    <div class="daycontainer">
+                        <div class="day" v-for="day in days"><p :id="([(day.event.title).replace(/\s/g, ''), day.number]).join('')" v-on:click="eventPop(day.event, ([(day.event.title).replace(/\s/g, ''), day.number]).join(''))" :class="day.composite">{{ day.number }}</p></div>
+                        <!-- [day.highlighted] -->
+                    </div>
+                </div>
+                <h2>How To Use</h2>
+                <SideStrip positioning="absolute" divmargin="10vw" vidwidth="35%" topmarg="-20vw" _align="left" marg=0% vidmarg="45%" text1="Navigation" text2="Change months by clicking the left or right arrows. Change years by clicking on the current year, then adjusting the year using the up and down arrows. Click the current year again to finalize your changes." vid="/src/assets/screen_shot_1.mp4" post="/src/assets/cover.png"/>
+                <SideStrip positioning="absolute" divmargin="10vw" vidwidth="35%" topmarg="-18vw" _align="right" marg=48% vidmarg="0%" text1="Events" text2="Click on a highlighted day to view that day's event, with information like the event's date and hosts. Click the 'Close' button to close the event display area." vid="/src/assets/screen_shot2_noside.mp4" post="/src/assets/cover.png"/>       
+            </div>
+            <UniformFoot class="fe"/>
         </div>
-        <div class="evdisplay" id="evdisplay">
-            <div class="evtitle">
-                <h1 class="evtitle">{{ evdata.title }}</h1>
-                <h2 class="evdate">{{ evdata.date }}</h2>
-            </div>
-            <h3 class="evhost">{{ evdata.host }}</h3>
-            <p class="evdesc">{{  evdata.desc }}</p>
-            <button class="close" v-on:click="eventHide()">Close</button>
-        </div>
-        <div id="cal">
-            <img v-on:click="calendarUpdate('month', 'left')" class="arrow left" src="../assets/LeftTri.svg"/>
-            <img v-on:click="calendarUpdate('month', 'right')" class="arrow right" src="../assets/RightTri.svg"/>
-            <div class="top">
-                <h1 class="cal">{{ months[monthIndex] }}</h1>
-                <img v-on:click="yearUpdate('up')" id="up" src="../assets/LeftTri.svg"/>
-                <img v-on:click="yearUpdate('down')" id="down" src="../assets/LeftTri.svg"/>
-                <h2 v-on:click="calendarUpdate('year')" class="cal">{{ year }}</h2>
-            </div>
-            <div class="weekdays">
-                <h3 class="cal" v-for="wkday in wkdays">
-                    {{ wkday }}
-                </h3>
-            </div>
-            <div class="daycontainer">
-                <div class="day" v-for="day in days"><p :id="([(day.event.title).replace(/\s/g, ''), day.number]).join('')" v-on:click="eventPop(day.event, ([(day.event.title).replace(/\s/g, ''), day.number]).join(''))" :class="day.composite">{{ day.number }}</p></div>
-                <!-- [day.highlighted] -->
-            </div>
-        </div>
-        <h2>How To Use</h2>
-        <SideStrip positioning="absolute" divmargin="10vw" vidwidth="35%" topmarg="-20vw" _align="left" marg=0% vidmarg="45%" text1="Navigation" text2="Change months by clicking the left or right arrows. Change years by clicking on the current year, then adjusting the year using the up and down arrows. Click the current year again to finalize your changes." vid="/src/assets/screen_shot_1.mp4" post="/src/assets/cover.png"/>
-        <SideStrip positioning="absolute" divmargin="10vw" vidwidth="35%" topmarg="-18vw" _align="right" marg=48% vidmarg="0%" text1="Events" text2="Click on a highlighted day to view that day's event, with information like the event's date and hosts. Click the 'Close' button to close the event display area." vid="/src/assets/screen_shot2_noside.mp4" post="/src/assets/cover.png"/>
-        <UniformFoot/>
     </main>
 </template>
 <script>
@@ -289,6 +292,7 @@ import UniformFoot from '../components/UniformFoot.vue';
 import SideStrip from '../components/SideStrip.vue';
 import { ref } from 'vue';
 import { eventList } from '../eventList'
+import { checkMainScroll } from '../components/UniformHead.vue';
 
 const evdata = ref({"title": "Event Name", "date": "jan 2nd", "host": "Hosted By Absolut Crusty", "desc": "Event description."})
 var currentButton = null
@@ -436,6 +440,12 @@ export default {
         days.value = Array.from({ length: 32 }, (_, x) => {return {"number":x, "event":{"title": "null", "date": "null", "host": "null", "desc": "null"}, "highlighted": "false", "separate": "no", "composite":"day false no"}}).splice(1)
         dayUpdate(year.value, monthIndex.value)
         return { days, months, monthIndex, year, wkdays, evdata, calendarUpdate, yearUpdate, eventPop, eventHide }
+    },
+    beforeRouteLeave(to, from) {
+        document.getElementById("/calendar").removeEventListener("scroll", checkMainScroll)
+    },
+    mounted() {
+        document.getElementById("/calendar").addEventListener("scroll", checkMainScroll)
     }
 }
 </script>

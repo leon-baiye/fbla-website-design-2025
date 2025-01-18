@@ -37,7 +37,7 @@ export default {
         background-color: #FFF;
         width: 90vw;
         margin-left: var(--divmargin);
-        margin-bottom: 5vw;
+        margin-bottom: 10vw;
     }
     div.tutorialcontain {
         text-align: var(--align);

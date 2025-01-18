@@ -23,10 +23,17 @@
 </template>
 
 <style>
+div.app {
+  position: relative;
+  min-height: 100vh;
+}
 .c {
   position: absolute;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   width: 100vw;
+  height: 100vh;
+  background: white;
 }
 </style>
 
@@ -35,7 +42,8 @@
 import { RouterView } from 'vue-router'
 import UniformHead from './components/UniformHead.vue'
 import UniformFoot from './components/UniformFoot.vue'
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useRoute } from 'vue-router'
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -49,9 +57,6 @@ export default {
     await delay(100)
     window.scrollTo(0,0)
     document.getElementById("field").classList.add("fade") 
-    return
   }
-
 }
-
 </script>

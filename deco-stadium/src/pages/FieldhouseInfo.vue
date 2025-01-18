@@ -120,6 +120,8 @@ img.seats {
 div.amenit {
     padding-left: 10%;
     padding-right: 10%;
+    height: 25vh;
+    overflow-y: scroll;
 }
 h4.amenit {
     text-align: left;
@@ -182,116 +184,104 @@ img.xout {
     margin-left: 15vw;
     margin-top: 15vw;
 }
-
-/* scrolling pop-up disabled on smaller devices to reduce disorientation */
-
-@media (max-width: 1366px) {
-  div.card#dir {
-    margin-top: 2;
-  }
-  div.card#seat {
-    margin-top: 2;
-  }
-  div.card#policy {
-    margin-top: 2;
-  }
-  div.card#amen {
-    margin-top: 0.6;
-  }
-}
 </style>
 
 <template>
-    <main>
+    <main class="mi">
         <div id="over">
             <img v-on:click="overlay('close')" src="../assets/X.svg" class="xout">
             <img src="../assets/Seating Chart.svg" class="seatingoverlay">
         </div>
-        <div class="title2">
-            <h1>Fieldhouse<br>Info</h1>
-        </div>
-        <div class="cardcontainer">
-            <div class="card" style="height: 80vw" id="dir">
-                <h3 class="cardtitle">Directions</h3>
-                <h4 style="font-weight: 500;"><a class="maps" href="https://www.google.com/maps/place/New+Castle+High+School/@39.9128291,-85.3813085,16z/data=!3m1!4b1!4m6!3m5!1s0x88153314bbd8e93d:0x21a566c0eca05050!8m2!3d39.9128292!4d-85.3764376!16s%2Fm%2F03d0v25?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D">801 Parkview Dr, New Castle, IN 47362</a></h4>
-                <div class="mapcontainer">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133723.0853894376!2d-90.25436728750002!3d39.9128292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88153314bbd8e93d%3A0x21a566c0eca05050!2sNew%20Castle%20High%20School!5e0!3m2!1sen!2sus!4v1735655314629!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="outer">
+            <div class="inner">
+                <div class="title2">
+                    <h1>Fieldhouse<br>Info</h1>
                 </div>
-                <h4 class="map">Reccomendations</h4>
-                <ul class="maps">
-                    <li class="maps">If you're coming from I-70 West: </li>
-                        <ul class="sub">
-                            <li class="sub">Take exit 131 onto Wilbur Wright Road</li>
-                            <li class="sub">Stay on Wilbur Wright Rd for 6.9 mi</li>
-                            <li class="sub">Turn right onto South 14th Street after 0.8 mi</li>
-                            <li class="sub">Turn left onto M Avenue after 0.6 mi, then directly left onto Ross Street.</li>
-                            <li class="sub">Turn right into the NCHS parking lot</li>
+                <div class="cardcontainer">
+                    <div class="card" style="height: 80vw" id="dir">
+                        <h3 class="cardtitle">Directions</h3>
+                        <h4 style="font-weight: 500;"><a class="maps" href="https://www.google.com/maps/place/New+Castle+High+School/@39.9128291,-85.3813085,16z/data=!3m1!4b1!4m6!3m5!1s0x88153314bbd8e93d:0x21a566c0eca05050!8m2!3d39.9128292!4d-85.3764376!16s%2Fm%2F03d0v25?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D">801 Parkview Dr, New Castle, IN 47362</a></h4>
+                        <div class="mapcontainer">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133723.0853894376!2d-90.25436728750002!3d39.9128292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88153314bbd8e93d%3A0x21a566c0eca05050!2sNew%20Castle%20High%20School!5e0!3m2!1sen!2sus!4v1735655314629!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <h4 class="map">Reccomendations</h4>
+                        <ul class="maps">
+                            <li class="maps">If you're coming from I-70 West: </li>
+                                <ul class="sub">
+                                    <li class="sub">Take exit 131 onto Wilbur Wright Road</li>
+                                    <li class="sub">Stay on Wilbur Wright Rd for 6.9 mi</li>
+                                    <li class="sub">Turn right onto South 14th Street after 0.8 mi</li>
+                                    <li class="sub">Turn left onto M Avenue after 0.6 mi, then directly left onto Ross Street.</li>
+                                    <li class="sub">Turn right into the NCHS parking lot</li>
+                                </ul>
+                            <li class="maps">If you're coming from I-70 East: </li>
+                                <ul class="sub">
+                                    <li class="sub">Take exit 123 onto IN-3 towards New Castle</li>
+                                    <li class="sub">Turn left onto IN-3 North after 4.6 mi</li>
+                                    <li class="sub">Turn right onto Trojan Lane after 0.4 mi</li>
+                                    <li class="sub">Turn left into the NCHS parking lot</li>
+                                </ul>
+                            <li class="maps">If you're coming from I-69 South: </li>
+                                <ul class="sub">
+                                    <li class="sub">Take exit 286 towards Markle</li>
+                                    <li class="sub">Turn left onto East Markle Road after 0.3 mi</li>
+                                    <li class="sub">Turn right onto West Morse Street after 0.6 mi</li>
+                                    <li class="sub">Turn right onto South Clark Road after 48.3 mi</li>
+                                    <li class="sub">Take the IN-3 exit towards New Castle after 0.3 mi</li>
+                                    <li class="sub">Turn left onto IN-3 South (passing by KFC) after 16.3 mi</li>
+                                    <li class="sub">Turn left onto Parkfiew Drive after 0.4 mi</li>
+                                    <li class="sub">Stay on Parkview Drive until reaching Ross Street. Turn right onto Ross Street.</li>
+                                    <li class="sub">Turn right into the NCHS parking lot</li>
+                                </ul>
+                            <li class="maps">Be aware that traffic is <strong>thickest</strong> on xdays from x-x, and <strong>thinnest</strong> on xdays from x-x.</li>
                         </ul>
-                    <li class="maps">If you're coming from I-70 East: </li>
-                        <ul class="sub">
-                            <li class="sub">Take exit 123 onto IN-3 towards New Castle</li>
-                            <li class="sub">Turn left onto IN-3 North after 4.6 mi</li>
-                            <li class="sub">Turn right onto Trojan Lane after 0.4 mi</li>
-                            <li class="sub">Turn left into the NCHS parking lot</li>
-                        </ul>
-                    <li class="maps">If you're coming from I-69 South: </li>
-                        <ul class="sub">
-                            <li class="sub">Take exit 286 towards Markle</li>
-                            <li class="sub">Turn left onto East Markle Road after 0.3 mi</li>
-                            <li class="sub">Turn right onto West Morse Street after 0.6 mi</li>
-                            <li class="sub">Turn right onto South Clark Road after 48.3 mi</li>
-                            <li class="sub">Take the IN-3 exit towards New Castle after 0.3 mi</li>
-                            <li class="sub">Turn left onto IN-3 South (passing by KFC) after 16.3 mi</li>
-                            <li class="sub">Turn left onto Parkfiew Drive after 0.4 mi</li>
-                            <li class="sub">Stay on Parkview Drive until reaching Ross Street. Turn right onto Ross Street.</li>
-                            <li class="sub">Turn right into the NCHS parking lot</li>
-                        </ul>
-                    <li class="maps">Be aware that traffic is <strong>thickest</strong> on xdays from x-x, and <strong>thinnest</strong> on xdays from x-x.</li>
-                </ul>
-                <h4 class="excited">We're excited to see you at the Fieldhouse sometime soon!</h4>
-            </div>
-            <div class="rightcontainer">
-                <div class="card" style="height: 27vw;margin-bottom: 0vw;overflow:hidden" id="seat">
-                    <h3 style="margin-bottom: 0.8vw;" class="cardtitle">Seating</h3>
-                    <h4 style="margin-top: 0;">Overhead View<br>[click to expand]</h4>
-                    <img v-on:click="overlay('open')" src="../assets/Seating Chart.svg" class="seats">
+                        <h4 class="excited">We're excited to see you at the Fieldhouse sometime soon!</h4>
+                    </div>
+                    <div class="rightcontainer">
+                        <div class="card" style="height: 27vw;margin-bottom: 0vw;overflow:hidden" id="seat">
+                            <h3 style="margin-bottom: 0.8vw;" class="cardtitle">Seating</h3>
+                            <h4 style="margin-top: 0;">Overhead View<br>[click to expand]</h4>
+                            <img v-on:click="overlay('open')" src="../assets/Seating Chart.svg" class="seats">
+                        </div>
+                        <div class="card" style="height: 50vw;overflow:hidden;" id="amen">
+                            <h3 class="cardtitle">Amenities</h3>
+                            <div class="amenit">
+                                <h4 class="amenit">Bathrooms</h4>
+                                    <li class="amenit">Located on the XYZ concourse</li>
+                                <h4 class="amenit">Concessions</h4>
+                                    <li class="amenit">4 concessions stands, located at each corner of the main concourse</li>
+                                <h4 class="amenit">Performer/Player Access</h4>
+                                    <li class="amenit">Located on the XYZ concourse</li>
+                                <h4 class="amenit">Walkways</h4>
+                                    <li class="amenit">Located on the XYZ concourse</li>
+                                <h4 class="amenit">VIP Box</h4>
+                                    <li class="amenit">Located on the XYZ concourse</li>
+                                <h4 class="amenit">JumboTron</h4>
+                                    <li class="amenit">Located on the XYZ concourse</li>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card" style="height: 50vw;overflow:hidden;" id="amen">
-                    <h3 class="cardtitle">Amenities</h3>
-                    <div class="amenit">
-                        <h4 class="amenit">Bathrooms</h4>
-                            <li class="amenit">Located on the XYZ concourse</li>
-                        <h4 class="amenit">Concessions</h4>
-                            <li class="amenit">4 concessions stands, located at each corner of the main concourse</li>
-                        <h4 class="amenit">Performer/Player Access</h4>
-                            <li class="amenit">Located on the XYZ concourse</li>
-                        <h4 class="amenit">Walkways</h4>
-                            <li class="amenit">Located on the XYZ concourse</li>
-                        <h4 class="amenit">VIP Box</h4>
-                            <li class="amenit">Located on the XYZ concourse</li>
-                        <h4 class="amenit">JumboTron</h4>
-                            <li class="amenit">Located on the XYZ concourse</li>
+                <div class="card" style="width:90%;height: 40vw; margin-left:5vw; margin-right:5vw; margin-bottom: 6vw;" id="policy">
+                    <h3 class="cardtitle">Policies</h3>
+                    <h4 class="handbook"><a class="handbook" href="https://ecode360.com/11774565">View Full Policy Handbook</a></h4>
+                    <div style="width: 90%; margin-left:5%; margin-right: 5%;">
+                        <h4 style="text-align: left;font-size: 2vw;margin-bottom: 1vw;">Notable policies include: </h4>
+                        <ul class="policies">
+                            <li class="policies">some policy</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+        <UniformFoot class="fi"/>
         </div>
-        <div class="card" style="width:90%;height: 40vw; margin-left:5vw; margin-right:5vw; margin-bottom: 2vw;" id="policy">
-            <h3 class="cardtitle">Policies</h3>
-            <h4 class="handbook"><a class="handbook" href="https://ecode360.com/11774565">View Full Policy Handbook</a></h4>
-            <div style="width: 90%; margin-left:5%; margin-right: 5%;">
-                <h4 style="text-align: left;font-size: 2vw;margin-bottom: 1vw;">Notable policies include: </h4>
-                <ul class="policies">
-                    <li class="policies">some policy</li>
-                </ul>
-            </div>
-        </div>
-        <UniformFoot/>
     </main>
 </template>
 
 <script>
 import UniformFoot from '../components/UniformFoot.vue';
 import { useRouter } from 'vue-router';
+import { checkMainScroll } from '../components/UniformHead.vue';
 
 var popped = []
 
@@ -299,17 +289,17 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 
 function popCard() {
-    if(window.scrollY>=window.innerHeight*0.1 && !popped.includes("seat")) {
+    if(window.scrollY>=window.outerHeight*0.1 && !popped.includes("seat")) {
         popped.push("seat")
-        document.getElementById("seat").style.marginTop = "2vw"
+        document.getElementById("seat").style.marginTop = "2vh"
     }
-    if(window.scrollY>=window.innerHeight*0.5 && !popped.includes("amen")) {
+    if(window.scrollY>=window.outerHeight*0.5 && !popped.includes("amen")) {
         popped.push("amen")
-        document.getElementById("amen").style.marginTop = "0.6vw"
+        document.getElementById("amen").style.marginTop = "0.6vh"
     }
-    if(window.scrollY>=(window.innerHeight) && !popped.includes("policy")) {
+    if(window.scrollY>=(window.outerHeight) && !popped.includes("policy")) {
         popped.push("policy")
-        document.getElementById("policy").style.marginTop = "2vw"
+        document.getElementById("policy").style.marginTop = "2vh"
     }
 }
 export default {
@@ -329,15 +319,29 @@ export default {
         }
         return { overlay }
     },
+    beforeRouteLeave(to, from) {
+        document.getElementById("/info").removeEventListener("scroll", checkMainScroll)
+    },
     async mounted() {
-        popped = []
-        document.addEventListener("scroll", (event) => {
-            if(popped.length!=3) {
-            popCard();
-            }
-        })
-        await delay(300)
-        document.getElementById("dir").style.marginTop = "2vw"
+        document.getElementById("/info").addEventListener("scroll", checkMainScroll)
+        /* scrolling pop-up disabled on smaller devices to reduce disorientation */
+        console.log("height", window.outerHeight)
+        if(window.outerHeight > 666) {
+            document.getElementById("dir").style.marginTop = "2vh"
+            document.getElementById("seat").style.marginTop = "2vh"
+            document.getElementById("amen").style.marginTop = "0.6vh"
+            document.getElementById("policy").style.marginTop = "2vh"
+        }
+        else {
+            popped = []
+            document.addEventListener("scroll", (event) => {
+                if(popped.length!=3) {
+                popCard();
+                }
+            })
+            await delay(300)
+            document.getElementById("dir").style.marginTop = "2vh"
+        }
     }
 }
 </script>

@@ -35,7 +35,6 @@ function createStateChangeDetector(checkCondition, onBecomeTrue, onBecomeFalse, 
   let wasTrue = false
   return function() {
       var isTrue = checkCondition()
-
       if(isTrue && !wasTrue) {
          if(extraInfo == '') {
           onBecomeTrue(true)
@@ -73,12 +72,13 @@ router.afterEach(async function(to, from) {
     document.getElementById("exit").style.opacity = 0.5
   }
   else if(from.path == "/virtualtour") {
-    document.getElementById("tourinsert").style.filter = "brightness(0)"
     document.getElementById("exit").style.opacity = 0
     to.meta.transition = "virtualtour"
-    await delay(1000)
     document.getElementById("head").style.height = "8vw"
     document.getElementById("head2").style.height = "8vw"
+    document.getElementById("highlight").style.height = "16vw"
+    document.getElementById("highlight").style.left = "4vw"
+    await delay(1000)
     currentTrans = 'none'
   }
   else {

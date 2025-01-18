@@ -4,6 +4,7 @@ template, html {
   overflow-x: hidden;
   scroll-behavior: smooth;
   overscroll-behavior-block: none;
+  background: black;
 }
 
 html {
@@ -28,6 +29,7 @@ body {
   color: white;
   margin-left: 0;
   margin-top: 0;
+  margin-bottom: 0;
   height: 100vh;
 }
 
@@ -132,11 +134,39 @@ footer.foot {
   width: 100vw;
   text-align: center;
   padding-top: 2vw;
-  padding-bottom: 2vw;
-  margin-bottom: 0;
-  margin-top: 0;
+  padding-bottom: 3vh;
+  bottom: 0;
+  height: 14vw;
   transition: bottom 0.4s ease-out;
   z-index: 2;
+}
+
+.fb {
+  position: absolute;
+}
+
+.fe {
+  position: absolute;
+}
+
+.fp {
+  position: absolute;
+}
+
+.fh {
+  position: absolute;
+}
+
+.fi {
+  position: absolute;
+}
+
+.ft {
+  position: absolute;
+}
+
+.fhome {
+  position: relative;
 }
 
 .deco.foot {
@@ -328,11 +358,6 @@ h1.fade {
   filter: blur(8px);
 }
 
-main {
-  overflow: hidden;
-  width: 100vw;
-}
-
 .virtualtour-leave-active {
   transition: 1s filter ease-out;
 }
@@ -343,11 +368,11 @@ main {
 }
 
 .virtualtour-enter-from, .virtualtour-leave-to {
-  filter: brightness(0);
+  filter: opacity(0);
 }
 
 .virtualtour-enter-to, .virtualtour-leave-from {
-  filter: brightness(1);
+  filter: opacity(1);
 }
 
 div.drop {
@@ -510,6 +535,20 @@ div#leftslide2 {
   animation-timing-function: ease-out;
   animation-delay: 0;
   animation-play-state: running;
+}
+
+div.outer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+div.inner {
+  position: relative;
+  padding-bottom: 14vw;
 }
 
 component {

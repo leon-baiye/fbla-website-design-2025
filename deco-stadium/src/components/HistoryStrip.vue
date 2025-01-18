@@ -9,8 +9,8 @@ export default {
             return {
                 '--align': this._align,
                 '--dir': this._align == "left" ? "row" : "row-reverse",
-                '--dotdiv': this._align == "left" ? "-2.55vw" : "0",
-                '--dotvid': this._align == "left" ? "0" : "-2.97vw",
+                '--dotdiv': this._align == "left" ? "-3vw" : "0",
+                '--dotvid': this._align == "left" ? "0" : "-3.1vw",
             }
     }
   }
@@ -44,10 +44,10 @@ export default {
     .historycontain::after {
         content: '';
         position: absolute;
-        width: 6px;
+        width: 0.5vw;
         background-color: rgb(9, 244, 40);
-        top: 40vw;
-        height: 55vw;
+        top: 10vh;
+        height: 300vh;
         bottom: 0;
         left: 50%;
         margin-left: 0px;
@@ -74,7 +74,7 @@ export default {
         min-width: 3vw;
         min-height: 3vw;
         background-color: rgb(255, 255, 255);
-        border: 4px solid rgb(22, 173, 45);
+        border: 0.5vw solid rgb(22, 173, 45);
         border-radius: 50%;
         z-index: 2;
         margin-left: var(--dotdiv);
@@ -82,6 +82,7 @@ export default {
     }
     img.historystrip {
         object-fit: cover;
+        background-attachment: fixed;
         position: relative;
         width: 35vw;
         height: 23vw;

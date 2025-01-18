@@ -9,6 +9,7 @@ h3.tour {
 h2.tour {
   font-size: 2vw;
   margin: 2.5vw;
+  margin-bottom: 7vw;
 }
 
 iframe.tallyform {
@@ -23,32 +24,41 @@ iframe.tallyform {
 </style>
 
 <template>
-    <main>
-        <div class="title2">
-            <h1>Book a Tour</h1>
+    <main class="mt">
+        <div class="outer">
+            <div class="inner">
+                <div class="title2">
+                    <h1>Book a Tour</h1>
+                </div>
+                <h3 class="tour">Fill out the form below to request a tour of the Fieldhouse.</h3>
+                <h3 class="tour">We'll get back to you shortly!</h3>
+                <h4>Fields marked with an asterisk (*) are required.</h4>
+                <iframe class="tallyform" data-tally-src="https://tally.so/embed/3EvNKq?hideTitle=1" loading="lazy" title="New Castle Fieldhouse Tour Request">
+                </iframe>
+                <h2 class="tour">THANKS FOR YOUR INTEREST IN A TOUR!</h2>
+            </div>
+            <UniformFoot class="ft"/>
         </div>
-        <h3 class="tour">Fill out the form below to request a tour of the Fieldhouse.</h3>
-        <h3 class="tour">We'll get back to you shortly!</h3>
-        <h4>Fields marked with an asterisk (*) are required.</h4>
-        <iframe class="tallyform" data-tally-src="https://tally.so/embed/3EvNKq?hideTitle=1" loading="lazy" title="New Castle Fieldhouse Tour Request">
-        </iframe>
-        <h2 class="tour">THANKS FOR YOUR INTEREST IN A TOUR!</h2>
-        <UniformFoot/>
     </main>
   </template>
   
 <script>
     import HistoryStrip from '../components/HistoryStrip.vue';
     import UniformFoot from '../components/UniformFoot.vue';
+    import { checkMainScroll } from '../components/UniformHead.vue';
     export default {
         components: {
             HistoryStrip,
             UniformFoot,
         },
+        beforeRouteLeave(to, from) {
+            document.getElementById("/tour").removeEventListener("scroll", checkMainScroll)
+        },
         mounted() {
-        let formScript = document.createElement('script')
-        formScript.setAttribute('src', './src/formAppend.js')
-        document.head.appendChild(formScript)
+            document.getElementById("/tour").addEventListener("scroll", checkMainScroll)
+            let formScript = document.createElement('script')
+            formScript.setAttribute('src', './src/formAppend.js')
+            document.head.appendChild(formScript)
         },
     };
 </script>

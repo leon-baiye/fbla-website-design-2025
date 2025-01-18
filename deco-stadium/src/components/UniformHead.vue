@@ -11,20 +11,20 @@
                 More
                 <div id="dropdown" class="drop">
                     <div class="dropitem">
-                        <RouterLink class="rl" to="/history">
+                        <RouterLink :onclick="scrollToTop" class="rl" to="/history">
                             <p>
                                 Fieldhouse <br>History
                             </p>
                         </RouterLink>
                     </div>
                     <div class="dropitem">
-                        <RouterLink class="rl" to="/tour">
+                        <RouterLink :onclick="scrollToTop" class="rl" to="/tour">
                             <p>
                                 Book a <br>Tour
                             </p>
                         </RouterLink>
                     </div>
-                    <div v-if="window.innerWidth>800" class="dropitem">
+                    <div class="dropitem">
                         <RouterLink class="rl" to="/virtualtour">
                             <p>
                                 Virtual <br>Tour
@@ -40,7 +40,7 @@
 <script>
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import { currentTrans, createStateChangeDetector } from '../main';
 
 const router = ref()
@@ -48,8 +48,16 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 var dropped = false
 var dropamount = 3
 var dropheight = 8*dropamount
+const route = ref()
+
+export const checkMainScroll = createStateChangeDetector(
+        () => (document.getElementsByTagName("main")[0].scrollTop > window.outerHeight/3),
+        updateHeader,
+        updateHeader
+    )
 
 function updateHeader(fullsize) {
+    console.log("updated")
     if(fullsize) {
         document.getElementById("head").style.height = "4vw"
         document.getElementById("head2").style.height = "4vw"
@@ -106,11 +114,12 @@ function checkOpacity() {
 }
 export default {
     methods: { 
-        scrollToTop() {
-            window.scrollTo(0,0);
+        async scrollToTop() {
+            window.scrollTo(0,0)
         }
     },
     setup() {
+        route.value = useRoute()
         async function drop() {
             dropped = !dropped
             let newHeight = dropheight-Number(document.getElementById("dropdown").style.maxHeight.replace("vw", ""))
@@ -125,12 +134,6 @@ export default {
     },
     async mounted() {
         await delay(100)
-        const checkScroll = createStateChangeDetector(
-            () => (window.scrollY > 300),
-            updateHeader,
-            updateHeader
-        )
-        document.addEventListener('scroll', checkScroll)
         setInterval(checkOpacity, 200)
         document.getElementById("head").classList.add("float") 
         return

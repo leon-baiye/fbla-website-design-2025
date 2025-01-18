@@ -23,10 +23,15 @@ div.boxoffice {
     width: 75vw;
     margin-left: 12.5vw;
     margin-right: 12.5vw;
-    height: 40vw;
+    height: 70vh;
     overflow-y: scroll;
 }
 
+@media (min-height: 666px) {
+    div.boxoffice {
+        height: auto;
+    }
+}
 /* legend */ 
 
 div.legend {
@@ -208,35 +213,39 @@ p.scrollExplain {
 </style>
 
 <template>
-    <main>
-        <div class="title2">
-            <h1>Box Office</h1>
-        </div>
-        <h2 class="office">Welcome!</h2>
-        <h3 class="office">Find tickets for upcoming Fieldhouse events below.</h3>
-        <div id="scrollEx">
-            <img class="scrollExplain" src="../assets/movingarrow.png">
-            <p class="scrollExplain">Scroll to see more events!</p>
-        </div>
-        <div class="boxoffice">
-            <div class="legend">
-                <p class="d">Date</p>
-                <p class="t">Title</p>
-                <p class="des">Description</p>
-                <p class="p">Price</p>
-                <p class="space"></p>
-            </div>
-            <div class="eventcontainer">
-                <div class="eventdisp" v-for="event in popEvents">
-                    <p class="eday">{{ event.date }}<br>{{ event.time }}</p>
-                    <p class="etitle">{{ event.title }}</p>
-                    <p class="edesc">{{ event.desc }}</p>
-                    <p class="eprice">{{ event.price }}</p>
-                    <a class="office" :href="event.link"><button class="purchase">Get Tickets</button></a>
+    <main class="mb">
+        <div class="outer">
+            <div class="inner">
+                <div class="title2">
+                    <h1>Box Office</h1>
+                </div>
+                <h2 class="office">Welcome!</h2>
+                <h3 class="office">Find tickets for upcoming Fieldhouse events below.</h3>
+                <div id="scrollEx">
+                    <img class="scrollExplain" src="../assets/movingarrow.png">
+                    <p class="scrollExplain">Scroll to see more events!</p>
+                </div>
+                <div class="boxoffice">
+                    <div class="legend">
+                        <p class="d">Date</p>
+                        <p class="t">Title</p>
+                        <p class="des">Description</p>
+                        <p class="p">Price</p>
+                        <p class="space"></p>
+                    </div>
+                    <div class="eventcontainer">
+                        <div class="eventdisp" v-for="event in popEvents">
+                            <p class="eday">{{ event.date }}<br>{{ event.time }}</p>
+                            <p class="etitle">{{ event.title }}</p>
+                            <p class="edesc">{{ event.desc }}</p>
+                            <p class="eprice">{{ event.price }}</p>
+                            <a class="office" :href="event.link"><button class="purchase">Get Tickets</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <UniformFoot class="fb"/>
         </div>
-        <UniformFoot/>
     </main>
 </template>
 
@@ -245,8 +254,10 @@ import UniformFoot from '../components/UniformFoot.vue';
 import { eventList } from '../eventList';
 import { ref } from 'vue';
 import { createStateChangeDetector } from '../main';
+import { checkMainScroll } from '../components/UniformHead.vue';
 const popEvents = ref([])
 
+var shown = false
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 export default {
@@ -276,21 +287,31 @@ export default {
         console.log(popEvents)
         return { popEvents }
     },
-    mounted() {
-        async function showTut() {
-            await delay(1500)
-            document.getElementById('scrollEx').style.opacity = 1
-            document.getElementsByClassName('scrollExplain').item(0).classList.add("animated")
-            await delay(5000)
-            document.getElementsByClassName('scrollExplain').item(0).classList.remove("animated")
-            document.getElementById('scrollEx').style.opacity = 0
+    beforeRouteLeave(to, from) {
+        document.getElementById("/office").removeEventListener("scroll", checkMainScroll)
+        },
+    async mounted() {
+        document.getElementById("/office").addEventListener("scroll", checkMainScroll)
+        console.log(document.getElementsByClassName("outer")[0].scrollTop)
+        if(window.outerHeight < 666) {
+            async function showTut() {
+                if(!shown) {
+                    shown = true
+                    await delay(1500)
+                    document.getElementById('scrollEx').style.opacity = 1
+                    document.getElementsByClassName('scrollExplain').item(0).classList.add("animated")
+                    await delay(5000)
+                    document.getElementsByClassName('scrollExplain').item(0).classList.remove("animated")
+                    document.getElementById('scrollEx').style.opacity = 0
+                }
+            }
+            const checkTut = createStateChangeDetector(
+                () => (window.scrollY > 500),
+                showTut,
+                null
+            )
+            document.addEventListener('scroll', checkTut)
         }
-        const checkTut = createStateChangeDetector(
-            () => (window.scrollY > 500),
-            showTut,
-            null
-        )
-        document.addEventListener('scroll', checkTut)
     }
 }
 </script>

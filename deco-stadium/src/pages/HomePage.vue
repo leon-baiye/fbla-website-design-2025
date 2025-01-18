@@ -58,7 +58,7 @@
     <div class="parallax" style="background-image: url('/src/assets/fieldhouse4.webp');"></div>
     <Infostrip _align="flex-end" text1="About The Fieldhouse" text2="LEARN ABOUT DIRECTIONS, SEATING AND MORE" color="green" bcol="black" loc="/info"/>
     <div class="parallax" style="background-image: url('/src/assets/fieldhouse5.webp');"></div>
-    <UniformFoot/>
+    <UniformFoot class="fhome"/>
     </main>
 </template>
 
@@ -69,12 +69,16 @@ import { ref } from 'vue'
 import { currentTrans } from '../main';
 import { eventList } from '../eventList';
 import { useRouter } from 'vue-router';
+import { checkMainScroll } from '../components/UniformHead.vue';
 
 export default {
     name: "HomePage",
     components: {
       Infostrip,
       UniformFoot
+    },
+    beforeRouteLeave(to, from) {
+      document.getElementById("/").removeEventListener("scroll", checkMainScroll)
     },
     setup() {
       const router = useRouter()
@@ -95,6 +99,7 @@ export default {
       return { events, router, window }
     },
     async mounted() {
+      document.getElementById("/").addEventListener("scroll", checkMainScroll)
       this.window.scrollTo(0, 0);
       if(currentTrans != "entrance") {
         document.getElementById("field").style.transition = "none"
