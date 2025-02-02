@@ -106,7 +106,7 @@ p.scrollExpl {
         <div class="outer">
             <div class="inner">
                 <div class="title2">
-                    <h1>Fieldhouse History</h1>
+                    <h1>Mecca History</h1>
                 </div>
                 <div id="scrollExp">
                     <p class="scrollExpl">Scroll to see more history!</p>
@@ -117,18 +117,18 @@ p.scrollExpl {
                         positioning="relative"
                         _align="left"
                         text1="The Catalyst" 
-                        text2="In 1954, Milan High School of Indiana won the state basketball championship, garnerning statewide attention & acclaim.
-                        Their coach, Marvin Wood, was hired by New Castle High School shortly after. In disucssions with the prospective coach, New Castle administrators shared their plans to rebuild the school's gym, outdated at the time.
-                        Wood suggested a larger, more modern facility, and the idea for the Fieldhouse was born. While the Milan coach didn't end up staying with New Castle, his vision for the Fieldhouse did." 
+                        text2="In 1954, Weddington High School of Waxhaw won the state basketball championship, garnerning statewide attention & acclaim.
+                        Their coach, Marvin Wood, was hired by Marvin Ridge School shortly after. In disucssions with the prospective coach, Marvin Ridge administrators shared their plans to rebuild the school's gym, outdated at the time.
+                        Wood suggested a larger, more modern facility, and the idea for the Mecca was born. While the Milan coach didn't end up staying with Marvin Ridge, his vision for the Mecca did." 
                         post="/src/assets/milan.jpg"
                     />
                     <HistoryStrip 
                         positioning="relative"
                         _align="right" 
                         text1="'Gym Now'" 
-                        text2="After Marvin Wood left New Castle to pursue other coaching dreams, the New Castle-Henry Township Building Corporation took over the Fieldhouse project.
+                        text2="After Marvin Wood left Marvin Ridge to pursue other coaching dreams, the Marvin Ridge-Henry Township Building Corporation took over the Fieldhouse project.
                         However, initial attempts to speed up construction were met with opposition from Superintendent Rexford Wright, who stated that construction of a new gym would have to wait.
-                        However, for New Castle fans, having to attend games in the outdated Church Street Gym simply wasn't an option. 'Gym Now' quickly became a rallying cry for the community and its hopes for an updated stadium." 
+                        However, for Maverick fans, having to attend games in the outdated Crane Street Gym simply wasn't an option. 'Gym Now' quickly became a rallying cry for the community and its hopes for an updated stadium." 
                         post="/src/assets/gymnow.jpg"
                     />
                     <HistoryStrip 
@@ -136,17 +136,16 @@ p.scrollExpl {
                         _align="left" 
                         text1="Construction" 
                         text2="A fundraiser for the new stadium begain in May 1956, which raised over $200,000 (equivalent to $1.9 million today) in less than two years.
-                        With $875,000 from a bond issue and the $200,000 raised, construction of the New Castle Fieldhouse began on December 30th of 1957.
-                        The Fieldhouse was completed in 1959, and was the largest (and 'Finest') high school gym in the world at the time."
+                        With $875,000 from a bond issue and the $200,000 raised, construction of the Marvin Ridge Mecca began on December 30th of 1957.
+                        The Mecca was completed in 1959, and was the largest (and 'Finest') high school gym in the world at the time."
                         post="/src/assets/construction.jpg"
                     />
                     <HistoryStrip 
                         positioning="relative"
                         _align="right"  
-                        text1="The Fieldhouse Today" 
-                        text2="The Fieldhouse has been a staple of New Castle since its completion in 1959. It has hosted numerous high school basketball games, graduations, and other events.
-                        The Fieldhouse has also been featured in several movies, including the 1986 film 'Hoosiers'. 
-                        The world-renowned gym is still in use today, and is a popular venue for events in the New Castle area."
+                        text1="The Mecca Today" 
+                        text2="The Mecca has been a staple of Waxhaw since its completion in 1959. It has hosted numerous high school basketball games, graduations, and other events.
+                        The world-renowned gym is still in use today, and is a popular venue for events in the Waxhaw area."
                         post="/src/assets/currentcastle.webp"
                     />
                 </div>
