@@ -126,11 +126,11 @@ h2 {
   text-align: center;
   font-weight: 700;
   font-size: 4vw;
-  color: #12873F;
+  color: #f5ad6eff;
 }
 
 footer.foot {
-  background-color: #003313;
+  background-color: #e16a0dff;
   width: 100vw;
   text-align: center;
   padding-top: 2vw;
@@ -211,10 +211,10 @@ div.title2 {
   padding-top: 11vw;
   height: 30vw;
   text-align: center;
-  background-image: url("../assets/trojan.png");
+  background-image: url("../assets/overhead.jpeg");
   background-size: cover;
   --off: 0.25vw;
-  text-shadow: var(--off) var(--off) 0 #003313, calc(-1*var(--off)) var(--off) 0 #003313, calc(-1*var(--off)) calc(-1*var(--off)) 0 #003313, var(--off) calc(-1*var(--off)) 0 #003313;
+  text-shadow: var(--off) var(--off) 0 #e16a0dff, calc(-1*var(--off)) var(--off) 0 #e16a0dff, calc(-1*var(--off)) calc(-1*var(--off)) 0 #e16a0dff, var(--off) calc(-1*var(--off)) 0 #e16a0dff;
 }
 
 div.caption {
@@ -222,7 +222,7 @@ div.caption {
   z-index: 1;
   position: relative;
   --off: 0.25vw;
-  text-shadow: var(--off) var(--off) 0 #003313, calc(-1*var(--off)) var(--off) 0 #003313, calc(-1*var(--off)) calc(-1*var(--off)) 0 #003313, var(--off) calc(-1*var(--off)) 0 #003313;
+  text-shadow: var(--off) var(--off) 0 #e16a0dff, calc(-1*var(--off)) var(--off) 0 #e16a0dff, calc(-1*var(--off)) calc(-1*var(--off)) 0 #e16a0dff, var(--off) calc(-1*var(--off)) 0 #e16a0dff;
 }
 
 video.title {
@@ -253,7 +253,7 @@ div.eventstrip {
   align-content: center;
   margin-bottom: 2vw;
   border-radius: 1.4vw;
-  background: #004C1D;
+  background: #002366ff;
   position: static;
   z-index: -2;
   border-color: black;
@@ -302,7 +302,7 @@ h3.eventcard {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 300;
   font-size: 1.5vw;
-  color: #12873F;
+  color: #e16a0dff;
   margin-bottom: 0;
 }
 
@@ -424,7 +424,7 @@ div#rightslideanim {
 }
 
 div#rightslide1, div#rightslide3 {
-  border-top: 0.5vw solid #149544;
+  border-top: 0.5vw solid #f5ad6eff;
   border-radius: 0.5vw;
   width: 0vw;
   height: 10vw;
@@ -433,7 +433,7 @@ div#rightslide1, div#rightslide3 {
 }
 
 div#rightslide2 {
-  border-top: 0.5vw solid #149544;
+  border-top: 0.5vw solid #f5ad6eff;
   border-radius: 0.5vw;
   width: 0vw;
   height: 10vw;
@@ -442,7 +442,7 @@ div#rightslide2 {
 }
 
 div#leftslide1, div#leftslide3 {
-  border-top: 0.5vw solid #149544;
+  border-top: 0.5vw solid #f5ad6eff;
   border-radius: 0.5vw;
   width: 0vw;
   height: 10vw;
@@ -451,7 +451,7 @@ div#leftslide1, div#leftslide3 {
 }
 
 div#leftslide2 {
-  border-top: 0.5vw solid #149544;
+  border-top: 0.5vw solid #f5ad6eff;
   border-radius: 0.5vw;
   width: 0vw;
   height: 10vw;
@@ -576,6 +576,6 @@ div.eventstrip::-webkit-scrollbar {
 }
 
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 15px #2dff7d;
+  box-shadow: inset 0 0 15px #002366ff;
   border-radius: 1.6vw;
 }

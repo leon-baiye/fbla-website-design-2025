@@ -45,7 +45,7 @@ export default {
         content: '';
         position: absolute;
         width: 0.5vw;
-        background-color: rgb(9, 244, 40);
+        background-color: #e16a0dff;
         top: 10vh;
         height: 300vh;
         bottom: 0;
@@ -62,7 +62,7 @@ export default {
     h3.historystrip {
         font-size: 2.5vw;
         margin-bottom: 2vw;
-        color: rgb(7, 110, 22);
+        color: rgb(0, 106, 255);
     }
     p.historystrip {
         font-size: 1.5vw;
@@ -74,7 +74,8 @@ export default {
         min-width: 3vw;
         min-height: 3vw;
         background-color: rgb(255, 255, 255);
-        border: 0.5vw solid rgb(22, 173, 45);
+        border: 0.5vw solid #f5ad6eff;
+
         border-radius: 50%;
         z-index: 2;
         margin-left: var(--dotdiv);

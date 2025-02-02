@@ -4,11 +4,18 @@
 
 // variable definitions
 
+$spanish-orange: #e16a0dff;
+$royal-blue-traditional: #002366ff;
+$polynesian-blue: #1949a0ff;
+$aero: #5bc0ebff;
+$sandy-brown: #f5ad6eff;
+
 $header-font: 'Lexend Mega', sans-serif;
 $subhead-font: 'Lexend Giga', sans-serif;
 $body-font: 'Lexend Exa', sans-serif;
 $primary-color: white;
-$secondary-color: #003313;
+$secondary-color: $spanish-orange;
+
 
 // scss "mixins"/reusable elements
 
@@ -160,7 +167,7 @@ h2 {
   text-align: center;
   font-weight: 700;
   font-size: 4vw;
-  color: #12873F;
+  color: $sandy-brown;
 }
 
 // footer
@@ -213,7 +220,7 @@ div.title2 {
   padding-top: 11vw;
   height: 30vw;
   text-align: center;
-  background-image: url('../assets/trojan.png');
+  background-image: url('../assets/overhead.jpeg');
   background-size: cover;
   --off: 0.25vw;
   text-shadow:
@@ -259,7 +266,7 @@ div.eventstrip {
   align-content: center;
   margin-bottom: 2vw;
   border-radius: 1.4vw;
-  background: #004C1D;
+  background: $royal-blue-traditional;
   position: static;
   z-index: -2;
   border-color: black;
@@ -306,7 +313,7 @@ h3.eventcard {
   font-family: $body-font;
   font-weight: 300;
   font-size: 1.5vw;
-  color: #12873F;
+  color: $spanish-orange;
   margin-bottom: 0;
 }
 
@@ -424,7 +431,7 @@ div.dropitem {
 // sliding animation 
 
 @mixin rightslidediv($left) {
-  border-top: 0.5vw solid #149544;
+  border-top: 0.5vw solid $sandy-brown;
   border-radius: 0.5vw;
   width: 0vw;
   height: 10vw;
@@ -433,7 +440,7 @@ div.dropitem {
 }
 
 @mixin leftslidediv($right) {
-  border-top: 0.5vw solid #149544;
+  border-top: 0.5vw solid $sandy-brown;
   border-radius: 0.5vw;
   width: 0vw;
   height: 10vw;
@@ -586,6 +593,6 @@ div.eventstrip::-webkit-scrollbar {
 }
 
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 15px rgb(45, 255, 125);
+  box-shadow: inset 0 0 15px $royal-blue-traditional;
   border-radius: 1.6vw;
 }

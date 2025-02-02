@@ -29,7 +29,7 @@ div.top {
     margin-top: -0.5vw;
     padding-top: 0.5vw;
     text-align: center;
-    background-color: #003313;
+    background-color: #002366ff;
     width: 100%;
 }
 
@@ -104,13 +104,13 @@ p.day.no {
 }
 
 p.true {
-    background: #28d366;
+    background: #f5ad6eff;
     border-radius: 0.7vw;
     transition: 0.3s ease-out;
 }
 
 p.true.selected {
-    background: #4ff78d;
+    background: #e16a0dff;
     border-radius: 2vw;
 }
 
@@ -125,22 +125,13 @@ img.arrow {
     position: absolute;
     margin-top: 3vw;
     transition: 0.2s ease-out;
+    z-index: 3;
 }
 .arrow.left {
     margin-left: 2vw;
 }
-.arrow.left:hover {
-    margin-top: 2.7vw;
-    margin-left: 1.7vw;
-    width: 3vw;
-}
 .arrow.right {
     margin-left: 38vw;
-}
-.arrow.right:hover {
-    margin-top: 2.7vw;
-    margin-left: 37.7vw;
-    width: 3vw;
 }
 
 /* event display */ 
@@ -165,7 +156,7 @@ div.evtitle {
     width: 100%;
     height: auto;
     text-align: center;
-    background: #12873F;
+    background: #002366ff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -212,7 +203,7 @@ button.close {
     text-align: center;
     font-size: 1vw;
     font-family: 'Lexend Giga', sans-serif;
-    background: #1ca715;
+    background: #002366ff;
     position: absolute;
     border-radius: 0.3vw;
     border-width: 0;
@@ -280,8 +271,8 @@ img#down {
                     </div>
                 </div>
                 <h2>How To Use</h2>
-                <SideStrip positioning="absolute" divmargin="10vw" vidwidth="35%" topmarg="-20vw" _align="left" marg=0% vidmarg="45%" text1="Navigation" text2="Change months by clicking the left or right arrows. Change years by clicking on the current year, then adjusting the year using the up and down arrows. Click the current year again to finalize your changes." vid="/src/assets/screen_shot_1.mp4" post="/src/assets/cover.png"/>
-                <SideStrip positioning="absolute" divmargin="10vw" vidwidth="35%" topmarg="-18vw" _align="right" marg=48% vidmarg="0%" text1="Events" text2="Click on a highlighted day to view that day's event, with information like the event's date and hosts. Click the 'Close' button to close the event display area." vid="/src/assets/screen_shot2_noside.mp4" post="/src/assets/cover.png"/>       
+                <SideStrip positioning="absolute" divmargin="10vw" vidwidth="35%" topmarg="-20vw" _align="left" marg=0% vidmarg="45%" text1="Navigation" text2="Change months by clicking the left or right arrows. Change years by clicking on the current year, then adjusting the year using the up and down arrows. Click the current year again to finalize your changes." vid="/src/assets/mecca_monthyearexp.mp4" post="/src/assets/meccacover.png"/>
+                <SideStrip positioning="absolute" divmargin="10vw" vidwidth="35%" topmarg="-18vw" _align="right" marg=48% vidmarg="0%" text1="Events" text2="Click on a highlighted day to view that day's event, with information like the event's date and hosts. Click the 'Close' button to close the event display area." vid="/src/assets/mecca_eventdispexp.mp4" post="/src/assets/meccacover.png"/>       
             </div>
             <UniformFoot class="fe"/>
         </div>

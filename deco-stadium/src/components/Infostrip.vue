@@ -1,6 +1,6 @@
 <script>
 export default {
-    props: ['_align', 'bkg', 'text1', 'text2', 'color', 'bcol', 'loc'],
+    props: ['_align', 'bkg', 'text1', 'text2', 'bcol', 'loc'],
     setup(props) {
         
     },
@@ -22,7 +22,7 @@ export default {
 </script>
 <template>
 <div :style="cssVars" class="infostrip">
-    <h2 :style="cssVars" :class=color>{{ text1 }}</h2>
+    <h2 :style="cssVars" class="stripi">{{ text1 }}</h2>
     <RouterLink style="text-decoration: none;":onclick="scrollToTop" :to="loc"><button :style="cssVars" class="blur">{{ text2 }}<img class="rarr" src="../assets/rarr.png"></button></RouterLink>
 </div>
 </template>
@@ -40,25 +40,9 @@ export default {
         padding-left: 6vw;
         padding-bottom: 2vw;
     }
-    h2.white {
-        color: white;
-        font-family: 'Lexend Giga', sans-serif;
-        font-weight: 300;
-        font-size: 5vw;
-        padding-right: 10vw;
-        margin-top: 2vw;
-    }
-    h2.black {
-        color: black;
-        font-family: 'Lexend Giga', sans-serif;
-        font-weight: 300;
-        font-size: 5vw;
-        text-align: left;
-        margin-right: 10vw;
-        margin-top: 2vw;
-    }
-    h2.green {
-        color: #00BE49;
+
+    h2.stripi {
+        color: #e16a0dff;
         font-family: 'Lexend Giga', sans-serif;
         font-weight: 400;
         font-size: 5vw;

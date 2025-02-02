@@ -28,8 +28,8 @@
         <source src="../assets/NewCastleFieldhouseIntro.mp4" type="video/mp4" />
       </video>
       <div class="caption">
-          <h1 id="field" class="left">NEW CASTLE <br>
-            FIELDHOUSE
+          <h1 id="field" class="left">MARVIN RIDGE <br>
+            MECCA
           </h1>
       </div>
     </div>
@@ -49,17 +49,18 @@
         </div>
       </div>
     </div>
-    <div class="parallax" style="background-image: url('/src/assets/fieldhouse1.webp');"></div>
-    <Infostrip _align="left" text1="Fieldhouse History" text2="DISCOVER THE FIELDHOUSE" color="green" bcol="black" loc=""/>
-    <div class="parallax" style="background-image: url('/src/assets/fieldhouse2.webp');"></div>
-    <Infostrip _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="green" bcol="black" loc=""/>
-    <div class="parallax" style="background-image: url('/src/assets/fieldhouse3.webp');"></div>
-    <Infostrip _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT AMAZING" color="green" bcol="black" loc="/planning"/>
-    <div class="parallax" style="background-image: url('/src/assets/fieldhouse4.webp');"></div>
-    <Infostrip _align="flex-end" text1="About The Fieldhouse" text2="LEARN ABOUT DIRECTIONS, SEATING AND MORE" color="green" bcol="black" loc="/info"/>
-    <div class="parallax" style="background-image: url('/src/assets/fieldhouse5.webp');"></div>
+    <div class="parallax" style="background-image: url('/src/assets/innerpic1.jpeg');"></div>
+    <Infostrip _align="left" text1="Gym History" text2="DISCOVER THE MECCA" color="#e16a0dff" bcol="black" loc=""/>
+    <div class="parallax" style="background-image: url('/src/assets/innerpic2.jpeg');"></div>
+    <Infostrip _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="#e16a0dff" bcol="black" loc=""/>
+    <div class="parallax" style="background-image: url('/src/assets/innerpic3.jpg');"></div>
+    <Infostrip _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT AMAZING" color="#e16a0dff" bcol="black" loc="/planning"/>
+    <div class="parallax" style="background-image: url('/src/assets/innerpic4.jpg');"></div>
+    <Infostrip _align="flex-end" text1="About The Gym" text2="LEARN ABOUT DIRECTIONS, SEATING AND MORE" color="#e16a0dff" bcol="black" loc="/info"/>
+    <div class="parallax" style="background-image: url('/src/assets/innerpic5.jpg');"></div>
     <UniformFoot class="fhome"/>
     </main>
+
 </template>
 
 <script>

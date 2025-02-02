@@ -20,7 +20,7 @@ div.testimonials {
     max-width: 100vw;
     margin-bottom: 4vw;
     background: #F2F2F2;
-    border-color: #7CFFAD;
+    border-color: #1949a0ff;
     border-width: 0.5vw;
     border-style: solid;
     overflow-x: hidden;
@@ -80,7 +80,7 @@ h3.name {
 h4.org {
     font-family: 'Lexend Peta', sans-serif;
     font-size: 1.2vw;
-    color: #009238;
+    color: #f5ad6eff;
     margin-top: 0.4vw;
 }
 img.testimonial {
@@ -101,7 +101,7 @@ a.testimonial {
     text-decoration: none;
     font-weight: 600;
     color: black;
-    background: rgb(233, 255, 226);
+    background: rgb(255, 229, 209);
     padding: 0.4vw;
     border-radius: 0.3vw;
 }
@@ -153,7 +153,7 @@ a.details:visited {
 /* contacts */
 
 div.contacts {
-    background: #30724c;
+    background: #1949a0ff;
     margin-left: 30vw;
     margin-right: 30vw;
     border-radius: 1.1vw;
@@ -163,7 +163,7 @@ div.contacts {
 }
 h3.contacts {
     margin-top:0;
-    margin-bottom:1vh;
+    margin-bottom:calc(1vw - 1vh);
     color: white;
     font-size: 1.8vw;
     font-weight: 400;
@@ -171,9 +171,10 @@ h3.contacts {
 a.contacts {
     font-size: 1.4vw;
     text-decoration-style:wavy;
-    color: #00EE5C;
+    color: #5bc0ebff;
     font-weight: 500;
 }
+
 
 @media (min-height: 1200px) {
     h3.contacts {
@@ -184,7 +185,7 @@ a.contacts {
 /* "excited" text */
 
 h3.excited {
-    color: #009e3c;
+    color: #5bc0ebff;
     font-size: 3vw;
     width: 100%;
     height: 4vw;
@@ -256,8 +257,8 @@ div#anim5 {
                 <div class="title2">
                     <h1>Event Planning</h1>
                 </div>
-                <h2>WHY HOST AT THE <br>FIELDHOUSE?</h2>
-                <h3 class="take">Don't just take it from us.<br>Here's what people are saying about hosting<br>events at the Fieldhouse.</h3>
+                <h2>WHY HOST AT THE <br>MECCA?</h2>
+                <h3 class="take">Don't just take it from us.<br>Here's what people are saying about hosting<br>events at the Mecca.</h3>
                 <div class="testimonials">
                     <div class="testinner">
                         <div class="testcard" v-for="test in testimonials" :style="''">
@@ -281,21 +282,21 @@ div#anim5 {
                 <h2>HOSTING BENEFITS</h2>
                 <ul class="hosting">
                     <li class="hosting">Thousands of square feet for your organization</li>
-                    <li class="hosting">Free access to the NCFH ticketing network & complete control over ticketing</li>
+                    <li class="hosting">Free access to the MRHS ticketing network & complete control over ticketing</li>
                     <li class="hosting">Personalized event landing page</li>
-                    <li class="hosting">Free promotion over the unparalleled TROJAN® media network</li>
+                    <li class="hosting">Free promotion over the unparalleled MAVERICK® media network</li>
                     <li class="hosting">A venue like no other, complete with concessions, convenient parking, and <a>other amenities</a></li>
                     <li class="hosting">The features of a major stadium for the price of a high school graduation</li>
                 </ul>
                 <h2>DETAILS</h2>
-                <div id="anim0" class="details" style="background:#009238">
+                <div id="anim0" class="details" style="background: #1949a0ff">
                     <p class="details" style="color: white">
                         Fill out our Event Hosting Form<br> 
                         to get started:<br>
                         <a class="details" href="https://google.com">Access Form</a>
                     </p>
                 </div>
-                <div id="anim1" class="details" style="background:#D9D9D9">
+                <div id="anim1" class="details" style="background: #D9D9D9">
                     <h3 class="details"> You'll need:</h3>
                     <p class="details" style="color: black">
                         you & your organization's legal name<br>
@@ -308,19 +309,19 @@ div#anim5 {
                 <h2>CONTACTS</h2>
                 <div id="anim2" class="contacts">
                     <h3 class="contacts">Pricing Questions:</h3>
-                    <a class="contacts" href="mailto:support@google.com">pricing@trojanhosting.com</a>
+                    <a class="contacts" href="mailto:support@google.com">pricing@maverickhosting.com</a>
                 </div>
                 <div id="anim3" class="contacts">
                     <h3 class="contacts">Amenditites Questions:</h3>
-                    <a class="contacts" href="mailto:support@google.com">amendities@trojanhosting.com</a>
+                    <a class="contacts" href="mailto:support@google.com">amendities@maverickhosting.com</a>
                 </div>
                 <div id="anim4" class="contacts">
                     <h3 class="contacts">Availability Questions:</h3>
-                    <a class="contacts" href="mailto:support@google.com">availability@trojanhosting.com</a>
+                    <a class="contacts" href="mailto:support@google.com">availability@maverickhosting.com</a>
                 </div>
                 <div id="anim5" class="contacts">
                     <h3 class="contacts" style="text-decoration: underline;">All Other Inquires:</h3>
-                    <a class="contacts" href="mailto:support@google.com">general@trojanhosting.com</a>
+                    <a class="contacts" href="mailto:support@google.com">general@maverickhosting.com</a>
                 </div>
                 <h3 id="anim6" class="excited">WE'RE EXCITED TO WORK WITH YOU SOON!</h3>
             </div>
@@ -341,7 +342,7 @@ async function animatePage() {
     let mainEl = document.getElementById("/planning")
     if(mainEl.scrollTop > breakpoints[0] && !marked.includes(0)) {
         marked.push(0)
-        document.getElementById("anim0").style = "background:#009238; opacity:1;margin-left:15vw;"
+        document.getElementById("anim0").style = "background:#1949a0ff; opacity:1;margin-left:15vw;"
     }
     else if(mainEl.scrollTop > breakpoints[1] && !marked.includes(1)) {
         marked.push(1)
@@ -400,7 +401,7 @@ export default {
             document.getElementById("/planning").addEventListener('scroll', animatePage)
         }
         else {
-            document.getElementById("anim0").style = "background:#009238; opacity:1;margin-left:15vw;"
+            document.getElementById("anim0").style = "background:#1949a0ff; opacity:1;margin-left:15vw;"
             document.getElementById("anim1").style = "background:#D9D9D9; opacity:1;margin-right:15vw;"
             document.getElementById("anim2").style = "margin-left: 30vw; margin-right: 30vw; opacity:1;"
             document.getElementById("anim3").style = "margin-left: 30vw; margin-right: 30vw; opacity:1;"

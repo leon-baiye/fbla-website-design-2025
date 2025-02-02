@@ -26,7 +26,8 @@ div.card {
     justify-content: center;
     border-radius: 1.1vw;
     overflow-y: scroll;
-    background: #CDFFED;
+    background: #5bc0ebff;
+    
     min-width: 40vw;
     padding-top: 0;
     padding-bottom:2vw;
@@ -41,7 +42,7 @@ h3.cardtitle {
     top: 0;
     margin-top: 0;
     width: 100%;
-    background-color: #12873F;
+    background-color: #002366ff;
     padding-top: 1vw;
     padding-bottom: 1vw;
     color: white;
@@ -101,7 +102,7 @@ h4.excited {
     margin-right: 15%;
 }
 strong {
-  color: #2cb15f;
+  color: #e16a0dff;
 }
 
 /* seating card */
@@ -112,7 +113,7 @@ img.seats {
     border-radius: 1.2vw;
     border-width: 0.2vw;
     border-style: solid;
-    border-color: #00461b;
+    border-color: #002366ff;
 }
 
 /* amenities card */
@@ -120,7 +121,7 @@ img.seats {
 div.amenit {
     padding-left: 10%;
     padding-right: 10%;
-    height: 25vh;
+    height: 43vw;
     overflow-y: scroll;
 }
 h4.amenit {
@@ -135,17 +136,18 @@ li.amenit {
 
 h4.handbook {
     font-size: 3vw;
-    background: rgb(0, 153, 51);
+    background: #f5ad6eff;
     border-radius: 1.1vw;
     text-align: center;
     margin-left: 20%;
     width: 60%;
     padding: 0.4vw;
-    color: white;
+    color: white !important;
     margin-top: 0;
 }
 a.handbook {
-    text-decoration: none ;
+    text-decoration: none !important;
+    color: white;
 }
 a.handbook:visited {
     color: white;
@@ -195,7 +197,7 @@ img.xout {
         <div class="outer">
             <div class="inner">
                 <div class="title2">
-                    <h1>Fieldhouse<br>Info</h1>
+                    <h1>Gym<br>Info</h1>
                 </div>
                 <div class="cardcontainer">
                     <div class="card" style="height: 80vw" id="dir">
@@ -235,7 +237,7 @@ img.xout {
                                 </ul>
                             <li class="maps">Be aware that traffic is <strong>thickest</strong> on xdays from x-x, and <strong>thinnest</strong> on xdays from x-x.</li>
                         </ul>
-                        <h4 class="excited">We're excited to see you at the Fieldhouse sometime soon!</h4>
+                        <h4 class="excited">We're excited to see you at the Mecca sometime soon!</h4>
                     </div>
                     <div class="rightcontainer">
                         <div class="card" style="height: 27vw;margin-bottom: 0vw;overflow:hidden" id="seat">

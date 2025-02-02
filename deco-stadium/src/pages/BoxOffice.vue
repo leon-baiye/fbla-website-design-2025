@@ -19,17 +19,17 @@ div.boxoffice {
     border-radius: 1.4vw;
     border-style: solid;
     border-width: 0.01vw;
-    border-color: rgb(63, 214, 91);
+    border-color: #f5ad6eff;
     width: 75vw;
     margin-left: 12.5vw;
     margin-right: 12.5vw;
-    height: 70vh;
+    max-height: 35vw;
     overflow-y: scroll;
 }
 
-@media (min-height: 666px) {
+@media (min-height: 1000px) {
     div.boxoffice {
-        height: auto;
+        min-height: 69vw;
     }
 }
 /* legend */ 
@@ -48,8 +48,9 @@ div.legend {
     padding-bottom: 1vw;
     font-size: 2vw;
     color: rgb(255, 255, 255);
-    background-color: #00722a;
+    background-color: rgb(0, 58, 166);
 }
+
 p.d {
     width: 15.5%;
 }
@@ -73,8 +74,9 @@ div.eventcontainer{
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: rgb(240, 255, 250);
+    background-color: rgb(240, 240, 255);
 }
+
 div.eventdisp {
     margin-bottom: 0.2vw;
     width: 100%;
@@ -83,7 +85,7 @@ div.eventdisp {
     align-items: center;
     display: flex;
     flex-direction: row;
-    background-color: rgb(205, 255, 237);
+    background-color: rgb(185, 223, 255);
 }
 p.eday {
     display: table-cell;
@@ -137,7 +139,7 @@ button.purchase {
     width: 100%;
     height: 100%;
     font-size: 1.5vw;
-    background-color: #0aa242;
+    background-color: #e16a0dff;
     color: white;
     border-radius: 0.6vw;
     border-style: none;
@@ -147,7 +149,7 @@ button.purchase {
 }
 .purchase:hover {
     border-radius: 0.9vw;
-    background-color: #27c661;
+    background-color: #f5ad6eff;
 }
 a.office {
     margin-left: 1%;
@@ -220,7 +222,7 @@ p.scrollExplain {
                     <h1>Box Office</h1>
                 </div>
                 <h2 class="office">Welcome!</h2>
-                <h3 class="office">Find tickets for upcoming Fieldhouse events below.</h3>
+                <h3 class="office">Find tickets for upcoming Mecca events below.</h3>
                 <div id="scrollEx">
                     <img class="scrollExplain" src="../assets/movingarrow.png">
                     <p class="scrollExplain">Scroll to see more events!</p>

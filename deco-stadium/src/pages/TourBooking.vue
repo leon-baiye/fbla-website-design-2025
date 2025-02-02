@@ -30,10 +30,10 @@ iframe.tallyform {
                 <div class="title2">
                     <h1>Book a Tour</h1>
                 </div>
-                <h3 class="tour">Fill out the form below to request a tour of the Fieldhouse.</h3>
+                <h3 class="tour">Fill out the form below to request a tour of the Mecca.</h3>
                 <h3 class="tour">We'll get back to you shortly!</h3>
                 <h4>Fields marked with an asterisk (*) are required.</h4>
-                <iframe class="tallyform" data-tally-src="https://tally.so/embed/3EvNKq?hideTitle=1" loading="lazy" title="New Castle Fieldhouse Tour Request">
+                <iframe class="tallyform" data-tally-src="https://tally.so/embed/3EvNKq?hideTitle=1" loading="lazy" title="Marvin Ridge Mecca Tour Request">
                 </iframe>
                 <h2 class="tour">THANKS FOR YOUR INTEREST IN A TOUR!</h2>
             </div>

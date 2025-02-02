@@ -6,9 +6,11 @@ div.history {
     padding-top: 3vw;
     margin-bottom: 4vw;
     padding-bottom: 3vw;
-    height: calc((50vh + 50vw)/2);
+    height: calc((50vh + 60vw)/2);
     overflow-y: scroll;
     z-index: 2;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
     -webkit-mask: linear-gradient(
         transparent, 
         white 20%, 
@@ -24,12 +26,16 @@ div.history {
         );
 }
 
+div.history::-webkit-scrollbar {
+  display: none;
+}
+
 h2.history {
   font-family: 'Lexend Giga', sans-serif;
   text-align: center;
   font-weight: 700;
   font-size: 4vw;
-  color: #12873F;
+  color: #5bc0ebff;
   margin-bottom: 0vw;
 }
 
@@ -52,7 +58,7 @@ div#scrollExp {
 }
 img.scrollExpl {
     height: 100%;
-    margin-left: 4vw;
+    margin-left: 5vw;
     margin-top: -7vw;
 
 }
@@ -169,8 +175,8 @@ p.scrollExpl {
             document.getElementById("/history").removeEventListener("scroll", checkMainScroll)
         },
         async mounted() {
-            if(window.outerHeight < 800) {
-                document.getElementById("/history").addEventListener("scroll", checkMainScroll)
+            document.getElementById("/history").addEventListener("scroll", checkMainScroll)
+            if(window.outerHeight < 1000) {
                 async function showTut() {
                     if(!shown) {
                         shown = true

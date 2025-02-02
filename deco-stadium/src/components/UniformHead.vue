@@ -1,7 +1,7 @@
 <template>
     <header id="head">
         <div class="header" id="head2">
-            <RouterLink :onclick="scrollToTop" to="/"><img id="logo" class="deco header" src="../assets/Fieldhouse Logo.svg" alt="Fieldhouse Logo"/></RouterLink>
+            <RouterLink :onclick="scrollToTop" to="/"><img id="logo" class="deco header" src="../assets/Maverick Logo.png" alt="Maverick Logo"/></RouterLink>
             <div id="highlight"></div>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/calendar">Event<br>Calendar</RouterLink></button>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/office">Box<br>Office</RouterLink></button>
@@ -116,6 +116,10 @@ export default {
     methods: { 
         async scrollToTop() {
             window.scrollTo(0,0)
+            updateHeader(false)
+            if(dropped) {
+                this.drop()
+            }
         }
     },
     setup() {

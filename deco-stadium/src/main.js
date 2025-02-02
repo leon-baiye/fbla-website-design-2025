@@ -4,11 +4,11 @@ import App from './App.vue'
 import { createMemoryHistory, createRouter } from 'vue-router'
 import HomePage from '../src/pages/HomePage.vue'
 import EventCalendar from './pages/EventCalendar.vue'
-import FieldhouseInfo from './pages/FieldhouseInfo.vue'
+import GymInfo from './pages/GymInfo.vue'
 import BoxOffice from './pages/BoxOffice.vue'
 import EventPlanning from './pages/EventPlanning.vue'
 import VirtualTour from './pages/VirtualTour.vue'
-import FieldhouseHistory from './pages/FieldhouseHistory.vue'
+import GymHistory from './pages/GymHistory.vue'
 import TourBooking from './pages/TourBooking.vue'
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -18,11 +18,11 @@ var currentTrans = ""
 const routes = [
   { path: '/', component: HomePage },
   { path: '/calendar', component: EventCalendar },
-  { path: '/info', component: FieldhouseInfo },
+  { path: '/info', component:  GymInfo },
   { path: '/office', component: BoxOffice },
   { path: '/planning', component: EventPlanning },
   { path: '/virtualtour', component: VirtualTour },
-  { path: '/history', component: FieldhouseHistory },
+  { path: '/history', component: GymHistory },
   { path: '/tour', component: TourBooking } 
 ]
 

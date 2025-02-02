@@ -48,7 +48,7 @@ export default {
     h3.tutorialstrip{
         font-size: 2.5vw;
         margin-bottom: 2vw;
-        color: rgb(12, 199, 40);
+        color: #e16a0dff;
     }
     p.tutorialstrip{
         font-size: 1.5vw;
@@ -66,3 +66,5 @@ export default {
         border-style: solid;
     }
     </style>
+
+    
