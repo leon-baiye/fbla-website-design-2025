@@ -102,7 +102,7 @@ h4.excited {
     margin-right: 15%;
 }
 strong {
-  color: #e16a0dff;
+  color: rgb(255, 235, 220);
 }
 
 /* seating card */
@@ -197,45 +197,21 @@ img.xout {
         <div class="outer">
             <div class="inner">
                 <div class="title2">
-                    <h1>Gym<br>Info</h1>
+                    <h1>Gym Info</h1>
                 </div>
                 <div class="cardcontainer">
                     <div class="card" style="height: 80vw" id="dir">
                         <h3 class="cardtitle">Directions</h3>
-                        <h4 style="font-weight: 500;"><a class="maps" href="https://www.google.com/maps/place/New+Castle+High+School/@39.9128291,-85.3813085,16z/data=!3m1!4b1!4m6!3m5!1s0x88153314bbd8e93d:0x21a566c0eca05050!8m2!3d39.9128292!4d-85.3764376!16s%2Fm%2F03d0v25?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D">801 Parkview Dr, New Castle, IN 47362</a></h4>
+                        <h4 style="font-weight: 500;"><a class="maps" href="https://www.google.com/maps/place/Marvin+Ridge+High+School/@34.9738401,-80.796021,17z/data=!3m1!4b1!4m6!3m5!1s0x8854291cc41102a3:0x1754a3ba7c97bca5!8m2!3d34.9738401!4d-80.796021!16s%2Fm%2F043kmwx?entry=ttu&g_ep=EgoyMDI1MDEyOS4xIKXMDSoASAFQAw%3D%3D">2825 Crane Rd, Waxhaw, NC 28173</a></h4>
                         <div class="mapcontainer">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133723.0853894376!2d-90.25436728750002!3d39.9128292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88153314bbd8e93d%3A0x21a566c0eca05050!2sNew%20Castle%20High%20School!5e0!3m2!1sen!2sus!4v1735655314629!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.3123521944353!2d-80.79602099999998!3d34.973840100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8854291cc41102a3%3A0x1754a3ba7c97bca5!2sMarvin%20Ridge%20High%20School!5e0!3m2!1sen!2sus!4v1738548443297!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         <h4 class="map">Reccomendations</h4>
                         <ul class="maps">
-                            <li class="maps">If you're coming from I-70 West: </li>
-                                <ul class="sub">
-                                    <li class="sub">Take exit 131 onto Wilbur Wright Road</li>
-                                    <li class="sub">Stay on Wilbur Wright Rd for 6.9 mi</li>
-                                    <li class="sub">Turn right onto South 14th Street after 0.8 mi</li>
-                                    <li class="sub">Turn left onto M Avenue after 0.6 mi, then directly left onto Ross Street.</li>
-                                    <li class="sub">Turn right into the NCHS parking lot</li>
-                                </ul>
-                            <li class="maps">If you're coming from I-70 East: </li>
-                                <ul class="sub">
-                                    <li class="sub">Take exit 123 onto IN-3 towards New Castle</li>
-                                    <li class="sub">Turn left onto IN-3 North after 4.6 mi</li>
-                                    <li class="sub">Turn right onto Trojan Lane after 0.4 mi</li>
-                                    <li class="sub">Turn left into the NCHS parking lot</li>
-                                </ul>
-                            <li class="maps">If you're coming from I-69 South: </li>
-                                <ul class="sub">
-                                    <li class="sub">Take exit 286 towards Markle</li>
-                                    <li class="sub">Turn left onto East Markle Road after 0.3 mi</li>
-                                    <li class="sub">Turn right onto West Morse Street after 0.6 mi</li>
-                                    <li class="sub">Turn right onto South Clark Road after 48.3 mi</li>
-                                    <li class="sub">Take the IN-3 exit towards New Castle after 0.3 mi</li>
-                                    <li class="sub">Turn left onto IN-3 South (passing by KFC) after 16.3 mi</li>
-                                    <li class="sub">Turn left onto Parkfiew Drive after 0.4 mi</li>
-                                    <li class="sub">Stay on Parkview Drive until reaching Ross Street. Turn right onto Ross Street.</li>
-                                    <li class="sub">Turn right into the NCHS parking lot</li>
-                                </ul>
-                            <li class="maps">Be aware that traffic is <strong>thickest</strong> on xdays from x-x, and <strong>thinnest</strong> on xdays from x-x.</li>
+                            <li class="maps">Be aware that traffic in the Waxhaw area is <strong>thickest</strong> on weekdays from 7:40 - 8 AM & 2:45 - 3:20 PM, and <strong>thinnest</strong> on the weekends.</li>
+                            <li class="maps">You or your organization should aim to <strong>visit on a weekend</strong>, as communter traffic fills up the highways to & from Waxhaw during the week.</li>
+                            <li class="maps">If you're coming from the north, it's best to <strong>take the I-485 loop around Charlotte</strong> to get to the Mecca. Traffic on I-77 is often congested.</li>
+                            <li class="maps">Make sure to <RouterLink to="/tour"><strong>book a tour here</strong></RouterLink> before your visit. Due to high demand, we will not be able to accomodate impromptu Mecca tour requests</li>
                         </ul>
                         <h4 class="excited">We're excited to see you at the Mecca sometime soon!</h4>
                     </div>
@@ -282,7 +258,7 @@ img.xout {
 
 <script>
 import UniformFoot from '../components/UniformFoot.vue';
-import { useRouter } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 import { checkMainScroll } from '../components/UniformHead.vue';
 
 var popped = []

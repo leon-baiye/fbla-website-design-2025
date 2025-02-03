@@ -146,7 +146,7 @@ p.scrollExpl {
                         text1="The Mecca Today" 
                         text2="The Mecca has been a staple of Waxhaw since its completion in 1959. It has hosted numerous high school basketball games, graduations, and other events.
                         The world-renowned gym is still in use today, and is a popular venue for events in the Waxhaw area."
-                        post="/src/assets/currentcastle.webp"
+                        post="/src/assets/currentmecca.jpg"
                     />
                 </div>
             </div>

@@ -24,8 +24,8 @@
 <template>
     <main>
     <div class="title">
-      <video id="introvid" class="title" autoplay muted>
-        <source src="../assets/NewCastleFieldhouseIntro.mp4" type="video/mp4" />
+      <video id="introvid" class="title" autoplay>
+        <source src="../assets/MarvinRidgeMeccaIntrov1.mp4" type="video/mp4" />
       </video>
       <div class="caption">
           <h1 id="field" class="left">MARVIN RIDGE <br>
@@ -49,15 +49,15 @@
         </div>
       </div>
     </div>
-    <div class="parallax" style="background-image: url('/src/assets/innerpic1.jpeg');"></div>
-    <Infostrip _align="left" text1="Gym History" text2="DISCOVER THE MECCA" color="#e16a0dff" bcol="black" loc=""/>
     <div class="parallax" style="background-image: url('/src/assets/innerpic2.jpeg');"></div>
-    <Infostrip _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="#e16a0dff" bcol="black" loc=""/>
-    <div class="parallax" style="background-image: url('/src/assets/innerpic3.jpg');"></div>
-    <Infostrip _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT AMAZING" color="#e16a0dff" bcol="black" loc="/planning"/>
-    <div class="parallax" style="background-image: url('/src/assets/innerpic4.jpg');"></div>
     <Infostrip _align="flex-end" text1="About The Gym" text2="LEARN ABOUT DIRECTIONS, SEATING AND MORE" color="#e16a0dff" bcol="black" loc="/info"/>
     <div class="parallax" style="background-image: url('/src/assets/innerpic5.jpg');"></div>
+    <Infostrip _align="left" text1="Plan With Us" text2="MAKE YOUR NEXT EVENT AMAZING" color="#e16a0dff" bcol="black" loc="/planning"/>
+    <div class="parallax" style="background-image: url('/src/assets/innerpic4.jpg');"></div>
+    <Infostrip _align="flex-end" text1="Visit Us" text2="SCHEDULE A TOUR" color="#e16a0dff" bcol="black" loc=""/>
+    <div class="parallax" style="background-image: url('/src/assets/innerpic_cheer.jpg'); background-position: 0% 20%;"></div>
+    <Infostrip _align="left" text1="Gym History" text2="DISCOVER THE MECCA" color="#e16a0dff" bcol="black" loc=""/>
+    <div class="parallax" style="background-image: url('/src/assets/innerpic1.jpeg');"></div>
     <UniformFoot class="fhome"/>
     </main>
 

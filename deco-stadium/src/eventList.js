@@ -24,7 +24,7 @@ export const eventList = {
                 "title": "Valentine's Dance",
                 "date": "Feburary 14, 2024",
                 "host": "Marvin Ridge High School",
-                "desc": "The annual NCHS Valentine's Dance! Open to students only.",
+                "desc": "The annual MRHS Valentine's Dance! Open to students only.",
                 "price": "$10"
             },
             {
@@ -67,7 +67,7 @@ export const eventList = {
                 "date": "Feburary 14, 2025",
                 "time":"6 PM - 9 PM",
                 "host": "Marvin Ridge High School",
-                "desc": "The annual NCHS Valentine's Dance! Open to students only.",
+                "desc": "The annual MRHS Valentine's Dance! Open to students only.",
                 "price": "$10",
                 "link":"https://buytickets.at/marvinridgemecca/1515283",
             },
@@ -113,7 +113,7 @@ export const eventList = {
                 "date": "Feburary 14, 2026",
                 "time":"6 - 9 PM",
                 "host": "Marvin Ridge High School",
-                "desc": "The annual NCHS Valentine's Dance! Open to students only.",
+                "desc": "The annual MRHS Valentine's Dance! Open to students only.",
                 "price": "$10",
                 "link":"https://www.tickettailor.com/events/marvinridgemecca/1515292",
             },
