@@ -4,16 +4,6 @@
   </head>
     <div class="app">
       <UniformHead/>
-      <div id="rightslideanim">
-        <div id="rightslide1"></div>
-        <div id="rightslide2"></div>
-        <div id="rightslide3"></div>
-      </div>
-      <div id="leftslideanim">
-        <div id="leftslide1"></div>
-        <div id="leftslide2"></div>
-        <div id="leftslide3"></div>
-      </div>
       <router-view v-slot="{ Component, route }">
         <transition :name="route.meta.transition" >
               <component :id="route.path" class="c" :is="Component" :key="route.path" />

@@ -290,8 +290,8 @@ var currentButton = null
 const days = ref([])
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-const monthIndex = ref(1)
-const year = ref(2024)
+const monthIndex = ref((new Date()).getMonth())
+const year = ref((new Date()).getFullYear())
 var wkdays = ["S", "M", "T", "W", "TH", "F", "S"]
 
 function leapYear(year)

@@ -2,37 +2,72 @@
     <header id="head">
         <div class="header" id="head2">
             <RouterLink :onclick="scrollToTop" to="/"><img id="logo" class="deco header" src="../assets/Maverick Logo.png" alt="Maverick Logo"/></RouterLink>
-            <div id="highlight"></div>
+            <div id="indicator"></div>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/calendar">Event<br>Calendar</RouterLink></button>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/office">Box<br>Office</RouterLink></button>
             <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/info">Info</RouterLink></button>
-            <button class="headernav"><RouterLink :onclick="scrollToTop" class="rl" to="/planning">Event<br>Planning</RouterLink></button>
-            <button class="headernav" v-on:click="drop()">
+            <button class="headernav" v-on:click="drop(0)">
+                Event<br>Planning
+                <div id="dropdown0" class="drop">
+                    <div class="dropitem0">
+                        <RouterLink :onclick="scrollToTop" class="rl" to="/planning">
+                            <p>
+                                Why<br>Host?
+                            </p>
+                        </RouterLink>
+                    </div>
+                    <div class="dropitem0">
+                        <RouterLink class="rl" to="/planning#test">
+                            <p>
+                                Testimonials
+                            </p>
+                        </RouterLink>
+                    </div>
+                    <div class="dropitem0">
+                        <RouterLink class="rl" to="/planning#compare">
+                            <p>
+                                Compare &<br>Contrast
+                            </p>
+                        </RouterLink>
+                    </div>
+                    <div class="dropitem0">
+                        <RouterLink class="rl" to="/planning#deta">
+                            <p>
+                                Details & Contacts
+                            </p>
+                        </RouterLink>
+                    </div>
+                </div>
+            </button>
+            <button class="headernav" v-on:click="drop(1)">
                 More
-                <div id="dropdown" class="drop">
-                    <div class="dropitem">
+                <div id="dropdown1" class="drop">
+                    <div class="dropitem1">
                         <RouterLink :onclick="scrollToTop" class="rl" to="/history">
                             <p>
                                 Mecca <br>History
                             </p>
                         </RouterLink>
                     </div>
-                    <div class="dropitem">
+                    <div class="dropitem1">
                         <RouterLink :onclick="scrollToTop" class="rl" to="/tour">
                             <p>
                                 Book a <br>Tour
                             </p>
                         </RouterLink>
                     </div>
-                    <div class="dropitem">
-                        <RouterLink class="rl" to="/virtualtour">
+                    <div class="dropitem1">
+                        <RouterLink class="rl" to="/planning#cont">
                             <p>
-                                Virtual <br>Tour
+                                Contact <br>us
                             </p>
                         </RouterLink>
                     </div>
                 </div>
             </button>
+        </div>
+        <div id="slideanim">
+            <div id="slide1"></div>
         </div>
   </header>
 </template>
@@ -45,9 +80,9 @@ import { currentTrans, createStateChangeDetector } from '../main';
 
 const router = ref()
 const delay = ms => new Promise(res => setTimeout(res, ms));
-var dropped = false
-var dropamount = 3
-var dropheight = 8*dropamount
+var dropped = [false, false]
+var dropamounts = [3, 3]
+var dropheight = [8*dropamounts[0], 8*dropamounts[1]]
 const route = ref()
 
 export const checkMainScroll = createStateChangeDetector(
@@ -56,12 +91,12 @@ export const checkMainScroll = createStateChangeDetector(
         updateHeader
     )
 
-function updateHeader(fullsize) {
+function updateHeader(sizeChange) {
     console.log("updated")
-    if(fullsize) {
+    if(sizeChange) {
         document.getElementById("head").style.height = "4vw"
         document.getElementById("head2").style.height = "4vw"
-        document.getElementById("highlight").style.height = "6vw"
+        document.getElementById("indicator").style.height = "6vw"
         for(let x=0;x<5;x++) {
             document.getElementsByClassName("headernav").item(x).style.fontSize = "1.375vw"
         }
@@ -70,20 +105,29 @@ function updateHeader(fullsize) {
         document.getElementById("logo").style.marginRight = "3vw"
         document.getElementById("dropdown").style.top = "5vw"
         document.getElementById("dropdown").style.fontSize = "1vw"
-        dropheight = 5*dropamount
-        if(dropped) {
-            document.getElementById("dropdown").style.minHeight = dropheight.toString() + "vw"
-            document.getElementById("dropdown").style.maxHeight = dropheight.toString() + "vw"
+        dropheight[0] = 5*dropamounts[0]
+        dropheight[1] = 5*dropamounts[1]
+        if(dropped[0]) {
+            document.getElementById("dropdown0").style.minHeight = dropheight[0].toString() + "vw"
+            document.getElementById("dropdown0").style.maxHeight = dropheight[0].toString() + "vw"
+            for(let x=0;x<4;x++) {
+                document.getElementsByClassName("dropitem0").item(x).style.minHeight = "5vw"
+                document.getElementsByClassName("dropitem0").item(x).style.maxHeight = "5vw"
+            }
+        }
+        if(dropped[1]) {
+            document.getElementById("dropdown1").style.minHeight = dropheight[1].toString() + "vw"
+            document.getElementById("dropdown1").style.maxHeight = dropheight[1].toString() + "vw"
             for(let x=0;x<3;x++) {
-                document.getElementsByClassName("dropitem").item(x).style.minHeight = "5vw"
-                document.getElementsByClassName("dropitem").item(x).style.maxHeight = "5vw"
+                document.getElementsByClassName("dropitem1").item(x).style.minHeight = "5vw"
+                document.getElementsByClassName("dropitem1").item(x).style.maxHeight = "5vw"
             }
         }
     }
     else {
         document.getElementById("head").style.height = "8vw"
         document.getElementById("head2").style.height = "8vw"
-        document.getElementById("highlight").style.height = "10vw"
+        document.getElementById("indicator").style.height = "10vw"
         for(let x=0;x<5;x++) {
             document.getElementsByClassName("headernav").item(x).style.fontSize = "2vw"
         }
@@ -92,13 +136,22 @@ function updateHeader(fullsize) {
         document.getElementById("logo").style.marginRight = "0vw"
         document.getElementById("dropdown").style.top = "9vw"
         document.getElementById("dropdown").style.fontSize = "1.6vw"
-        dropheight = 8*dropamount
-        if(dropped) {
-            document.getElementById("dropdown").style.minHeight = dropheight.toString() + "vw"
-            document.getElementById("dropdown").style.maxHeight = dropheight.toString() + "vw"
+        dropheight[0] = 8*dropamounts[0]
+        dropheight[1] = 8*dropamounts[1]
+        if(dropped[0]) {
+            document.getElementById("dropdown0").style.minHeight = dropheight[0].toString() + "vw"
+            document.getElementById("dropdown0").style.maxHeight = dropheight[0].toString() + "vw"
+            for(let x=0;x<4;x++) {
+                document.getElementsByClassName("dropitem0").item(x).style.minHeight = "8vw"
+                document.getElementsByClassName("dropitem0").item(x).style.maxHeight = "8vw"
+            }
+        }
+        if(dropped[1]) {
+            document.getElementById("dropdown1").style.minHeight = dropheight[1].toString() + "vw"
+            document.getElementById("dropdown1").style.maxHeight = dropheight[1].toString() + "vw"
             for(let x=0;x<3;x++) {
-                document.getElementsByClassName("dropitem").item(x).style.minHeight = "8vw"
-                document.getElementsByClassName("dropitem").item(x).style.maxHeight = "8vw"
+                document.getElementsByClassName("dropitem1").item(x).style.minHeight = "8vw"
+                document.getElementsByClassName("dropitem1").item(x).style.maxHeight = "8vw"
             }
         }
     }
@@ -124,14 +177,16 @@ export default {
     },
     setup() {
         route.value = useRoute()
-        async function drop() {
-            dropped = !dropped
-            let newHeight = dropheight-Number(document.getElementById("dropdown").style.maxHeight.replace("vw", ""))
-            document.getElementById("dropdown").style.minHeight = (newHeight).toString() + "vw"
-            document.getElementById("dropdown").style.maxHeight = (newHeight).toString() + "vw"
-            for(let x=0;x<3;x++) {
-                document.getElementsByClassName("dropitem").item(x).style.minHeight = (dropheight/3).toString() + "vw"
-                document.getElementsByClassName("dropitem").item(x).style.maxHeight = (dropheight/3).toString() + "vw"
+        async function drop(x) {
+            let elem = "dropdown" + x.toString()
+            let elem2 = "dropitem" + x.toString()
+                dropped[x] = !(dropped[x])
+                let newHeight = dropheight[x]-Number(document.getElementById(elem).style.maxHeight.replace("vw", ""))
+                document.getElementById(elem).style.minHeight = (newHeight).toString() + "vw"
+                document.getElementById(elem).style.maxHeight = (newHeight).toString() + "vw"
+                for(let x=0;x<3;x++) {
+                    document.getElementsByClassName(elem2).item(x).style.minHeight = (dropheight/dropamounts[x]).toString() + "vw"
+                    document.getElementsByClassName(elem2).item(x).style.maxHeight = (dropheight/dropamounts[x]).toString() + "vw"
             }
         }
         return { drop, window }

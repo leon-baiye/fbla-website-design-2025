@@ -2,7 +2,7 @@
 
 /* imports */ 
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=Lexend+Giga:wght@100..900&family=Lexend+Peta:wght@100..900&family=Lexend+Zetta:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=Lexend+Giga:wght@100..900&family=Lexend+Zetta:wght@100..900&display=swap');
 
 /* heading */
 
@@ -78,30 +78,31 @@ h3.name {
     margin-bottom: 0;
 }
 h4.org {
-    font-family: 'Lexend Peta', sans-serif;
+    font-family: 'Lexend Giga', sans-serif;
     font-size: 1.2vw;
     color: #f5ad6eff;
     margin-top: 0.4vw;
 }
 img.testimonial {
+    object-fit: cover;
     width: 11vw;
     height: 11vw;
     border-radius: 0.8vw;
     margin-bottom: 0.7vw;
 }
 p.testimonial {
-    font-family: 'Lexend Peta', sans-serif;
+    font-family: 'Lexend Giga', sans-serif;
     font-size: 0.9vw;
     color: black;
     margin-bottom: 1.3vw;
 }
 a.testimonial {
-    font-family: 'Lexend Peta', sans-serif;
+    font-family: 'Lexend Giga', sans-serif;
     font-size: 0.8vw;
     text-decoration: none;
     font-weight: 600;
     color: black;
-    background: rgb(255, 229, 209);
+    background: #FFECC8;
     padding: 0.4vw;
     border-radius: 0.3vw;
 }
@@ -114,9 +115,10 @@ a.testimonial:visited {
 ul.hosting {
     width: 70vw;
     margin-left: 12%;
+    padding-left: 4vw;
 }
 li.hosting {
-    font-size: 1.5vw;
+    font-size: 2vw;
     margin-bottom: 1vw;
 }
 
@@ -248,6 +250,59 @@ div#anim5 {
                 1s opacity cubic-bezier(1,1.7,.33,1.03);
     margin-bottom: 6vw;
 }
+table {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    width: 70vw;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #FFECC8;
+    border-radius: 2vw;
+}
+td {
+    font-size: 2vw;
+    padding: 1vw;
+    text-align: center;
+    border-bottom: 0.2vw solid black;
+    border-right: 0.2vw solid black;
+    color: black;
+}
+td.checkx {
+    font-size: 4vw;
+}
+th {
+    font-size: 2vw;
+    font-weight: 600;
+    padding: 1vw;
+    text-align: center;
+    border-bottom: 0.2vw solid black;
+    border-right: 0.2vw solid black;
+    color: black;
+}
+table thead tr th:first-child {
+    border-left: 0.2vw solid black;
+}
+table tbody tr td:first-child {
+    border-left: 0.2vw solid black;
+}
+table thead tr th {
+    border-top: 0.2vw solid black;
+}
+table thead tr:first-child th:first-child {
+    border-top-left-radius: 2vw;
+}
+table thead tr:first-child th:last-child {
+    border-top-right-radius: 2vw;
+}
+table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 2vw;
+}
+table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 2vw;
+}
+strong {
+  color: #5BC0EB;
+}
 </style>
 
 <template>
@@ -258,8 +313,17 @@ div#anim5 {
                     <h1>Event Planning</h1>
                 </div>
                 <h2>WHY HOST AT THE <br>MECCA?</h2>
+                <ul class="hosting">
+                    <li class="hosting">Thousands of square feet for your organization</li>
+                    <li class="hosting">Free access to the MRHS ticketing network & complete control over ticketing</li>
+                    <li class="hosting">Personalized event landing page</li>
+                    <li class="hosting">Free promotion over the unparalleled MAVERICK® media network</li>
+                    <li class="hosting">A venue like no other, complete with concessions, convenient parking, and <a>other amenities</a></li>
+                    <li class="hosting" id="test">The features of a major stadium for the price of a high school graduation</li>
+                </ul>
+                <h2>TESTIMONIALS</h2>
                 <h3 class="take">Don't just take it from us.<br>Here's what people are saying about hosting<br>events at the Mecca.</h3>
-                <div class="testimonials">
+                <div class="testimonials" id="compare">
                     <div class="testinner">
                         <div class="testcard" v-for="test in testimonials" :style="''">
                             <h3 class="name">{{ test.name }}</h3>
@@ -279,15 +343,48 @@ div#anim5 {
                         </div>
                     </div>
                 </div>
-                <h2>HOSTING BENEFITS</h2>
-                <ul class="hosting">
-                    <li class="hosting">Thousands of square feet for your organization</li>
-                    <li class="hosting">Free access to the MRHS ticketing network & complete control over ticketing</li>
-                    <li class="hosting">Personalized event landing page</li>
-                    <li class="hosting">Free promotion over the unparalleled MAVERICK® media network</li>
-                    <li class="hosting">A venue like no other, complete with concessions, convenient parking, and <a>other amenities</a></li>
-                    <li class="hosting">The features of a major stadium for the price of a high school graduation</li>
-                </ul>
+                <h2>COMPARE & CONTRAST</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>The Marvin Ridge Mecca</th>
+                            <th>Other Event Venues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cost-efficient & environmentally-friendly</strong> electrical system</td>
+                            <td class="checkx">&#x2705;</td>
+                            <td class="checkx">&#x274C;</td>
+                        </tr>
+                        <tr>
+                            <td>VIP Box <strong>curated</strong> to each guest</td>
+                            <td class="checkx">&#x2705;</td>
+                            <td class="checkx">&#x274C;</td>
+                        </tr>
+                        <tr>
+                            <td>Economical & <strong>customizeable</strong> food service</td>
+                            <td class="checkx">&#x2705;</td>
+                            <td class="checkx">&#x274C;</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Accessibility-focused walking track</strong> between venue features</td>
+                            <td class="checkx">&#x2705;</td>
+                            <td class="checkx">&#x274C;</td>
+                        </tr>
+                        <tr>
+                            <td>Cutting-edge, AI-powered JumboTron to <strong>display your event's big moments</strong></td>
+                            <td class="checkx">&#x2705;</td>
+                            <td class="checkx">&#x274C;</td>
+                        </tr>
+                        <tr id="deta">
+                            <td><strong>Award-winning staff</strong> and complimentary event planning team</td>
+                            <td class="checkx">&#x2705;</td>
+                            <td class="checkx">&#x274C;</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <h2>DETAILS</h2>
                 <div id="anim0" class="details" style="background: #1949a0ff">
                     <p class="details" style="color: white">
@@ -303,7 +400,7 @@ div#anim5 {
                         basic event details (i.e. name, date, time)<br>
                         event requirements (i.e. specific areas prepared) <br>
                         target audience and expected event turnout<br>
-                        any other pertinent event information<br>
+                        <strong style="color: black" id="cont">any other pertinent event information</strong><br>
                     </p>
                 </div>
                 <h2>CONTACTS</h2>
@@ -334,6 +431,8 @@ div#anim5 {
 import UniformFoot from '../components/UniformFoot.vue';
 import { testimonials } from '../testimonials';
 import { checkMainScroll } from '../components/UniformHead.vue';
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
 var breakpoints = []
 var marked = []
@@ -386,10 +485,11 @@ export default {
     beforeRouteLeave(to, from) {
         document.getElementById("/planning").removeEventListener("scroll", checkMainScroll)
     },
-    mounted() {
+    async mounted() {
         document.getElementById("/planning").addEventListener("scroll", checkMainScroll)
-        if(window.outerHeight < 1200) {
-            let initial = 1500
+        var section=this.$router.currentRoute.value.hash.replace("#", "");
+        if(window.outerHeight < 1250 && !section) {
+            let initial = 2800
             let spacing1 = 400
             let spacing2 = 500
             let spacing3 = 140
@@ -409,6 +509,13 @@ export default {
             document.getElementById("anim5").style = "margin-left: 30vw; margin-right: 30vw; opacity:1;"
             document.getElementById("anim6").style.fontSize = "3vw"
             document.getElementById("anim6").style.opacity = 1
+            if (section) {
+                let elementPosition = document.getElementById(section).getBoundingClientRect().top
+                document.getElementById("/planning").scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                })
+            }
         }
     }
 }

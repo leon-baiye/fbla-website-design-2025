@@ -1,16 +1,16 @@
 export const testimonials = [
     {
-        "name":"Joyce Smyra",
+        "name":"Joyce Smyrna",
         "org":"Triangle Volunteer Center",
-        "img":"/src/assets/trojan.png",
+        "img":"/src/assets/stockportraits/oldwhitewomanstockimage (1).jpg",
         "quote":"\"Hosting at the Marvin Ridge Mecca was a breeze!.\"",
         "link":"https://bit.ly/elonpark",
         'number': 0,
     },
     {
-        "name":"Austin Bravender",
+        "name":"Chris Yamagata",
         "org":"Nothing But Noodles",
-        "img":"/src/assets/trojan.png",
+        "img":"/src/assets/stockportraits/oldasianmanstockimage.jpg",
         "quote":"\"Our annual Night Noodle campaign, held at the Mecca, was a huge success.\"",
         "link":"https://bit.ly/elonpark",
         'number': 1,
@@ -18,7 +18,7 @@ export const testimonials = [
     {
         "name":"Ryan Vazquez",
         "org":"La Victoria",
-        "img":"/src/assets/trojan.png",
+        "img":"/src/assets/stockportraits/brazillianstockphoto.png",
         "quote":"\"I can't tell you enough about the Mecca's stellar amenities.\"",
         "link":"https://bit.ly/elonpark",
         'number': 2,
@@ -26,7 +26,7 @@ export const testimonials = [
     {
         "name":"Yin Li",
         "org":"Li's Chocolate Emporium",
-        "img":"/src/assets/trojan.png",
+        "img":"/src/assets/stockportraits/chinesewomanstockimage.jpg",
         "quote":"\"The Mecca staff helped me sell my chocolate safely & securely.\"",
         "link":"https://bit.ly/elonpark",
         'number': 3,
@@ -34,7 +34,7 @@ export const testimonials = [
     {
         "name":"James Evenstock",
         "org":"RokBar",
-        "img":"/src/assets/trojan.png",
+        "img":"/src/assets/stockportraits/whitemanstockportrait.jpg",
         "quote":"\"A state boxing championship? In a gym? It's possible at the Mecca.\"",
         "link":"https://bit.ly/elonpark",
         'number': 4,
@@ -42,7 +42,7 @@ export const testimonials = [
     {
         "name":"Elise O'Grady",
         "org":"No Child Left Behind",
-        "img":"/src/assets/trojan.png",
+        "img":"/src/assets/stockportraits/youngwhitewomanstockimage_realistic.jpg",
         "quote":"\"The Mecca's top-of-the-line food service made our kids so happy!\"",
         "link":"https://bit.ly/elonpark",
         'number': 5,

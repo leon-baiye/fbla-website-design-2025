@@ -119,14 +119,14 @@ p.scrollExpl {
                         text1="The Catalyst" 
                         text2="In 1954, Weddington High School of Waxhaw won the state basketball championship, garnerning statewide attention & acclaim.
                         Their coach, Marvin Wood, was hired by Marvin Ridge School shortly after. In disucssions with the prospective coach, Marvin Ridge administrators shared their plans to rebuild the school's gym, outdated at the time.
-                        Wood suggested a larger, more modern facility, and the idea for the Mecca was born. While the Milan coach didn't end up staying with Marvin Ridge, his vision for the Mecca did." 
+                        Wood suggested a larger, more modern facility, and the idea for the Mecca was born. While the Weddington coach didn't end up staying with Marvin Ridge, his vision for the Mecca did." 
                         post="/src/assets/milan.jpg"
                     />
                     <HistoryStrip 
                         positioning="relative"
                         _align="right" 
                         text1="'Gym Now'" 
-                        text2="After Marvin Wood left Marvin Ridge to pursue other coaching dreams, the Marvin Ridge-Henry Township Building Corporation took over the Fieldhouse project.
+                        text2="After Marvin Wood left Marvin Ridge to pursue other coaching dreams, the Marvin Ridge-Rea Township Building Corporation took over the Fieldhouse project.
                         However, initial attempts to speed up construction were met with opposition from Superintendent Rexford Wright, who stated that construction of a new gym would have to wait.
                         However, for Maverick fans, having to attend games in the outdated Crane Street Gym simply wasn't an option. 'Gym Now' quickly became a rallying cry for the community and its hopes for an updated stadium." 
                         post="/src/assets/gymnow.jpg"

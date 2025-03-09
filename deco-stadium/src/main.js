@@ -84,28 +84,38 @@ router.afterEach(async function(to, from) {
   else {
     to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left';
     currentTrans = to.meta.transition;
-    document.getElementById("highlight").style.left = highlightOrder[toDepth];
+    document.getElementById("indicator").style.left = highlightOrder[toDepth];
     if(toDepth < fromDepth) {
-      document.getElementById("leftslideanim").classList.add("rightslide-active")
-      document.getElementById("leftslide1").classList.add("generalslide-active")
-      document.getElementById("leftslide2").classList.add("generalslide-active")
-      document.getElementById("leftslide3").classList.add("generalslide-active")
-      await delay(1100)
-      document.getElementById("leftslideanim").classList.remove("rightslide-active")
-      document.getElementById("leftslide1").classList.remove("generalslide-active")
-      document.getElementById("leftslide2").classList.remove("generalslide-active")
-      document.getElementById("leftslide3").classList.remove("generalslide-active")
+      document.getElementById("slideanim").style.right = "unset"
+      document.getElementById("slideanim").style.left = highlightOrder[fromDepth]
+      await delay(50)
+      document.getElementById("slideanim").style.left = highlightOrder[toDepth]
+      if(fromDepth - toDepth == 1) {
+        document.getElementById("slide1").classList.add("smallerslide-active")
+        await delay(1000)
+        document.getElementById("slide1").classList.remove("smallerslide-active")
+      }
+      else {
+        document.getElementById("slide1").classList.add("generalslide-active")
+        await delay(1000)
+        document.getElementById("slide1").classList.remove("generalslide-active")
+      }
     }
     else if(fromDepth < toDepth) {
-      document.getElementById("rightslideanim").classList.add("leftslide-active")
-      document.getElementById("rightslide1").classList.add("generalslide-active")
-      document.getElementById("rightslide2").classList.add("generalslide-active")
-      document.getElementById("rightslide3").classList.add("generalslide-active")
-      await delay(1000)
-      document.getElementById("rightslideanim").classList.remove("leftslide-active")
-      document.getElementById("rightslide1").classList.remove("generalslide-active")
-      document.getElementById("rightslide2").classList.remove("generalslide-active")
-      document.getElementById("rightslide3").classList.remove("generalslide-active")
+      document.getElementById("slideanim").style.left = "unset"
+      document.getElementById("slideanim").style.right = (84 - Number(highlightOrder[fromDepth].replace("vw", ""))).toString() + "vw"
+      await delay(50)
+      document.getElementById("slideanim").style.right = (84 - Number(highlightOrder[toDepth].replace("vw", ""))).toString() + "vw"
+      if(toDepth - fromDepth == 1) {
+        document.getElementById("slide1").classList.add("smallerslide-active")
+        await delay(1000)
+        document.getElementById("slide1").classList.remove("smallerslide-active")
+      }
+      else {
+        document.getElementById("slide1").classList.add("generalslide-active")
+        await delay(1000)
+        document.getElementById("slide1").classList.remove("generalslide-active")
+      }
     }
   }
 })

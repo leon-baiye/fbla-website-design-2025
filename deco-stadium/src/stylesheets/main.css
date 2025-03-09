@@ -63,7 +63,7 @@ header {
   transition: margin-top 2s ease-out 6s, height 0.5s ease-out 0s, opacity 0.5s ease-out;
 }
 
-div#highlight {
+div#indicator {
   position: absolute;
   left: 4vw;
   z-index: -1;
@@ -91,6 +91,16 @@ div.header {
 .rl {
   text-decoration: none !important;
   color: black;
+}
+
+.contactus {
+  text-decoration: none !important;
+  color: white;
+  font-weight: 600;
+  font-size: 2vw;
+  background: #1949a0ff;
+  padding: 0.3vw;
+  border-radius: 0.3vw;
 }
 
 button.headernav {
@@ -403,60 +413,23 @@ div.dropitem {
   transition: 0.3s height ease-out;
 }
 
-div#leftslideanim {
+div#slideanim {
   position: fixed;
   z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: start;
-  right: 30vw;
-  top: 15vw;
+  right: calc(85vw - 12.5vw);
+  top: 9.7vw;
+  transition: 1s ease-in-out;
 }
 
-div#rightslideanim {
-  position: fixed;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  left: 30vw;
-  top: 15vw;
-}
-
-div#rightslide1, div#rightslide3 {
-  border-top: 0.5vw solid #f5ad6eff;
+div#slide1 {
+  border-top: 0.35vw solid #f5ad6eff;
   border-radius: 0.5vw;
   width: 0vw;
-  height: 10vw;
+  height: 2vw;
   background: none;
-  margin-left: 0;
-}
-
-div#rightslide2 {
-  border-top: 0.5vw solid #f5ad6eff;
-  border-radius: 0.5vw;
-  width: 0vw;
-  height: 10vw;
-  background: none;
-  margin-left: 6vw;
-}
-
-div#leftslide1, div#leftslide3 {
-  border-top: 0.5vw solid #f5ad6eff;
-  border-radius: 0.5vw;
-  width: 0vw;
-  height: 10vw;
-  background: none;
-  margin-right: 0;
-}
-
-div#leftslide2 {
-  border-top: 0.5vw solid #f5ad6eff;
-  border-radius: 0.5vw;
-  width: 0vw;
-  height: 10vw;
-  background: none;
-  margin-right: 6vw;
 }
 
 @keyframes generalslide {
@@ -477,61 +450,35 @@ div#leftslide2 {
   }
 }
 
-@keyframes rightslide {
+@keyframes smallerslide {
   0% {
-    right: 30vw;
+    width: 0vw;
   }
   25% {
-    right: 50vw;
+    width: 7.5vw;
   }
   50% {
-    right: 70vw;
+    width: 15vw;
   }
   75% {
-    right: 90vw;
+    width: 7.5vw;
   }
   100% {
-    right: 110vw;
-  }
-}
-
-@keyframes leftslide {
-  0% {
-    left: 30vw;
-  }
-  25% {
-    left: 50vw;
-  }
-  50% {
-    left: 70vw;
-  }
-  75% {
-    left: 90vw;
-  }
-  100% {
-    left: 110vw;
+    width: 0vw;
   }
 }
 
 .generalslide-active {
   animation-name: generalslide;
-  animation-duration: 1s;
+  animation-duration: 0.9s;
   animation-timing-function: ease-out;
   animation-delay: 0;
   animation-play-state: running;
 }
 
-.rightslide-active {
-  animation-name: rightslide;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-play-state: running;
-}
-
-.leftslide-active {
-  animation-name: leftslide;
-  animation-duration: 1s;
+.smallerslide-active {
+  animation-name: smallerslide;
+  animation-duration: 0.9s;
   animation-timing-function: ease-out;
   animation-delay: 0;
   animation-play-state: running;

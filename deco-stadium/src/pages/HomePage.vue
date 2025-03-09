@@ -105,7 +105,7 @@ export default {
       if(currentTrans != "entrance") {
         document.getElementById("field").style.transition = "none"
         document.getElementById("field").style.opacity = 1
-        document.getElementById("introvid").currentTime = 9;
+        document.getElementById("introvid").currentTime = 7.75;
       }
       return
     }
