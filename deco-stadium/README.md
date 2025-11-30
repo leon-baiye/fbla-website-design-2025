@@ -1,5 +1,9 @@
-# Vue 3 + Vite
+# Future Business Leaders of America Website Design
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Hello there! This project was my submission to the NCFBLA Website Design competitive event of Spring 2025.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+All code written by me. All assets produced by me, except:
+- MaverickIco.png: sourced from https://mrhs.ucpsnc.org/.
+- New_Castle_logo.ico and New_Castle_logo.png: sourced from https://www.nccsc.k12.in.us/o/nchs.
+
+Please reach out if you have any questions!
