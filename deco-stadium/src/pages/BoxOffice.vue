@@ -295,7 +295,7 @@ export default {
     async mounted() {
         document.getElementById("/office").addEventListener("scroll", checkMainScroll)
         console.log(document.getElementsByClassName("outer")[0].scrollTop)
-        if(window.outerHeight < 666) {
+        if(window.outerWidth < 1366) {
             async function showTut() {
                 if(!shown) {
                     shown = true

@@ -54,32 +54,24 @@ function createStateChangeDetector(checkCondition, onBecomeTrue, onBecomeFalse, 
 
 router.afterEach(async function(to, from) {
   const order = ["/", "/calendar", "/office", "/info", "/planning", "/history", "/tour"]
-  const highlightOrder = ["4vw", "23vw", "38.7vw", "54.5vw", "69.8vw", "85.5vw", "85.5vw"]
+  var highlightOrder
+  if(window.outerWidth < 1366) {
+    highlightOrder = ["2vw", "19.3vw", "35.2vw", "50.9vw", "67.2vw", "83.5vw", "83.5vw"]
+  }
+  else {
+    highlightOrder = ["2vw", "22.3vw", "38.7vw", "54.5vw", "70.2vw", "87.5vw", "87.5vw"]
+  }
   const toDepth = order.indexOf(to.path)
   const fromDepth = order.indexOf(from.path)
-  if(toDepth == fromDepth) {
-    to.meta.transition = 'entrance'
-    currentTrans = 'entrance'
-  }
-  else if(to.path == "/virtualtour") {
-    to.meta.transition = "virtualtour"
-    currentTrans = 'virtualtour'
-    document.getElementById("head").style.height = "0vw"
-    document.getElementById("head2").style.height = "0vw"
-    document.getElementById("highlight").style.height = "0vw"
-    document.getElementById("head").style.opacity = 0
-    await delay(1000)
-    document.getElementById("exit").style.opacity = 0.5
-  }
-  else if(from.path == "/virtualtour") {
-    document.getElementById("exit").style.opacity = 0
-    to.meta.transition = "virtualtour"
-    document.getElementById("head").style.height = "8vw"
-    document.getElementById("head2").style.height = "8vw"
-    document.getElementById("highlight").style.height = "16vw"
-    document.getElementById("highlight").style.left = "4vw"
-    await delay(1000)
-    currentTrans = 'none'
+  if((toDepth == fromDepth)) {
+    if(window.outerWidth > 1000) {
+      to.meta.transition = 'entrance'
+      currentTrans = 'entrance'
+    }
+    else {
+      to.meta.transition = 'none'
+      currentTrans = 'none' 
+    }
   }
   else {
     to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left';

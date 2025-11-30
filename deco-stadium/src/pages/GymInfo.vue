@@ -211,6 +211,16 @@ strong.beige {
 strong.pol {
     color: black;
 }
+
+div#policy {
+    margin-bottom: 6vw;
+}
+
+@media only screen and (max-device-width: 700px) {
+    div#policy {
+        margin-bottom: 10vw;
+    }
+}
 </style>
 
 <template>
@@ -271,7 +281,7 @@ strong.pol {
                         </div>
                     </div>
                 </div>
-                <div class="card" style="width:90%;height: 35vw; margin-left:5vw; margin-right:5vw; margin-bottom: 6vw; overflow-y: hidden;" id="policy">
+                <div class="card" style="width:90%;height: 35vw; margin-left:5vw; margin-right:5vw; overflow-y: hidden;" id="policy">
                     <h3 class="cardtitle">Policies</h3>
                     <div style="width: 90%; margin-left:5%; margin-right: 5%;">
                         <h4 style="text-align: left;font-size: 2vw;margin-bottom: 1vw;">Notable policies include the following: </h4>
@@ -339,9 +349,7 @@ export default {
     },
     async mounted() {
         document.getElementById("/info").addEventListener("scroll", checkMainScroll)
-        /* scrolling pop-up disabled on smaller devices to reduce disorientation */
-        console.log("height", window.outerHeight)
-        if(window.outerHeight > 1250) {
+        if(window.outerWidth < 1000) {
             document.getElementById("dir").style.marginTop = "2vh"
             document.getElementById("seat").style.marginTop = "2vh"
             document.getElementById("amen").style.marginTop = "0.6vh"

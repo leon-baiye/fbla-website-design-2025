@@ -3,7 +3,6 @@
 /* imports */ 
 
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=Lexend+Giga:wght@100..900&family=Lexend+Zetta:wght@100..900&display=swap');
-
 /* heading */
 
 h3.take {
@@ -110,13 +109,48 @@ a.testimonial:visited {
     color: black;
 }
 
+@media only screen and (max-device-width: 500px) {
+    div.testcard {
+        padding-left: 4vw;
+        padding-right: 4vw;
+        min-width: 20vw;
+        min-height: 48vw;
+    }
+    h3.name {
+        font-size: 1.7vw;
+    }
+    h4.org {
+        font-size: 1.8vw;
+        margin-top: 0.4vw;
+        font-weight: 400;
+    }
+    img.testimonial {
+        width: 16vw;
+        height: 16vw;
+        border-radius: 0.8vw;
+        margin-bottom: 1.3vw;
+    }
+    p.testimonial {
+        font-size: 1.4vw;
+        margin-bottom: 1.9vw;
+    }
+    a.testimonial {
+        font-size: 1.4vw;
+        padding: 0.8vw;
+    }
+}
+
 /* hosting benefits list */
 
 ul.hosting {
     width: 70vw;
     margin-left: 12%;
     padding-left: 4vw;
+    animation: disp linear;
+    animation-timeline: view(y);
+    animation-range: entry cover;
 }
+
 li.hosting {
     font-size: 2vw;
     margin-bottom: 1vw;
@@ -177,10 +211,17 @@ a.contacts {
     font-weight: 500;
 }
 
-
-@media (min-height: 1200px) {
+@media only screen and (max-device-width: 700px) {
+    div.contacts {
+        margin-left: 23.5% !important;
+        width: 50%;
+    }
     h3.contacts {
         margin-bottom: -1vh;
+        font-size: 2.2vw;
+    }
+    a.contacts {
+        font-size: 1.8vw;
     }
 }
 
@@ -195,6 +236,13 @@ h3.excited {
     vertical-align: middle;
     text-align: center;
     margin-top: 3vw;
+    margin-bottom: 10vw !important;
+}
+
+@media only screen and (max-device-width: 700px) {
+    h3.excited {
+        margin-bottom: 20vw !important;
+    }
 }
 
 /* scroll animation setup */
@@ -258,7 +306,7 @@ table {
     border-spacing: 0;
     background: #FFECC8;
     border-radius: 2vw;
-}
+} 
 td {
     font-size: 2vw;
     padding: 1vw;
@@ -307,7 +355,7 @@ strong {
 
 <template>
     <main class="mp">
-        <div class="outer">
+        <div class="outer" id="why">
             <div class="inner">
                 <div class="title2">
                     <h1>Event Planning</h1>
@@ -318,19 +366,18 @@ strong {
                     <li class="hosting">Free access to the MRHS ticketing network & complete control over ticketing</li>
                     <li class="hosting">Personalized event landing page</li>
                     <li class="hosting">Free promotion over the unparalleled MAVERICK® media network</li>
-                    <li class="hosting">A venue like no other, complete with concessions, convenient parking, and <a>other amenities</a></li>
-                    <li class="hosting" id="test">The features of a major stadium for the price of a high school graduation</li>
+                    <li class="hosting" id="test">A venue like no other, complete with concessions, convenient parking, and <a>other amenities</a></li>
+                    <li class="hosting">The features of a major stadium for the price of a high school gymnasium</li>
                 </ul>
                 <h2>TESTIMONIALS</h2>
                 <h3 class="take">Don't just take it from us.<br>Here's what people are saying about hosting<br>events at the Mecca.</h3>
-                <div class="testimonials" id="compare">
+                <div class="testimonials">
                     <div class="testinner">
                         <div class="testcard" v-for="test in testimonials" :style="''">
                             <h3 class="name">{{ test.name }}</h3>
                             <h4 class="org">{{ test.org }}</h4>
                             <img :src="test.img" class="testimonial">
                             <p class="testimonial">{{ test.quote }}</p>
-                            <a class="testimonial" :href="test.link">{{ checkLink(test.link) }}</a>
                         </div>
                     </div>
                     <div class="testinner">
@@ -338,13 +385,12 @@ strong {
                             <h3 class="name">{{ test.name }}</h3>
                             <h4 class="org">{{ test.org }}</h4>
                             <img :src="test.img" class="testimonial">
-                            <p class="testimonial">{{ test.quote }}</p>
-                            <a class="testimonial" :href="test.link">{{ checkLink(test.link) }}</a>
+                            <p class="testimonial" id="collate">{{ test.quote }}</p>
                         </div>
                     </div>
                 </div>
                 <h2>COMPARE & CONTRAST</h2>
-                <table>
+                <table class="contrast">
                     <thead>
                         <tr>
                             <th>Feature</th>
@@ -374,13 +420,13 @@ strong {
                             <td class="checkx">&#x274C;</td>
                         </tr>
                         <tr>
-                            <td>Cutting-edge, AI-powered JumboTron to <strong>display your event's big moments</strong></td>
+                            <td>Cutting-edge, AI-powered JumboTron to <strong>capture your event's big moments</strong></td>
                             <td class="checkx">&#x2705;</td>
                             <td class="checkx">&#x274C;</td>
                         </tr>
-                        <tr id="deta">
+                        <tr>
                             <td><strong>Award-winning staff</strong> and complimentary event planning team</td>
-                            <td class="checkx">&#x2705;</td>
+                            <td class="checkx" id="deta">&#x2705;</td>
                             <td class="checkx">&#x274C;</td>
                         </tr>
                     </tbody>
@@ -400,7 +446,7 @@ strong {
                         basic event details (i.e. name, date, time)<br>
                         event requirements (i.e. specific areas prepared) <br>
                         target audience and expected event turnout<br>
-                        <strong style="color: black" id="cont">any other pertinent event information</strong><br>
+                        <strong id="contac" style="color: black">any other pertinent event information</strong><br>
                     </p>
                 </div>
                 <h2>CONTACTS</h2>
@@ -474,13 +520,7 @@ export default {
         UniformFoot
     },
     setup() {
-        const checkLink = function(link) {
-            if(link!="none") {
-                return "Full Story"
-            } 
-            else {return ""}
-        }
-        return { checkLink, testimonials }
+        return { testimonials }
     },
     beforeRouteLeave(to, from) {
         document.getElementById("/planning").removeEventListener("scroll", checkMainScroll)
@@ -488,7 +528,15 @@ export default {
     async mounted() {
         document.getElementById("/planning").addEventListener("scroll", checkMainScroll)
         var section=this.$router.currentRoute.value.hash.replace("#", "");
-        if(window.outerHeight < 1250 && !section) {
+
+        if (section) {
+                let elementPosition = document.getElementById(section).getBoundingClientRect().top
+                document.getElementById("/planning").scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                })
+            }
+        if(document.documentElement.clientWidth > 1000 && !section) {
             let initial = 2800
             let spacing1 = 400
             let spacing2 = 500
@@ -509,13 +557,6 @@ export default {
             document.getElementById("anim5").style = "margin-left: 30vw; margin-right: 30vw; opacity:1;"
             document.getElementById("anim6").style.fontSize = "3vw"
             document.getElementById("anim6").style.opacity = 1
-            if (section) {
-                let elementPosition = document.getElementById(section).getBoundingClientRect().top
-                document.getElementById("/planning").scrollTo({
-                    top: elementPosition,
-                    behavior: 'smooth'
-                })
-            }
         }
     }
 }

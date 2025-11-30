@@ -6,6 +6,12 @@
 
 /* calendar layout */ 
 
+@media only screen and (max-device-width: 700px) {
+    div.calen {
+        margin-bottom: 4vw;
+    }
+}
+
 div#cal {
   max-width: 50vw;
   height: 44vw;
@@ -13,7 +19,9 @@ div#cal {
   border-color: #D9D9D9;
   border-width: 1vw;
   border-style: solid;
-  width: 60%;
+  width: 55%;
+  margin-left: 22.5%;
+  margin-right: 22.5%;
   padding: 0;
   overflow: hidden;
   display: flex;
@@ -76,9 +84,14 @@ div.daycontainer {
     height: 30vw;
 }
 
+@media only screen and (max-device-width: 500px) {
+    div.daycontainer {
+        padding-left: 1.8vw;
+    }
+}
 div.day {
     color: black;
-    width: 7.14vw;
+    width: 7.14vw; /* 7.14 */
     height: 5vw;
     font-size: 2.5vw;
     padding-bottom: 1vw;
@@ -238,7 +251,7 @@ img#down {
 <template>
     <main class="me">
         <div class="outer">
-            <div class="inner">
+            <div class="inner calen">
                 <div class="title2">
                     <h1>Event Calendar</h1>
                 </div>
@@ -285,6 +298,7 @@ import { ref } from 'vue';
 import { eventList } from '../eventList'
 import { checkMainScroll } from '../components/UniformHead.vue';
 
+const shiftAmnt = ref("")
 const evdata = ref({"title": "Event Name", "date": "jan 2nd", "host": "Hosted By Absolut Crusty", "desc": "Event description."})
 var currentButton = null
 const days = ref([])
@@ -411,7 +425,7 @@ export default {
         }
         const eventPop = function($ev, $id) {
             if($ev.date!="null") {
-                document.getElementById("cal").style.marginLeft = "-15vw";
+                document.getElementById("cal").style.marginLeft = shiftAmnt.value;
                 document.getElementById("evdisplay").style.opacity = 1;
                 evdata.value = $ev
                 if(document.getElementById(currentButton)!= undefined) {
@@ -423,7 +437,7 @@ export default {
         }
         const eventHide = function() {
             if(document.getElementById("evdisplay").style.opacity == 1) {
-                document.getElementById("cal").style.marginLeft = "0vw";
+                document.getElementById("cal").style.marginLeft = "22.5%";
                 document.getElementById("evdisplay").style.opacity = 0;
                 document.getElementById(currentButton).classList.remove("selected")
             }
@@ -437,6 +451,12 @@ export default {
     },
     mounted() {
         document.getElementById("/calendar").addEventListener("scroll", checkMainScroll)
+        if(document.documentElement.clientWidth < 700) {
+            shiftAmnt.value = "12.5%"
+        }
+        else {
+            shiftAmnt.value = "0"
+        }
     }
 }
 </script>

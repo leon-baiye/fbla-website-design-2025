@@ -15,6 +15,7 @@
 <style>
 div.app {
   position: relative;
+  overflow-x: hidden;
   min-height: 100vh;
 }
 .c {
@@ -45,8 +46,13 @@ export default {
   },
   async mounted() {
     await delay(100)
-    window.scrollTo(0,0)
     document.getElementById("field").classList.add("fade") 
+    if(window.outerWidth < 1000) {
+      document.getElementById("field").style.transition = "none"
+      document.getElementById("field").style.opacity = 1
+    }
+    window.scrollTo(0,0)
+
   }
 }
 </script>

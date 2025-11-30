@@ -76,16 +76,25 @@ div.app {
   height: 100vh;
 }
 
+a.anchor {
+  text-decoration: none !important;
+}
 // front page header
 
 .deco.header {
-    width: 14vw;
-    margin-left: 5vw;
-    margin-right: 0vw;
+    width: 7vw;
+    margin-left: 6.4vw;
+    margin-right: 6vw;
     padding-left: 0vw;
     padding-right: 2vw;
     transition: 0.4s ease-out;
   }  
+
+@media only screen and (max-device-width: 1366px) {
+  .deco.header {
+    margin-right: 3vw !important;
+  }
+}
 
 header {
    font-family: $subhead-font;
@@ -107,9 +116,15 @@ header {
       opacity 0.5s ease-out;
 }
 
+@media only screen and (max-device-width: 1366px) {
+  header {
+    margin-top: 0vw !important;
+  }
+}
+
 div#indicator {
   position: absolute;
-  left: 4vw;
+  left: 2vw;
   z-index: -1;
   width: 16vw;
   height: 140%;
@@ -145,13 +160,27 @@ button.headernav {
     font-family: $body-font;
     font-weight: 700;
     font-size: 2vw;
-    width: 12vw;
+    min-width: 13.5vw !important;
+    max-width: 13.5vw !important;
     background: transparent;
-    margin-left: 4vw;
+    margin-left: 2.5vw  !important;
+    margin-right: 0vw !important;
     border: transparent;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
     text-align: center !important;
     transition: font-size 0.4s;
     }
+    
+    
+@media only screen and (max-device-width: 1000px) {
+    button.headernav {
+      width: 14vw;
+      font-size: 1.8vw !important
+    }
+  }
 
 // additional header styling
 
@@ -188,7 +217,7 @@ footer.foot {
   padding-top: 2vw;
   padding-bottom: 3vh;
   bottom: 0;
-  height: 14vw;
+  height: 16vw;
   transition: bottom 0.4s ease-out;
   z-index: 2;
 }
@@ -204,7 +233,7 @@ footer.foot {
 .fhome {position: relative}
 
 .deco.foot {
-  width: 10vw;
+  width: 7vw;
   transition: 0.4s;
 }
 
@@ -213,6 +242,15 @@ p.foot {
   color: white;
   text-align: center;
   font-size: 1vw;
+  margin-bottom: 2vw !important;
+}
+
+@media only screen and (max-device-width: 1366px) {
+  p.foot {
+    font-size: 1.8vw;
+    margin-bottom: -0.4vw;
+  }
+  
 }
 
 // title strips
@@ -404,14 +442,20 @@ h1.fade {
 
 // dropdown menu
 
-div.drop {
+div#dropdown0 {
   position: absolute;
   display: flex;
   top: 9vw;
-  left: 88vw;
+  left: 70.2vw;
   flex-direction: column;
   background: white;
-  width: 12vw;
+  border-color: $royal-blue-traditional;
+  border-bottom-width: 0.2vw;
+  border-top-width: 0.2vw;
+  border-left-width: 0.1vw;
+  border-right-width: 0.1vw;
+  border-style: solid;
+  width: 16vw;
   min-height: 0vw;
   max-height: 0vw;
   overflow-y: hidden;
@@ -424,17 +468,73 @@ div.drop {
     0.3s height ease-out;
 }
 
-div.dropitem {
+@media only screen and (max-device-width: 1366px) {
+  div#dropdown0 {
+    left: 67.2vw;
+  }
+}
+
+div#dropdown1 {
+  position: absolute;
+  display: flex;
+  top: 9vw;
+  left: 87.5vw;
+  flex-direction: column;
+  background: white;
+  border-color: $royal-blue-traditional;
+  border-bottom-width: 0.2vw;
+  border-top-width: 0.2vw;
+  border-left-width: 0.1vw;
+  border-right-width: 0.1vw;
+  border-style: solid;
+  width: 13vw;
+  min-height: 0vw;
+  max-height: 0vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  font-size: 1.6vw;
+  transition: 
+    0.5s top ease-out,
+    0.5s font-size ease-out,
+    0.3s min-height ease-out,
+    0.3s max-height ease-out,
+    0.3s height ease-out;
+}
+
+@media only screen and (max-device-width: 1366px) {
+  div#dropdown1 {
+    left: 83.5vw;
+  }
+}
+
+div.dropitem0 {
   background: transparent;
-  min-height: 33.3%;
-  max-height: 33.3%;
   display: inline-block;
   vertical-align: middle;
   color: black;
-  border-top-color: black;
-  border-top-width: 0.3vw;
-  border-top-style: solid;
-  transition: 0.3s height ease-out;
+  border-color: $royal-blue-traditional;
+  border-bottom-width: 0.2vw;
+  border-left-width: 0vw;
+  border-right-width: 0vw;
+  border-top-width: 0;
+  border-style: solid;
+  transition: 0.3s min-height ease-in-out;
+  transition: 0.3s max-height ease-in-out;
+}
+
+div.dropitem1 {
+  background: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  color: black;
+  border-color: $royal-blue-traditional;
+  border-bottom-width: 0.2vw;
+  border-left-width: 0vw;
+  border-right-width: 0vw;
+  border-top-width: 0;
+  border-style: solid;
+  transition: 0.3s min-height ease-in-out;
+  transition: 0.3s max-height ease-in-out;
 }
 
 // sliding animation 
@@ -538,7 +638,7 @@ div.inner {
   padding-bottom: 14vw;
 }
 component {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 h4 {
   text-align: center;

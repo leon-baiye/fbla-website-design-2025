@@ -14,17 +14,26 @@
 
 /* parallax disabled on smaller devices to reduce disorientation */
 
-@media only screen and (max-device-width: 1366px) {
+@media only screen and (max-device-width: 500px) {
   .parallax {
     background-attachment: scroll;
   }
+}
+
+/* video styling */
+
+#introvid {
+  background-image: url('../assets/videocover.png');
+  background-position: center;
+  background-size: cover;
 }
 </style>
 
 <template>
     <main>
     <div class="title">
-      <video id="introvid" class="title" autoplay>
+      <video id="introvid" class="title" autoplay playsinline>
+        <source src="../assets/MarvinRidgeMeccaIntrov1.webm" type="video/webm" onerror="fallback(parentNode)" />
         <source src="../assets/MarvinRidgeMeccaIntrov1.mp4" type="video/mp4" />
       </video>
       <div class="caption">
@@ -33,7 +42,7 @@
           </h1>
       </div>
     </div>
-    <div style="background: white;margin-top: -4vw; padding-top: 4vw; padding-bottom: 4vw; margin-bottom: -0.1vw;">
+    <div style="margin-right: 8vw;margin-left: 8vw; background: white;margin-top: -4vw; padding-top: 4vw; padding-bottom: 4vw; margin-bottom: -0.1vw;">
       <h2>Upcoming Events</h2>
       <div class="eventstrip">
         <div class="eventcard" v-for="event in events" v-on:click="window.open(event.link);">
@@ -72,6 +81,8 @@ import { eventList } from '../eventList';
 import { useRouter } from 'vue-router';
 import { checkMainScroll } from '../components/UniformHead.vue';
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 export default {
     name: "HomePage",
     components: {
@@ -84,16 +95,15 @@ export default {
     setup() {
       const router = useRouter()
       let currentDay = new Date()
-      let currentMonth = currentDay.getMonth();
       let monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
       var events = []
-      for(let x=1;x<3;x++) {
-        for(let y=currentMonth;y<3;y++) {
-          events = events.concat(eventList['202' + (x+4).toString()][monthList[y]])
+      for(let x=2024;x<2026;x++) {
+        for(let y=0;y<12;y++) {
+          events = events.concat(eventList[x.toString()][monthList[y]])
         }
       }
       for (let x=0;x<events.length;x++) {
-        if((events[x]==undefined || events[x].date < currentDay)) {
+        if(((events[x]==undefined) || (events[x].date < currentDay))) {
           events.splice(x)
         }
       }
@@ -102,10 +112,15 @@ export default {
     async mounted() {
       document.getElementById("/").addEventListener("scroll", checkMainScroll)
       this.window.scrollTo(0, 0);
-      if(currentTrans != "entrance") {
+      if((currentTrans != "entrance")) {
+        document.getElementById("field").style.transition = "none"
+        document.getElementById("field").style.opacity = 1.0;
+        document.getElementById("introvid").currentTime = 7.75;
+      }
+      if((window.outerWidth > 1000) && (this.window.outerWidth < 1366)) {
+        document.getElementById("introvid").currentTime = 7.75;
         document.getElementById("field").style.transition = "none"
         document.getElementById("field").style.opacity = 1
-        document.getElementById("introvid").currentTime = 7.75;
       }
       return
     }

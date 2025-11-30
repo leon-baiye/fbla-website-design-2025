@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { qrcode } from 'vite-plugin-qrcode';
 
 // https://vite.dev/config/
 export default defineConfig({server: {
@@ -7,5 +8,8 @@ export default defineConfig({server: {
     usePolling: true,
   },
 },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    qrcode()
+  ],
 })
